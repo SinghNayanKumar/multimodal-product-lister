@@ -1,0 +1,12 @@
+torch 
+torchvision
+transformers[torch] 
+datasets
+scrapy 
+beautifulsoup4 
+pandas 
+Pillow
+requests 
+scikit-learn 
+tqdm
+gradio
