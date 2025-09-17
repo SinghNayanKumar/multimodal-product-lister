@@ -11,12 +11,23 @@ PROCESSED_DATA_DIR = 'data/processed'
 
 # This list is selected from EDA, check notebooks/EDA.ipynb for more details.
 SELECTED_ATTRIBUTES = [
-        'Neck',
-        'Sleeve Length',
-        'Print or Pattern Type',
-        'Hemline',
-        'Pattern',
-        'Sleeve Styling'
+    # --- Tier 1: Core Visuals ---
+    'Neck',
+    'Sleeve Length',
+    'Print or Pattern Type',
+    'Type',
+    'Hemline',
+    'Pattern', # Keep this and investigate its values alongside 'Print or Pattern Type'
+    
+    # --- Tier 2: Detailed Visuals ---
+    'Length',
+    'Sleeve Styling',
+    'Ornamentation',
+    
+    # --- Tier 3: Contextual for Text ---
+    'Occasion',
+    'Fabric',
+    'Fit'
 ]
 
 def parse_attributes(attr_string):
@@ -42,7 +53,7 @@ def main():
     print(f"Loaded {len(df)} rows from raw data.")
 
     # --- Mapping the Index to Images---
-    df['image_path'] = df['Index'].apply(lambda x: f'data/raw/Images/{x}.jpg')
+    df['image_path'] = df['p_id'].apply(lambda x: f'data/raw/Images/{x}.jpg')
 
     # --- Clean and Parse ---
     df['attributes_dict'] = df['p_attributes'].apply(parse_attributes)
@@ -57,7 +68,7 @@ def main():
         df[attr] = df[attr].str.strip()
 
     # --- Final Cleanup ---
-    final_cols = ['name', 'price', 'description', 'colour', 'avg_rating', 'ratingCount','image_path'] + SELECTED_ATTRIBUTES
+    final_cols = ['name', 'price', 'description','brand', 'colour', 'avg_rating', 'ratingCount','image_path'] + SELECTED_ATTRIBUTES
     df_final = df[final_cols].copy()
     
     print(f"Processed dataframe has {len(df_final)} rows.")

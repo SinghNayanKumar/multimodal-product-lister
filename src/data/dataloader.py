@@ -81,10 +81,15 @@ class ECommerceDataset(Dataset):
         # This section sets up the input (prompt) and output (labels) for the text generation task.
         # The model will learn to generate the 'target_text' when given the image and the 'prompt'.
         
-        # Create a simple prompt from key attributes. This helps guide the language model.
-        prompt = f"generate listing for: type: {row['Type']} | pattern: {row['Pattern']}"
+        # Fetch the best high-level, contextual attributes. Provide sensible defaults if they are missing.
+        occasion = row.get('Occasion', 'everyday wear') # High frequency, great for tone
+        item_type = row.get('Type', 'garment')         # High-level identity
+
+        # Construct a prompt that gives context without revealing specific visual details.
+        prompt = f"generate a product listing for an item of type '{item_type}', suitable for '{occasion}'"
+
         # Define the target text that the model should learn to generate.
-        target_text = f"title: {row['name']} | description: {row['Product Description']}"
+        target_text = f"title: {row['name']} | description: {row['description']}"
         
         # Tokenize the input prompt. `max_length` ensures all sequences have the same length by padding or truncating.
         input_encoding = self.tokenizer(prompt, padding='max_length', max_length=64, truncation=True, return_tensors="pt")
