@@ -6,21 +6,32 @@ import os
 from sklearn.model_selection import train_test_split
 
 # --- Configuration ---
-RAW_DATA_PATH = 'data/raw/your_dataset.csv' # IMPORTANT: Change this to your raw CSV file name
+RAW_DATA_PATH = 'data/raw/Fashion Dataset.csv' # IMPORTANT: Change this to your raw CSV file name
 PROCESSED_DATA_DIR = 'data/processed'
 
-# TODO: Fill this list with the attributes you selected after EDA.
+# This list is selected from EDA, check notebooks/EDA.ipynb for more details.
 SELECTED_ATTRIBUTES = [
-    'Neck', 'Sleeve Length', 'Print or Pattern Type', 'Type',
-    'Hemline', 'Pattern', 'Length', 'Sleeve Styling',
-    'Ornamentation', 'Occasion', 'Fabric', 'Fit'
+        'Neck',
+        'Sleeve Length',
+        'Print or Pattern Type',
+        'Hemline',
+        'Pattern',
+        'Sleeve Styling'
 ]
 
 def parse_attributes(attr_string):
-    if not isinstance(attr_string, str): return {}
+    
+    """This function takes in attributes in string format 
+        and converts it to dict."""
+
+    # Check if the data is not a string (it might be a float NaN)
+    if not isinstance(attr_string, str): 
+        return {}
     try:
+    # ast.literal_eval is the safe way to evaluate a string containing a Python literal
         return ast.literal_eval(attr_string)
     except (ValueError, SyntaxError):
+        # If it fails, return an empty dict to avoid crashing
         return {}
 
 def main():
@@ -30,9 +41,13 @@ def main():
     df = pd.read_csv(RAW_DATA_PATH)
     print(f"Loaded {len(df)} rows from raw data.")
 
+    # --- Mapping the Index to Images---
+    df['image_path'] = df['Index'].apply(lambda x: f'data/raw/Images/{x}.jpg')
+
     # --- Clean and Parse ---
-    df.dropna(subset=['price', 'Image URL', 'name', 'p_attributes'], inplace=True)
     df['attributes_dict'] = df['p_attributes'].apply(parse_attributes)
+    df.dropna(subset=['price', 'name', 'p_attributes','p_id'], inplace=True)
+    df = df[df['image_path'].apply(os.path.exists)]
 
     # --- Flatten Attributes ---
     for attr in SELECTED_ATTRIBUTES:
@@ -42,13 +57,8 @@ def main():
         df[attr] = df[attr].str.strip()
 
     # --- Final Cleanup ---
-    # TODO: Make sure the column names match your dataset
-    final_cols = ['ProductID', 'name', 'price', 'Image URL', 'Product Description', 'colour'] + SELECTED_ATTRIBUTES
+    final_cols = ['name', 'price', 'description', 'colour', 'avg_rating', 'ratingCount','image_path'] + SELECTED_ATTRIBUTES
     df_final = df[final_cols].copy()
-    
-    # We need a local image path column for the dataloader
-    # For now, this is a placeholder. You should run your download script first.
-    df_final['image_path'] = df_final['ProductID'].apply(lambda x: f"downloaded_images/{x}.jpg")
     
     print(f"Processed dataframe has {len(df_final)} rows.")
 
@@ -63,8 +73,8 @@ def main():
     print("Saved attribute mappings.")
 
     # --- Train/Val/Test Split ---
-    train_val_df, test_df = train_test_split(df_final, test_size=0.1, random_state=42, stratify=df_final['Type'])
-    train_df, val_df = train_test_split(train_val_df, test_size=0.11, random_state=42, stratify=train_val_df['Type'])
+    train_val_df, test_df = train_test_split(df_final, test_size=0.1, random_state=42)
+    train_df, val_df = train_test_split(train_val_df, test_size=0.11, random_state=42)
 
     # --- Save Processed Data ---
     train_df.to_csv(os.path.join(PROCESSED_DATA_DIR, 'train.csv'), index=False)

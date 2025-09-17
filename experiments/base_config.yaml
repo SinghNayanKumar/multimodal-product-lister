@@ -1,0 +1,30 @@
+# Data paths
+data:
+  processed_dir: 'data/processed'
+  train_csv: 'train.csv'
+  val_csv: 'val.csv'
+  mappings: 'attribute_mappings.json'
+  image_dir: 'data/raw/Images' 
+
+# Model configuration
+model:
+  vision_model_name: 'google/vit-base-patch16-224-in21k'
+  text_model_name: 't5-small'
+  # Number of classes will be loaded automatically from mappings file
+
+# Training parameters
+training:
+  epochs: 10
+  batch_size: 16
+  learning_rate: 1e-4
+  device: 'cuda' # or 'cpu'
+  
+  # Loss weights for multitask learning
+  loss_weights:
+    price: 0.1
+    attributes: 0.4
+    text: 0.5
+
+# Experiment output
+output_dir: 'results/'
+experiment_name: 'exp001_base_multitask'
