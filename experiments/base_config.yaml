@@ -25,6 +25,32 @@ training:
     attributes: 0.4
     text: 0.5
 
+# Suggestion Engine configuration
+suggestion_engine:
+  # ANNOTATION: Path to the directory where price_model.joblib and rating_model.joblib are saved.
+  # This is the output of the train_suggestion_models.py script.
+  model_dir: 'models/suggestion_engine'
+  
+  # ANNOTATION: List of attribute columns to use as features for the suggestion models.
+  # These MUST match the columns in your processed CSV files.
+  attribute_cols:
+    - 'Type'
+    - 'colour'
+    - 'Neck'
+    - 'Sleeve Length'
+    - 'Fit'
+    - 'Hemline'
+  
+  # ANNOTATION: The name of the column containing the product price.
+  price_col: 'price'
+
+  # ANNOTATION: The name of the column containing the product's average rating.
+  rating_col: 'avg_rating'
+
+  # ANNOTATION: The primary column used to group products for market analysis (e.g., 'T-Shirt', 'Jumpsuit').
+  # This MUST be one of the columns listed in 'attribute_cols' above.
+  category_col: 'Type'
+
 # Experiment output
 output_dir: 'results/'
 experiment_name: 'exp001_base_multitask'
