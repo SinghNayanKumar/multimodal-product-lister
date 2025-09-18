@@ -135,3 +135,74 @@ class MultitaskModel(nn.Module):
             'attribute_logits': attribute_logits,
             'text_loss': text_loss
         }
+
+
+def predict(self, pixel_values, tokenizer, attribute_mappers):
+    """
+    Performs a full inference pass, implementing hierarchical generation.
+    
+    Step 1: Get predictions for structured tasks (attributes, price) from the image.
+    Step 2: Use these structured predictions to build a factual text prompt.
+    Step 3: Generate the final marketing text using the text model, conditioning it 
+            on BOTH the factual prompt AND the original image embedding.
+
+    Args:
+        pixel_values (torch.Tensor): The preprocessed image tensor.
+        tokenizer: The Hugging Face tokenizer for decoding.
+        attribute_mappers (dict): The loaded attribute mappings for decoding IDs to labels.
+
+    Returns:
+        dict: A dictionary containing all predicted outputs.
+    """
+    # Create inverse mappings for decoding on the fly
+    inverse_mappers = {
+        attr: {i: label for label, i in mapping.items()} 
+        for attr, mapping in attribute_mappers.items()
+    }
+
+    # Ensure the model is in evaluation mode and no gradients are computed
+    self.eval()
+    with torch.no_grad():
+        # --- Step 1: Get visual features and structured predictions ---
+        vision_outputs = self.vision_encoder(pixel_values=pixel_values)
+        image_embedding = vision_outputs.pooler_output
+
+        price_pred = self.price_head(image_embedding).squeeze().item()
+
+        predicted_attributes_decoded = {}
+        for attr_name, head in self.attribute_heads.items():
+            logits = head(image_embedding)
+            pred_id = torch.argmax(logits, dim=-1).item()
+            predicted_attributes_decoded[attr_name] = inverse_mappers[attr_name].get(pred_id, "Unknown")
+            
+        # --- Step 2: Build the hierarchical prompt ---
+        # We construct a prompt from the model's own structured predictions.
+        # This makes the text generation factually grounded in what the model "saw".
+        prompt_parts = []
+        for attr, value in predicted_attributes_decoded.items():
+            # Only include meaningful attributes in the prompt
+            if value != 'Unknown':
+                prompt_parts.append(f"{attr}: {value}")
+        
+        prompt_text = "generate a title and description for a product with these features: " + ", ".join(prompt_parts)
+        input_ids = tokenizer(prompt_text, return_tensors="pt").input_ids.to(pixel_values.device)
+
+        # --- Step 3: Generate text conditioned on BOTH text prompt and image ---
+        # This is the key step. We pass the `encoder_outputs` from the vision model
+        # directly into the text model's `generate` method. This allows the T5 decoder
+        # to pay attention to visual details from the image while generating the text.
+        generated_ids = self.text_generator.generate(
+            input_ids=input_ids,
+            encoder_outputs=vision_outputs, # CRITICAL: Conditions generation on the image!
+            max_length=128,
+            num_beams=4,
+            early_stopping=True
+        )
+        generated_text = tokenizer.decode(generated_ids[0], skip_special_tokens=True)
+
+    # --- Step 4: Return all predictions in a clean dictionary ---
+    return {
+        "predicted_price": price_pred,
+        "predicted_attributes": predicted_attributes_decoded,
+        "generated_text": generated_text
+    }

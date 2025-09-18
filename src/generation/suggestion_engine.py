@@ -1,41 +1,34 @@
 import pandas as pd
-from sklearn.model_selection import train_test_split
-from sklearn.preprocessing import OneHotEncoder
-from sklearn.compose import ColumnTransformer
-from sklearn.pipeline import Pipeline
-import xgboost as xgb
+import joblib # Import joblib for loading models
+import os
 import warnings
 
-# Suppress pandas warnings about chained assignment and future warnings for cleaner output
+# Suppress pandas warnings for cleaner output
 warnings.simplefilter(action='ignore', category=pd.core.common.is_categorical_dtype)
 warnings.simplefilter(action='ignore', category=FutureWarning)
-
 
 class SuggestionEngine:
     """
     Uses predictive models to run "what-if" scenarios on product attributes
     to generate quantitative, actionable business suggestions.
 
-    This engine trains two Gradient Boosting models during initialization:
-    1. A model to predict a product's average rating based on its attributes.
-    2. A model to predict a product's price based on its attributes.
-
-    It then uses these models to simulate the impact of changing an attribute
-    (e.g., color, neck style) and generates concrete suggestions if the
-    change is predicted to be beneficial.
+    This engine is initialized with pre-trained models for predicting rating and price,
+    making it fast and efficient for inference.
     """
     def __init__(self,
-                 full_dataset_path: str,
+                 market_data_path: str,
+                 model_dir: str, # ANNOTATION: Changed from full_dataset_path
                  attribute_cols: list,
                  price_col: str,
                  rating_col: str,
                  category_col: str,
                  min_category_size: int = 50):
         """
-        Initializes the engine by loading data and training performance models.
+        Initializes the engine by loading market data and pre-trained performance models.
 
         Args:
-            full_dataset_path (str): Path to the complete CSV dataset.
+            market_data_path (str): Path to the CSV dataset for market analysis (e.g., train.csv).
+            model_dir (str): Path to the directory containing pre-trained 'price_model.joblib' and 'rating_model.joblib'.
             attribute_cols (list): List of column names for product attributes.
             price_col (str): The name of the price column.
             rating_col (str): The name of the average rating column.
@@ -51,28 +44,38 @@ class SuggestionEngine:
         if self.category_col not in self.attribute_cols:
             raise ValueError(f"'{self.category_col}' must be included in attribute_cols.")
 
-        # --- 1. Load and Prepare Data ---
-        df = self._load_and_clean_data(full_dataset_path)
+        # --- 1. Load Data for Market Analysis ---
+        df = self._load_and_clean_data(market_data_path)
 
         # --- 2. Pre-compute Market Leaders for Simulations ---
         self.market_leaders = self._compute_market_leaders(df, min_category_size)
 
-        # --- 3. Train Predictive Models ---
-        self.price_model = self._train_model(df, self.price_col)
-        self.rating_model = self._train_model(df, self.rating_col)
+        # --- 3. Load Pre-Trained Predictive Models ---
+        # ANNOTATION: Instead of training, we now load the models from disk.
+        price_model_path = os.path.join(model_dir, 'price_model.joblib')
+        rating_model_path = os.path.join(model_dir, 'rating_model.joblib')
         
-        print("Suggestion Engine initialized and models are trained.")
+        try:
+            self.price_model = joblib.load(price_model_path)
+            self.rating_model = joblib.load(rating_model_path)
+        except FileNotFoundError as e:
+            # ANNOTATION: Provide a helpful error message if the models are missing.
+            raise FileNotFoundError(
+                f"A required model was not found. Please run the training script first. "
+                f"Missing file: {e.filename}"
+            ) from e
+        
+        print("Suggestion Engine initialized with pre-trained models.")
 
     def _load_and_clean_data(self, path: str) -> pd.DataFrame:
         """Loads data and performs basic cleaning."""
         try:
             df = pd.read_csv(path)
         except FileNotFoundError:
-            raise FileNotFoundError(f"Dataset not found at path: {path}")
+            raise FileNotFoundError(f"Market data not found at path: {path}")
         
         required_cols = self.attribute_cols + [self.price_col, self.rating_col]
         df = df[required_cols].dropna().copy()
-        # Convert all attribute columns to 'category' dtype for efficiency and correctness
         for col in self.attribute_cols:
             df[col] = df[col].astype('category')
         return df
@@ -91,27 +94,11 @@ class SuggestionEngine:
                     leaders[str(category_name)][attr] = top_values
         return leaders
         
-    def _train_model(self, df: pd.DataFrame, target_col: str) -> Pipeline:
-        """Defines and trains a regression model pipeline."""
-        X = df[self.attribute_cols]
-        y = df[target_col]
-
-        preprocessor = ColumnTransformer(
-            transformers=[('cat', OneHotEncoder(handle_unknown='ignore', sparse_output=False), self.attribute_cols)])
-
-        model_pipeline = Pipeline(steps=[
-            ('preprocessor', preprocessor),
-            ('regressor', xgb.XGBRegressor(objective='reg:squarederror', n_estimators=100, learning_rate=0.1, random_state=42, enable_categorical=True))
-        ])
-
-        print(f"Training model for target: '{target_col}'...")
-        model_pipeline.fit(X, y)
-        return model_pipeline
+    # ANNOTATION: The _train_model method has been removed from this class.
 
     def generate_suggestions(self, predicted_attributes: dict) -> list:
-        """
-        Generates quantitative suggestions for a product by running simulations.
-        """
+        # ANNOTATION: This method requires NO changes. It's perfectly decoupled from how the
+        # models were obtained, demonstrating good design.
         category_value = predicted_attributes.get(self.category_col)
         
         if not category_value or category_value not in self.market_leaders:
@@ -153,29 +140,36 @@ class SuggestionEngine:
         if not suggestions:
             return ["This product's current attributes are already well-optimized against market leaders."]
         
-        return sorted(list(set(suggestions))) # Return unique, sorted suggestions
+        return sorted(list(set(suggestions)))
 
-### Example Usage ###
+
+### Example Usage (Updated) ###
 if __name__ == '__main__':
     # -------------------------------------------------------
-    DATASET_PATH = 'data/processed/train.csv'
+    MARKET_DATA_PATH = 'data/processed/train.csv'
+    SAVED_MODEL_DIR = 'models/suggestion_engine' # ANNOTATION: Path to the saved models
     ATTRIBUTE_COLS = ['Type', 'colour', 'Neck', 'Sleeve Length', 'Fit', 'Hemline']
     PRICE_COL = 'price'
     RATING_COL = 'avg_rating'
     CATEGORY_COL = 'Type'
     # -------------------------------------------------------
 
+    # IMPORTANT: Before running this, you must first run `train_suggestion_models.py`
+    # You can run it from your terminal:
+    # python src/training/train_suggestion_models.py --data_path data/processed/train.csv --output_dir models/suggestion_engine
+
     try:
-        # 1. Initialize the engine (this will train the models)
+        # 1. Initialize the engine (this is now a fast loading operation)
         engine = SuggestionEngine(
-            full_dataset_path=DATASET_PATH,
+            market_data_path=MARKET_DATA_PATH,
+            model_dir=SAVED_MODEL_DIR,
             attribute_cols=ATTRIBUTE_COLS,
             price_col=PRICE_COL,
             rating_col=RATING_COL,
             category_col=CATEGORY_COL
         )
 
-        # 2. Define a new product (this would come from your main vision model's output)
+        # 2. Define a product (as before)
         new_product_attributes = {
             'Type': 'Basic Jumpsuit', 
             'colour': 'Blue',
@@ -185,7 +179,7 @@ if __name__ == '__main__':
             'Hemline': 'Straight'
         }
 
-        # 3. Generate suggestions
+        # 3. Generate suggestions (as before)
         print(f"\n--- Generating suggestions for: {new_product_attributes} ---")
         product_suggestions = engine.generate_suggestions(new_product_attributes)
         
@@ -194,7 +188,4 @@ if __name__ == '__main__':
 
     except FileNotFoundError as e:
         print(e)
-        print("\nPlease ensure the dataset path is correct and the file exists.")
-    except KeyError as e:
-        print(f"Caught a KeyError: {e}. This likely means a column name is incorrect or missing from the CSV.")
-        print("Please double-check your column names provided.")
+        print("\nPlease ensure the model directory and market data path are correct and that you have run the training script first.")
