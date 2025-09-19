@@ -37,14 +37,11 @@ class AttributeHead(nn.Module):
         Args:
             embedding_dim (int): The size of the input feature vector.
             num_classes (int): The number of possible values for this specific attribute.
-                               (e.g., if 'color' can be 'red', 'blue', 'green', num_classes=3)
         """
         super().__init__()
-        # A single linear layer is often sufficient for a classification head on top of a powerful backbone.
         self.layer = nn.Linear(embedding_dim, num_classes)
     def forward(self, x):
-        # This outputs raw scores (logits). The loss function (like BCEWithLogitsLoss)
-        # will handle the activation (like sigmoid) internally for better numerical stability.
+        # This outputs raw scores (logits). The loss function will handle the activation.
         return self.layer(x)
 
 # --- The Main Multi-Task Learning Model ---
@@ -56,39 +53,34 @@ class MultitaskModel(nn.Module):
         Args:
             config (dict): A configuration dictionary with model names and other settings.
             attribute_mappers (dict): A dictionary where keys are attribute names (e.g., "neck")
-                                      and values are lists/mappings of their possible values.
-                                      This allows for dynamic creation of attribute heads.
+                                      and values are mappings of their possible values.
         """
         super().__init__()
         
-        # 1. SHARED VISION BACKBONE (Core of "Holistic Visual Representation")
+        # --- 1. SHARED VISION BACKBONE (Core of "Holistic Visual Representation") ---
         # We load a pre-trained Vision Transformer (ViT). Its job is to convert an image
-        # into a rich numerical representation (embedding). By training all tasks on this
-        # single embedding, we force the model to learn features useful for everything.
+        # into a rich numerical representation (embedding).
         self.vision_encoder = ViTModel.from_pretrained(config['model']['vision_model_name'])
         embedding_dim = self.vision_encoder.config.hidden_size
 
-        # 2. TASK-SPECIFIC HEADS
+        # --- 2. TASK-SPECIFIC HEADS ---
         # The single image embedding will be fed into each of these heads.
         self.price_head = PriceHead(embedding_dim)
         
         # We use nn.ModuleDict to hold all the attribute heads. This is the correct
-        # way to store a variable number of sub-modules in PyTorch, ensuring they
-        # are properly registered (e.g., for moving to GPU, collecting parameters).
+        # PyTorch way to store a variable number of sub-modules.
         self.attribute_heads = nn.ModuleDict()
         for attr_name, mapping in attribute_mappers.items():
             num_values = len(mapping)
             self.attribute_heads[attr_name] = AttributeHead(embedding_dim, num_classes=num_values)
 
-        # 3. TEXT GENERATION MODEL
-        # We load a pre-trained T5 model. During training, we use it to calculate the
-        # text generation loss. During inference, we will use its .generate() method
-        # in a hierarchical way (by feeding it the predicted attributes as a prompt).
+        # --- 3. TEXT GENERATION MODEL ---
+        # We load a pre-trained T5 model for our sequence-to-sequence text generation task.
         self.text_generator = T5ForConditionalGeneration.from_pretrained(config['model']['text_model_name'])
 
-    def forward(self, pixel_values, input_ids=None, attention_mask=None, labels=None):
+    def forward(self, pixel_values, input_ids=None, attention_mask=None, labels=None, **kwargs):
         """
-        Defines the forward pass of the model. This is what happens during one step of training.
+        Defines the forward pass of the model, used during TRAINING.
         Args:
             pixel_values: The processed image tensor from the dataloader.
             input_ids, attention_mask: Tokenized input text for the T5 model.
@@ -96,32 +88,20 @@ class MultitaskModel(nn.Module):
         """
         # Step 1: Get the holistic visual representation from the shared backbone.
         vision_outputs = self.vision_encoder(pixel_values=pixel_values)
-        # We use the pooler_output, which is a summary of the image's content,
-        # typically derived from the special [CLS] token's final hidden state.
         image_embedding = vision_outputs.pooler_output # SHAPE: [batch_size, embedding_dim]
 
         # Step 2: Feed the shared embedding to the non-text heads.
-        # Price prediction returns a tensor of shape [batch_size, 1]. .squeeze(-1)
-        # removes the last dimension to make it [batch_size], which is easier to work with.
         price_pred = self.price_head(image_embedding).squeeze(-1)
         
-        # Get predictions for each attribute by iterating through our ModuleDict.
         attribute_logits = {}
         for attr_name, head in self.attribute_heads.items():
             attribute_logits[attr_name] = head(image_embedding)
 
-        # Step 3: Handle the text generation task (for calculating loss during training).
+        # Step 3: Handle the text generation task to calculate loss during training.
         text_loss = None
-        # The 'labels' argument is only provided during training. The Hugging Face model
-        # is designed to automatically calculate the cross-entropy loss when labels are present.
         if labels is not None:
-            # NOTE: In this basic training forward pass, the text generator does NOT
-            # see the image embedding or the predicted attributes directly. It only sees
-            # the text inputs/labels. The "Hierarchical Generation" happens during the
-            # inference/generation step, where we will construct a prompt for the generator
-            # using the predicted attributes. The model learns a shared visual representation
-            # because the gradients from all task losses (including text) will flow back
-            # through their respective heads and update the shared vision_encoder.
+            # ANNOTATION: The Hugging Face model conveniently calculates the cross-entropy loss
+            # for text generation internally when 'labels' are provided.
             text_outputs = self.text_generator(
                 input_ids=input_ids,
                 attention_mask=attention_mask,
@@ -129,86 +109,84 @@ class MultitaskModel(nn.Module):
             )
             text_loss = text_outputs.loss
 
-        # We return a dictionary of all outputs. This is a clean way to pass multiple
-        # distinct outputs to the loss function and training script.
+        # ANNOTATION: We return a dictionary of all outputs. This is a clean way to pass multiple
+        # distinct outputs to the composite loss function.
         return {
             'price_pred': price_pred,
             'attribute_logits': attribute_logits,
             'text_loss': text_loss
         }
 
+    def predict(self, pixel_values, tokenizer, attribute_mappers, use_hierarchical_prompt=True):
+        """
+        Performs a full INFERENCE pass, implementing hierarchical generation and supporting ablation studies.
 
-def predict(self, pixel_values, tokenizer, attribute_mappers):
-    """
-    Performs a full inference pass, implementing hierarchical generation.
-    
-    Step 1: Get predictions for structured tasks (attributes, price) from the image.
-    Step 2: Use these structured predictions to build a factual text prompt.
-    Step 3: Generate the final marketing text using the text model, conditioning it 
-            on BOTH the factual prompt AND the original image embedding.
+        Args:
+            pixel_values (torch.Tensor): The preprocessed image tensor.
+            tokenizer: The Hugging Face tokenizer for decoding.
+            attribute_mappers (dict): The loaded attribute mappings for decoding IDs.
+            use_hierarchical_prompt (bool): If True (default), uses the standard hierarchical prompt.
+                                            If False, uses a generic prompt for the ablation study.
+        """
+        # Create inverse mappings for decoding integer IDs back to string labels.
+        inverse_mappers = {
+            attr: {i: label for label, i in mapping.items()} 
+            for attr, mapping in attribute_mappers.items()
+        }
 
-    Args:
-        pixel_values (torch.Tensor): The preprocessed image tensor.
-        tokenizer: The Hugging Face tokenizer for decoding.
-        attribute_mappers (dict): The loaded attribute mappings for decoding IDs to labels.
+        # ANNOTATION: Set model to evaluation mode and disable gradient calculations for efficiency.
+        self.eval()
+        with torch.no_grad():
+            # --- Step 1: Get visual features and structured predictions ---
+            vision_outputs = self.vision_encoder(pixel_values=pixel_values)
+            image_embedding = vision_outputs.pooler_output
 
-    Returns:
-        dict: A dictionary containing all predicted outputs.
-    """
-    # Create inverse mappings for decoding on the fly
-    inverse_mappers = {
-        attr: {i: label for label, i in mapping.items()} 
-        for attr, mapping in attribute_mappers.items()
-    }
+            # Get the raw price prediction from the model head.
+            predicted_price = self.price_head(image_embedding).squeeze().item()
 
-    # Ensure the model is in evaluation mode and no gradients are computed
-    self.eval()
-    with torch.no_grad():
-        # --- Step 1: Get visual features and structured predictions ---
-        vision_outputs = self.vision_encoder(pixel_values=pixel_values)
-        image_embedding = vision_outputs.pooler_output
+            # ANNOTATION on Price Transformation: Your previous code had a line for `np.expm1`.
+            # This is the correct inverse function IF you train the model on log-transformed prices
+            # (e.g., `target = np.log1p(price)` in your dataloader). This is a great practice for
+            # skewed data like price, but since your current dataloader uses raw prices,
+            # we will use the direct output. If you implement log-transformation, you would
+            # re-introduce the `np.expm1()` call here.
 
-        price_pred = self.price_head(image_embedding).squeeze().item()
-
-        # Convert the prediction back from log space to actual price
-        # np.expm1 is equivalent to (e^x - 1), the inverse of np.log1p
-        predicted_price = np.expm1(raw_price_pred)
-
-
-        predicted_attributes_decoded = {}
-        for attr_name, head in self.attribute_heads.items():
-            logits = head(image_embedding)
-            pred_id = torch.argmax(logits, dim=-1).item()
-            predicted_attributes_decoded[attr_name] = inverse_mappers[attr_name].get(pred_id, "Unknown")
+            predicted_attributes_decoded = {}
+            for attr_name, head in self.attribute_heads.items():
+                logits = head(image_embedding)
+                pred_id = torch.argmax(logits, dim=-1).item()
+                predicted_attributes_decoded[attr_name] = inverse_mappers[attr_name].get(pred_id, "Unknown")
             
-        # --- Step 2: Build the hierarchical prompt ---
-        # We construct a prompt from the model's own structured predictions.
-        # This makes the text generation factually grounded in what the model "saw".
-        prompt_parts = []
-        for attr, value in predicted_attributes_decoded.items():
-            # Only include meaningful attributes in the prompt
-            if value != 'Unknown':
-                prompt_parts.append(f"{attr}: {value}")
+            # --- Step 2: Build the prompt (with Ablation Logic) ---
+            if use_hierarchical_prompt:
+                # ANNOTATION: This is our main, proposed method. We construct a prompt from the model's
+                # own structured predictions, making the text factually grounded.
+                prompt_parts = [f"{attr}: {value}" for attr, value in predicted_attributes_decoded.items() if value != 'Unknown']
+                prompt_text = "generate a title and description for a product with these features: " + ", ".join(prompt_parts)
+            else:
+                # ANNOTATION: This is for the 'Ours-Ablate-NoHier' experiment. The model gets a generic
+                # prompt and must rely solely on the visual features passed to the decoder.
+                prompt_text = "generate a title and description for the following product:"
+            
+            input_ids = tokenizer(prompt_text, return_tensors="pt").input_ids.to(pixel_values.device)
+
+            # --- Step 3: Generate text conditioned on BOTH text prompt and image ---
+            # ANNOTATION: This is the critical step for Hierarchical Generation. We pass the `encoder_outputs`
+            # from the vision model directly into the text model's `generate` method. This allows the T5 decoder
+            # to use cross-attention to "look at" the image while generating text.
+            generated_ids = self.text_generator.generate(
+                input_ids=input_ids,
+                encoder_outputs=vision_outputs, # CRITICAL: This conditions the generation on the image!
+                max_length=128,
+                num_beams=4,
+                early_stopping=True
+            )
+            generated_text = tokenizer.decode(generated_ids[0], skip_special_tokens=True)
+
+        # --- Step 4: Return all predictions in a clean dictionary ---
+        return {
+            "predicted_price": predicted_price,
+            "predicted_attributes": predicted_attributes_decoded,
+            "generated_text": generated_text
+        }
         
-        prompt_text = "generate a title and description for a product with these features: " + ", ".join(prompt_parts)
-        input_ids = tokenizer(prompt_text, return_tensors="pt").input_ids.to(pixel_values.device)
-
-        # --- Step 3: Generate text conditioned on BOTH text prompt and image ---
-        # This is the key step. We pass the `encoder_outputs` from the vision model
-        # directly into the text model's `generate` method. This allows the T5 decoder
-        # to pay attention to visual details from the image while generating the text.
-        generated_ids = self.text_generator.generate(
-            input_ids=input_ids,
-            encoder_outputs=vision_outputs, # CRITICAL: Conditions generation on the image!
-            max_length=128,
-            num_beams=4,
-            early_stopping=True
-        )
-        generated_text = tokenizer.decode(generated_ids[0], skip_special_tokens=True)
-
-    # --- Step 4: Return all predictions in a clean dictionary ---
-    return {
-        "predicted_price": predicted_price,
-        "predicted_attributes": predicted_attributes_decoded,
-        "generated_text": generated_text
-    }

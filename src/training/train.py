@@ -3,6 +3,7 @@ import yaml
 import argparse
 import os
 from tqdm import tqdm
+import wandb
 
 
 from src.data.dataloader import create_dataloaders
@@ -12,6 +13,8 @@ from src.training.loss import CompositeLoss
 def train_one_epoch(model, dataloader, loss_fn, optimizer, device):
     model.train() #Sets the model to training mode. This enables features like dropout.
     total_loss = 0
+    # Create a dictionary to accumulate losses for logging
+    epoch_loss_dict = {"price_loss": 0, "attribute_loss": 0, "text_loss": 0}
     # ANNOTATION: tqdm provides a convenient progress bar for tracking progress through the batches.
     for batch in tqdm(dataloader, desc="Training"):
         # ANNOTATION: It's crucial to move all data tensors to the same device (CPU or GPU) as the model.

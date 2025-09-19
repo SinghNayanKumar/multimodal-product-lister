@@ -49,6 +49,11 @@ suggestion_engine:
   # This MUST be one of the columns listed in 'attribute_cols' above.
   category_col: 'Type'
 
+# W&B Configuration
+wandb:
+  project: 'multimodal-product-lister'
+  entity: 'nayan-ksingh-indian-institute-of-technology'
+
 # Experiment output
 output_dir: 'results/'
 experiment_name: 'exp001_base_multitask'

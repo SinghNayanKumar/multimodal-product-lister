@@ -1,0 +1,6 @@
+model:
+  vision_model_name: 'google/vit-base-patch16-224-in21k'
+  text_model_name: 'gpt2' # Use a standard decoder like GPT-2
+training:
+  #...
+experiment_name: 'exp2_1_direct_vlm'

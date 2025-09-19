@@ -1,0 +1,90 @@
+import torch
+import yaml
+import pandas as pd
+import numpy as np
+from tqdm import tqdm
+import joblib
+from sklearn.metrics import mean_squared_error, mean_absolute_error, r2_score
+
+from src.data.dataloader import create_dataloaders
+from src.models.baselines.siloed_model import SiloedModel
+from src.training.train_suggestion_models import train_suggestion_model
+
+def get_attribute_predictions(model, dataloader, device, mappings):
+    """
+    Runs inference with the siloed attribute model to generate predictions for a dataset.
+    These predictions will become the features for the downstream XGBoost model.
+    """
+    model.eval()
+    all_preds = {f"pred_{attr}": [] for attr in mappings.keys()}
+    
+    # Create inverse mappings to decode model output IDs back to string labels
+    inverse_mappings = {
+        attr: {i: label for label, i in mapping.items()} 
+        for attr, mapping in mappings.items()
+    }
+    
+    with torch.no_grad():
+        for batch in tqdm(dataloader, desc="Generating attribute predictions"):
+            pixel_values = batch['pixel_values'].to(device)
+            outputs = model(pixel_values=pixel_values)
+            
+            for attr_name, logits in outputs['attribute_logits'].items():
+                preds = torch.argmax(logits, dim=-1).cpu().numpy()
+                decoded_preds = [inverse_mappings[attr_name].get(p, 'Unknown') for p in preds]
+                all_preds[f"pred_{attr_name}"].extend(decoded_preds)
+                
+    return pd.DataFrame(all_preds)
+
+def main():
+    # --- CONFIGURATION ---
+    SILOED_ATTR_CONFIG = 'configs/exp1_1_siloed_attributes.yaml'
+    SILOED_ATTR_MODEL_PATH = 'results/exp1_1_siloed_attributes/model_best.pth'
+    
+    # --- 1. Load trained siloed attribute model ---
+    with open(SILOED_ATTR_CONFIG, 'r') as f:
+        config = yaml.safe_load(f)
+    device = torch.device(config['training']['device'] if torch.cuda.is_available() else 'cpu')
+    
+    train_loader, val_loader, mappings = create_dataloaders(config)
+    model = SiloedModel(config, mappings).to(device)
+    model.load_state_dict(torch.load(SILOED_ATTR_MODEL_PATH, map_location=device))
+
+    # --- 2. Generate predictions for the training and validation sets ---
+    # These predictions will be the features for our XGBoost model.
+    train_preds_df = get_attribute_predictions(model, train_loader, device, mappings)
+    val_preds_df = get_attribute_predictions(model, val_loader, device, mappings)
+    
+    # ANNOTATION: Combine predictions with the original ground truth data.
+    train_df = pd.read_csv(config['data']['processed_dir'] + '/' + config['data']['train_csv'])
+    val_df = pd.read_csv(config['data']['processed_dir'] + '/' + config['data']['val_csv'])
+    
+    train_hybrid_df = pd.concat([train_df.reset_index(drop=True), train_preds_df], axis=1)
+    val_hybrid_df = pd.concat([val_df.reset_index(drop=True), val_preds_df], axis=1)
+
+    # --- 3. Train the XGBoost model on the *predicted* attributes ---
+    # ANNOTATION: Here's the core of the hybrid model. The features are not the ground truth
+    # attributes, but the ones predicted by the vision model. This simulates a real pipeline.
+    PREDICTED_ATTRIBUTE_COLS = list(train_preds_df.columns)
+    PRICE_COL = 'price'
+
+    print("\nTraining XGBoost model on predicted attributes...")
+    xgb_pipeline = train_suggestion_model(train_hybrid_df, PREDICTED_ATTRIBUTE_COLS, PRICE_COL)
+    
+    # --- 4. Evaluate the hybrid pipeline on the validation set ---
+    print("\nEvaluating the full hybrid pipeline...")
+    X_val = val_hybrid_df[PREDICTED_ATTRIBUTE_COLS]
+    y_val_true = val_hybrid_df[PRICE_COL]
+    y_val_pred = xgb_pipeline.predict(X_val)
+    
+    mae = mean_absolute_error(y_val_true, y_val_pred)
+    rmse = np.sqrt(mean_squared_error(y_val_true, y_val_pred))
+    r2 = r2_score(y_val_true, y_val_pred)
+    
+    print("\n--- Hybrid Model (Vision -> XGBoost) Performance ---")
+    print(f"Mean Absolute Error (MAE): {mae:.2f}")
+    print(f"Root Mean Squared Error (RMSE): {rmse:.2f}")
+    print(f"R-squared (R²): {r2:.4f}")
+
+if __name__ == '__main__':
+    main()
