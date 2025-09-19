@@ -151,7 +151,8 @@ def main(config_path):
     device = torch.device(config['training']['device'] if torch.cuda.is_available() else 'cpu')
     print(f"Using device: {device}")
 
-    train_loader, val_loader, mappings = create_dataloaders(config)
+    train_loader, val_loader, mappings, tokenizer = create_dataloaders(config)
+    
     model = MultitaskModel(config, mappings).to(device)
     loss_fn = CompositeLoss(config['training']['loss_weights'])
     optimizer = torch.optim.Adam(model.parameters(), lr=float(config['training']['learning_rate']))
@@ -184,7 +185,7 @@ def main(config_path):
             wandb.log_artifact(artifact)
 
         # Log a table of qualitative predictions
-        prediction_table = log_prediction_table(model, val_loader, wandb.config.tokenizer, mappings, device)
+        prediction_table = log_prediction_table(model, val_loader, tokenizer, mappings, device)
         if prediction_table:
             wandb.log({"validation_predictions": prediction_table}, step=epoch)
 

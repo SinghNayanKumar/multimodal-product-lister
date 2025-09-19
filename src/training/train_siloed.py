@@ -91,8 +91,10 @@ def main(config_path):
     device = torch.device(config['training']['device'] if torch.cuda.is_available() else 'cpu')
     print(f"Starting siloed training for task '{task}' on device: {device}")
 
-    train_loader, val_loader, mappings = create_dataloaders(config)
+    train_loader, val_loader, mappings, _ = create_dataloaders(config)
     
+    # ANNOTATION: We only pass the mappings dictionary if the task is 'attributes',
+    # as the price model doesn't need it.
     model = SiloedModel(config, mappings if task == 'attributes' else None).to(device)
     optimizer = torch.optim.Adam(model.parameters(), lr=config['training']['learning_rate'])
     

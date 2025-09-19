@@ -152,5 +152,6 @@ def create_dataloaders(config):
         num_workers=4
     )
     
-    # Return the dataloaders and mappings. The mappings will be needed by the main model to define its classification heads.
-    return train_loader, val_loader, mappings
+    # The mappings will be needed by the main model to define its classification heads.
+    # Return the dataloaders, mappings, AND the tokenizer.
+    return train_loader, val_loader, mappings, tokenizer

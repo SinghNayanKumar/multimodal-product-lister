@@ -1,0 +1,112 @@
+_wandb:
+    value:
+        cli_version: 0.22.0
+        e:
+            qzkedz9zah62vsla47axa0jxh7i9b34j:
+                args:
+                    - --config
+                    - configs/base_config.yaml
+                cpu_count: 10
+                cpu_count_logical: 16
+                cudaVersion: "12.6"
+                disk:
+                    /:
+                        total: "1021821579264"
+                        used: "277017382912"
+                email: nayan.ksingh.mec14@itbhu.ac.in
+                executable: C:\Nayan\Projects\rough\multimodal-product-lister\.venv\Scripts\python.exe
+                git:
+                    commit: cbb02aa08c20ddf89043c462c2bfb0af4603cf3c
+                    remote: https://github.com/SinghNayanKumar/multimodal-product-lister.git
+                gpu: NVIDIA GeForce RTX 4050 Laptop GPU
+                gpu_count: 1
+                gpu_nvidia:
+                    - architecture: Ada
+                      cudaCores: 2560
+                      memoryTotal: "6439305216"
+                      name: NVIDIA GeForce RTX 4050 Laptop GPU
+                      uuid: GPU-ae8b57d0-d33a-7d4b-22c0-3fe908217834
+                host: LAPTOP-KK825UP4
+                memory:
+                    total: "16890519552"
+                os: Windows-10-10.0.26100-SP0
+                program: -m src.training.train
+                python: CPython 3.11.0
+                root: C:\Nayan\Projects\rough\multimodal-product-lister
+                startedAt: "2025-09-19T14:07:30.439060Z"
+                writerId: qzkedz9zah62vsla47axa0jxh7i9b34j
+        m: []
+        python_version: 3.11.0
+        t:
+            "1":
+                - 1
+                - 5
+                - 11
+                - 41
+                - 49
+                - 53
+                - 71
+                - 105
+            "2":
+                - 1
+                - 5
+                - 11
+                - 41
+                - 49
+                - 53
+                - 71
+                - 105
+            "3":
+                - 1
+                - 13
+                - 16
+                - 61
+            "4": 3.11.0
+            "5": 0.22.0
+            "6": 4.56.1
+            "8":
+                - 3
+            "12": 0.22.0
+            "13": windows-amd64
+data:
+    value:
+        image_dir: data/raw/Images
+        mappings: attribute_mappings.json
+        processed_dir: data/processed
+        train_csv: train.csv
+        val_csv: val.csv
+experiment_name:
+    value: exp001_base_multitask
+model:
+    value:
+        text_model_name: t5-small
+        vision_model_name: google/vit-base-patch16-224-in21k
+output_dir:
+    value: results/
+suggestion_engine:
+    value:
+        attribute_cols:
+            - Type
+            - colour
+            - Neck
+            - Sleeve Length
+            - Fit
+            - Hemline
+        category_col: Type
+        model_dir: models/suggestion_engine
+        price_col: price
+        rating_col: avg_rating
+training:
+    value:
+        batch_size: 16
+        device: cuda
+        epochs: 10
+        learning_rate: "1e-4"
+        loss_weights:
+            attributes: 0.4
+            price: 0.1
+            text: 0.5
+wandb:
+    value:
+        entity: nayan-ksingh-indian-institute-of-technology
+        project: multimodal-product-lister

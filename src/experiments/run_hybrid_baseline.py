@@ -47,7 +47,8 @@ def main():
         config = yaml.safe_load(f)
     device = torch.device(config['training']['device'] if torch.cuda.is_available() else 'cpu')
     
-    train_loader, val_loader, mappings = create_dataloaders(config)
+    # Unpack the tokenizer into a placeholder `_`.
+    train_loader, val_loader, mappings, _ = create_dataloaders(config)
     model = SiloedModel(config, mappings).to(device)
     model.load_state_dict(torch.load(SILOED_ATTR_MODEL_PATH, map_location=device))
 

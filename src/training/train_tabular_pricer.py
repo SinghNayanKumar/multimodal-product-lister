@@ -51,7 +51,7 @@ def main(config_path):
 
     # --- Step 1: Generate predictions using the trained Stage 1 model ---
     print("--- Stage 1: Loading Attribute Model and Generating Predictions ---")
-    train_loader, _, mappings = create_dataloaders(config, batch_size=config['training']['batch_size']*2) # Larger batch for inference
+    train_loader, _, mappings, _  = create_dataloaders(config, batch_size=config['training']['batch_size']*2) # Larger batch for inference
     
     # Load the trained attribute model
     attribute_model = VisionAttributeModel(config, mappings).to(device)

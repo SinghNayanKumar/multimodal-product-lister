@@ -53,7 +53,7 @@ def main(config_path):
     device = torch.device(config['training']['device'] if torch.cuda.is_available() else 'cpu')
     print(f"Using device: {device}")
 
-    train_loader, val_loader, mappings = create_dataloaders(config)
+    train_loader, val_loader, mappings, _ = create_dataloaders(config)
     
     model = VisionAttributeModel(config, mappings).to(device)
     optimizer = torch.optim.Adam(model.parameters(), lr=config['training']['learning_rate'])

@@ -55,7 +55,7 @@ def main():
     device = torch.device('cuda' if torch.cuda.is_available() else 'cpu')
     
     # Load mappings and a sample input
-    _, _, mappings = create_dataloaders(config)
+    _, _, mappings, _ = create_dataloaders(config)
     sample_pixel_values = torch.randn(1, 3, 224, 224).to(device)
     sample_input = {'pixel_values': sample_pixel_values}
     

@@ -1,0 +1,42 @@
+{
+  "os": "Windows-10-10.0.26100-SP0",
+  "python": "CPython 3.11.0",
+  "startedAt": "2025-09-19T14:07:30.439060Z",
+  "args": [
+    "--config",
+    "configs/base_config.yaml"
+  ],
+  "program": "-m src.training.train",
+  "git": {
+    "remote": "https://github.com/SinghNayanKumar/multimodal-product-lister.git",
+    "commit": "cbb02aa08c20ddf89043c462c2bfb0af4603cf3c"
+  },
+  "email": "nayan.ksingh.mec14@itbhu.ac.in",
+  "root": "C:\\Nayan\\Projects\\rough\\multimodal-product-lister",
+  "host": "LAPTOP-KK825UP4",
+  "executable": "C:\\Nayan\\Projects\\rough\\multimodal-product-lister\\.venv\\Scripts\\python.exe",
+  "cpu_count": 10,
+  "cpu_count_logical": 16,
+  "gpu": "NVIDIA GeForce RTX 4050 Laptop GPU",
+  "gpu_count": 1,
+  "disk": {
+    "/": {
+      "total": "1021821579264",
+      "used": "277017382912"
+    }
+  },
+  "memory": {
+    "total": "16890519552"
+  },
+  "gpu_nvidia": [
+    {
+      "name": "NVIDIA GeForce RTX 4050 Laptop GPU",
+      "memoryTotal": "6439305216",
+      "cudaCores": 2560,
+      "architecture": "Ada",
+      "uuid": "GPU-ae8b57d0-d33a-7d4b-22c0-3fe908217834"
+    }
+  ],
+  "cudaVersion": "12.6",
+  "writerId": "qzkedz9zah62vsla47axa0jxh7i9b34j"
+}
