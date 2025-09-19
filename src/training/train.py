@@ -42,7 +42,9 @@ def train_one_epoch(model, dataloader, loss_fn, optimizer, device):
         total_loss += loss.item() # .item() gets the scalar value of the loss tensor.
         # Accumulate component losses for logging
         for k in epoch_loss_dict.keys():
-            epoch_loss_dict[k] += loss_dict[k]
+            # --- FIX [Best Practice]: Added a check to handle cases where a loss component might be None. ---
+            if loss_dict.get(k) is not None:
+                 epoch_loss_dict[k] += loss_dict[k]
             
     # ANNOTATION: Return the average losses for the epoch.
     avg_total_loss = total_loss / len(dataloader)
@@ -108,33 +110,43 @@ def validate_one_epoch(model, dataloader, loss_fn, device, attribute_mappers):
     }
     return metrics
 
-def log_prediction_table(model, dataloader, tokenizer, attribute_mappers, device):
+def log_prediction_table(model, dataloader, tokenizer, attribute_mappers, device, num_examples=5):
     """Logs a wandb.Table with model predictions for visual inspection."""
     model.eval()
-    # Get a single batch
     try:
         batch = next(iter(dataloader))
     except StopIteration:
         return None
 
-    pixel_values = batch['pixel_values'].to(device)
+    # Limit the number of examples to log to avoid large artifacts
+    num_examples = min(num_examples, batch['pixel_values'].shape[0])
     
-    # Use the model's own predict method for end-to-end generation
-    outputs = model.predict(pixel_values, tokenizer, attribute_mappers)
+    pixel_values = batch['pixel_values'][:num_examples].to(device)
+    price_targets = batch['price_target'][:num_examples]
 
-    # For demonstration, we'll just log the first item of the batch
-    img_tensor = pixel_values[0].cpu()
-    # De-normalize for visualization if necessary (assuming standard normalization)
-    mean = torch.tensor([0.485, 0.456, 0.406]).view(3, 1, 1)
-    std = torch.tensor([0.229, 0.224, 0.225]).view(3, 1, 1)
-    img_tensor = img_tensor * std + mean
-    img = Image.fromarray((img_tensor.permute(1, 2, 0).numpy() * 255).astype(np.uint8))
-
-    predicted_price = outputs['predicted_price']
-    true_price = np.expm1(batch['price_target'][0].item())
+    outputs_list = model.predict(pixel_values, tokenizer, attribute_mappers)
     
     table = wandb.Table(columns=["Image", "Generated Text", "Predicted Price", "True Price"])
-    table.add_data(wandb.Image(img), outputs['generated_text'], f"${predicted_price:.2f}", f"${true_price:.2f}")
+
+    # --- FIX: Iterate through the list of outputs from the batch prediction. ---
+    for i, outputs in enumerate(outputs_list if isinstance(outputs_list, list) else [outputs_list]):
+        # De-normalize image for visualization
+        img_tensor = pixel_values[i].cpu()
+        mean = torch.tensor([0.485, 0.456, 0.406]).view(3, 1, 1)
+        std = torch.tensor([0.229, 0.224, 0.225]).view(3, 1, 1)
+        img_tensor = img_tensor * std + mean
+        img = Image.fromarray((img_tensor.permute(1, 2, 0).numpy() * 255).astype(np.uint8))
+
+        predicted_price = outputs['predicted_price']
+        true_price = np.expm1(price_targets[i].item())
+        
+        table.add_data(
+            wandb.Image(img), 
+            outputs['generated_text'], 
+            f"${predicted_price:.2f}", 
+            f"${true_price:.2f}"
+        )
+        
     return table
 
 def main(config_path):
@@ -185,9 +197,10 @@ def main(config_path):
             wandb.log_artifact(artifact)
 
         # Log a table of qualitative predictions
-        prediction_table = log_prediction_table(model, val_loader, tokenizer, mappings, device)
-        if prediction_table:
-            wandb.log({"validation_predictions": prediction_table}, step=epoch)
+        if (epoch + 1) % config['training'].get('log_image_freq', 5) == 0:
+            prediction_table = log_prediction_table(model, val_loader, tokenizer, mappings, device)
+            if prediction_table:
+                wandb.log({"validation_predictions": prediction_table}, step=epoch)
 
     wandb.finish()
 

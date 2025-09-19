@@ -1,0 +1,59 @@
+# Data paths
+data:
+  processed_dir: 'data/processed'
+  train_csv: 'train_trial.csv'
+  val_csv: 'val_trial.csv'
+  mappings: 'attribute_mappings.json'
+  image_dir: 'data/raw/Images' 
+
+# Model configuration
+model:
+  vision_model_name: 'google/vit-base-patch16-224-in21k'
+  text_model_name: 't5-small'
+  # Number of classes will be loaded automatically from mappings file
+
+# Training parameters
+training:
+  epochs: 10
+  batch_size: 16
+  learning_rate: 1e-4
+  device: 'cuda' # or 'cpu'
+  
+  # Loss weights for multitask learning
+  loss_weights:
+    price: 0.1
+    attributes: 0.4
+    text: 0.5
+
+# Suggestion Engine configuration
+suggestion_engine:
+  model_dir: 'models/suggestion_engine'
+  
+  # List of attribute columns to use as features for the suggestion models.
+  # These MUST match the columns in your processed CSV files.
+  attribute_cols:
+    - 'Type'
+    - 'colour'
+    - 'Neck'
+    - 'Sleeve Length'
+    - 'Fit'
+    - 'Hemline'
+  
+  # The name of the column containing the product price.
+  price_col: 'price'
+
+  # The name of the column containing the product's average rating.
+  rating_col: 'avg_rating'
+
+  # The primary column used to group products for market analysis (e.g., 'T-Shirt', 'Jumpsuit').
+  # This MUST be one of the columns listed in 'attribute_cols' above.
+  category_col: 'Type'
+
+# W&B Configuration
+wandb:
+  project: 'multimodal-product-lister'
+  entity: 'nayan-ksingh-indian-institute-of-technology'
+
+# Experiment output
+output_dir: 'results/'
+experiment_name: 'exp001_base_multitask'

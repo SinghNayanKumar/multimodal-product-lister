@@ -46,6 +46,7 @@ class ECommerceDataset(Dataset):
         """
         # Get the row of metadata for the given index
         row = self.df.iloc[idx]
+        
 
         # --- 1. Load and Process Image ---
         # Construct the full path to the image file.
@@ -109,6 +110,7 @@ class ECommerceDataset(Dataset):
             'input_ids': input_encoding.input_ids.flatten(),
             'attention_mask': input_encoding.attention_mask.flatten(),
             'labels': target_encoding.input_ids.flatten()  # The language model expects the target token IDs under the key 'labels'
+            'image_tensor': pixel_values         
         }
 
 def create_dataloaders(config):

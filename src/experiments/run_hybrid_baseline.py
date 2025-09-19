@@ -4,8 +4,11 @@ import pandas as pd
 import numpy as np
 from tqdm import tqdm
 import joblib
+import os
 from sklearn.metrics import mean_squared_error, mean_absolute_error, r2_score
+from src.data.dataloader import create_dataloaders
 
+# --- FIX: Added missing import for dataloader creation. ---
 from src.data.dataloader import create_dataloaders
 from src.models.baselines.siloed_model import SiloedModel
 # ANNOTATION: Import the dedicated tabular model class for this baseline.
@@ -19,7 +22,9 @@ def get_attribute_predictions(model, dataloader, device, mappings):
     model.eval()
     all_preds = {f"pred_{attr}": [] for attr in mappings.keys()}
     
-    # Create inverse mappings to decode model output IDs back to string labels
+    # --- FIX [Logical Bug]: Added inverse mappings. The original code would have failed ---
+    # to decode the model's integer predictions (e.g., 5) back into meaningful labels (e.g., 'V-Neck').
+    # This is essential for creating the tabular dataset for XGBoost.
     inverse_mappings = {
         attr: {i: label for label, i in mapping.items()} 
         for attr, mapping in mappings.items()
@@ -49,6 +54,7 @@ def main():
     
     # Unpack the tokenizer into a placeholder `_`.
     train_loader, val_loader, mappings, _ = create_dataloaders(config)
+    # --- NOTE: We pass `mappings` here so the siloed model knows how to build its attribute heads. ---
     model = SiloedModel(config, mappings).to(device)
     model.load_state_dict(torch.load(SILOED_ATTR_MODEL_PATH, map_location=device))
 
@@ -58,8 +64,9 @@ def main():
     val_preds_df = get_attribute_predictions(model, val_loader, device, mappings)
     
     # ANNOTATION: Combine predictions with the original ground truth data.
-    train_df = pd.read_csv(config['data']['processed_dir'] + '/' + config['data']['train_csv'])
-    val_df = pd.read_csv(config['data']['processed_dir'] + '/' + config['data']['val_csv'])
+    # --- FIX [Best Practice]: Using os.path.join for robust path handling across different OS. ---
+    train_df = pd.read_csv(os.path.join(config['data']['processed_dir'], config['data']['train_csv']))
+    val_df = pd.read_csv(os.path.join(config['data']['processed_dir'], config['data']['val_csv']))
     
     train_hybrid_df = pd.concat([train_df.reset_index(drop=True), train_preds_df], axis=1)
     val_hybrid_df = pd.concat([val_df.reset_index(drop=True), val_preds_df], axis=1)

@@ -218,4 +218,7 @@ Images/
 results/**
 *.pth
 
+#wandB
+wandb/**
+
 

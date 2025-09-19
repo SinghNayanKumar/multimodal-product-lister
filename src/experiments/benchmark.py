@@ -1,13 +1,19 @@
+# src/evaluation/benchmark.py
+
 import torch
 import time
 import numpy as np
 import yaml
 from PIL import Image
 
+# --- FIX: Added missing import for dataloader creation. ---
+# This is needed to load the `mappings` dictionary, which is required to initialize the models.
+from src.data.dataloader import create_dataloaders
 # ANNOTATION: Import all the models we want to compare.
 from src.models.multitask_model import MultitaskModel
 from src.models.baselines.siloed_model import SiloedModel
 from transformers import ViTImageProcessor, AutoTokenizer
+from src.data.dataloader import create_dataloaders
 
 def count_parameters(model):
     """Counts the number of trainable parameters in a model."""
@@ -27,8 +33,9 @@ def benchmark_latency(model, sample_input, device, num_runs=100):
     latencies = []
     
     # Warm-up runs to load model onto GPU cache
-    for _ in range(10):
-        _ = model(**sample_input)
+    with torch.no_grad():
+        for _ in range(10):
+            _ = model(**sample_input)
 
     with torch.no_grad():
         for _ in range(num_runs):
@@ -54,7 +61,7 @@ def main():
         config = yaml.safe_load(f)
     device = torch.device('cuda' if torch.cuda.is_available() else 'cpu')
     
-    # Load mappings and a sample input
+    # Load mappings from the dataloader function; we don't need the loaders themselves.
     _, _, mappings, _ = create_dataloaders(config)
     sample_pixel_values = torch.randn(1, 3, 224, 224).to(device)
     sample_input = {'pixel_values': sample_pixel_values}
@@ -67,8 +74,8 @@ def main():
     mtl_params = count_parameters(mtl_model)
     # For latency, we time the `forward` pass, which is the core computation.
     mtl_latency, mtl_std = benchmark_latency(mtl_model, sample_input, device)
-    print(f"Total Parameters: {mtl_params / 1e6:.2f} M")
-    print(f"Inference Latency: {mtl_latency:.2f} ± {mtl_std:.2f} ms")
+    print(f"  - Total Parameters: {mtl_params / 1e6:.2f} M")
+    print(f"  - Inference Latency: {mtl_latency:.2f} ± {mtl_std:.2f} ms")
 
     # --- 2. Benchmark Baseline-Siloed ---
     print("\n[2] Benchmarking Baseline-Siloed Pipeline...")
@@ -89,8 +96,8 @@ def main():
     # ANNOTATION: For a pipeline, we sum the parameters and latencies of its components.
     siloed_total_params = attr_params + price_params
     siloed_total_latency = attr_latency + price_latency
-    print(f"Total Parameters (Attr + Price): {siloed_total_params / 1e6:.2f} M")
-    print(f"Total Inference Latency (Sum of Stages): {siloed_total_latency:.2f} ms")
+    print(f"  - Total Parameters (Attr + Price): {siloed_total_params / 1e6:.2f} M")
+    print(f"  - Total Inference Latency (Sum of Stages): {siloed_total_latency:.2f} ms")
 
 if __name__ == '__main__':
     main()
