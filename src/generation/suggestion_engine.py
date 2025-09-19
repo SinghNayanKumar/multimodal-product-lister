@@ -17,7 +17,7 @@ class SuggestionEngine:
     """
     def __init__(self,
                  market_data_path: str,
-                 model_dir: str, # ANNOTATION: Changed from full_dataset_path
+                 model_dir: str,
                  attribute_cols: list,
                  price_col: str,
                  rating_col: str,
@@ -51,7 +51,7 @@ class SuggestionEngine:
         self.market_leaders = self._compute_market_leaders(df, min_category_size)
 
         # --- 3. Load Pre-Trained Predictive Models ---
-        # ANNOTATION: Instead of training, we now load the models from disk.
+        # ANNOTATION: Instead of training, we now load the models from disk. This is essential for fast inference.
         price_model_path = os.path.join(model_dir, 'price_model.joblib')
         rating_model_path = os.path.join(model_dir, 'rating_model.joblib')
         
@@ -61,7 +61,7 @@ class SuggestionEngine:
         except FileNotFoundError as e:
             # ANNOTATION: Provide a helpful error message if the models are missing.
             raise FileNotFoundError(
-                f"A required model was not found. Please run the training script first. "
+                f"A required model was not found. Please run `src/training/train_suggestion_models.py` first. "
                 f"Missing file: {e.filename}"
             ) from e
         
@@ -93,8 +93,6 @@ class SuggestionEngine:
                     top_values = group.groupby(attr)[self.rating_col].mean().nlargest(3).index.tolist()
                     leaders[str(category_name)][attr] = top_values
         return leaders
-        
-    # ANNOTATION: The _train_model method has been removed from this class.
 
     def generate_suggestions(self, predicted_attributes: dict) -> list:
         # ANNOTATION: This method requires NO changes. It's perfectly decoupled from how the
@@ -141,51 +139,3 @@ class SuggestionEngine:
             return ["This product's current attributes are already well-optimized against market leaders."]
         
         return sorted(list(set(suggestions)))
-
-
-### Example Usage (Updated) ###
-if __name__ == '__main__':
-    # -------------------------------------------------------
-    MARKET_DATA_PATH = 'data/processed/train.csv'
-    SAVED_MODEL_DIR = 'models/suggestion_engine' # ANNOTATION: Path to the saved models
-    ATTRIBUTE_COLS = ['Type', 'colour', 'Neck', 'Sleeve Length', 'Fit', 'Hemline']
-    PRICE_COL = 'price'
-    RATING_COL = 'avg_rating'
-    CATEGORY_COL = 'Type'
-    # -------------------------------------------------------
-
-    # IMPORTANT: Before running this, you must first run `train_suggestion_models.py`
-    # You can run it from your terminal:
-    # python src/training/train_suggestion_models.py --data_path data/processed/train.csv --output_dir models/suggestion_engine
-
-    try:
-        # 1. Initialize the engine (this is now a fast loading operation)
-        engine = SuggestionEngine(
-            market_data_path=MARKET_DATA_PATH,
-            model_dir=SAVED_MODEL_DIR,
-            attribute_cols=ATTRIBUTE_COLS,
-            price_col=PRICE_COL,
-            rating_col=RATING_COL,
-            category_col=CATEGORY_COL
-        )
-
-        # 2. Define a product (as before)
-        new_product_attributes = {
-            'Type': 'Basic Jumpsuit', 
-            'colour': 'Blue',
-            'Neck': 'Round Neck',
-            'Sleeve Length': 'Short Sleeve',
-            'Fit': 'Regular',
-            'Hemline': 'Straight'
-        }
-
-        # 3. Generate suggestions (as before)
-        print(f"\n--- Generating suggestions for: {new_product_attributes} ---")
-        product_suggestions = engine.generate_suggestions(new_product_attributes)
-        
-        for suggestion in product_suggestions:
-            print(f"-> {suggestion}")
-
-    except FileNotFoundError as e:
-        print(e)
-        print("\nPlease ensure the model directory and market data path are correct and that you have run the training script first.")

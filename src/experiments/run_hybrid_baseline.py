@@ -8,7 +8,8 @@ from sklearn.metrics import mean_squared_error, mean_absolute_error, r2_score
 
 from src.data.dataloader import create_dataloaders
 from src.models.baselines.siloed_model import SiloedModel
-from src.training.train_suggestion_models import train_suggestion_model
+# ANNOTATION: Import the dedicated tabular model class for this baseline.
+from src.models.baselines.tabular_price_model import TabularPriceModel
 
 def get_attribute_predictions(model, dataloader, device, mappings):
     """
@@ -63,19 +64,25 @@ def main():
     val_hybrid_df = pd.concat([val_df.reset_index(drop=True), val_preds_df], axis=1)
 
     # --- 3. Train the XGBoost model on the *predicted* attributes ---
-    # ANNOTATION: Here's the core of the hybrid model. The features are not the ground truth
-    # attributes, but the ones predicted by the vision model. This simulates a real pipeline.
+    # ANNOTATION: Here's the core of the hybrid model. We use our dedicated TabularPriceModel
+    # class for consistency and clarity.
     PREDICTED_ATTRIBUTE_COLS = list(train_preds_df.columns)
     PRICE_COL = 'price'
 
     print("\nTraining XGBoost model on predicted attributes...")
-    xgb_pipeline = train_suggestion_model(train_hybrid_df, PREDICTED_ATTRIBUTE_COLS, PRICE_COL)
+    tabular_model = TabularPriceModel(categorical_features=PREDICTED_ATTRIBUTE_COLS)
+    # The model expects the log-transformed price, just like our main MTL model.
+    y_train_log = np.log1p(train_hybrid_df[PRICE_COL])
+    tabular_model.train(train_hybrid_df[PREDICTED_ATTRIBUTE_COLS], y_train_log)
     
     # --- 4. Evaluate the hybrid pipeline on the validation set ---
     print("\nEvaluating the full hybrid pipeline...")
     X_val = val_hybrid_df[PREDICTED_ATTRIBUTE_COLS]
     y_val_true = val_hybrid_df[PRICE_COL]
-    y_val_pred = xgb_pipeline.predict(X_val)
+    
+    # Predict log price and transform back to original scale
+    y_val_pred_log = tabular_model.predict(X_val)
+    y_val_pred = np.expm1(y_val_pred_log)
     
     mae = mean_absolute_error(y_val_true, y_val_pred)
     rmse = np.sqrt(mean_squared_error(y_val_true, y_val_pred))

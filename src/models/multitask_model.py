@@ -141,15 +141,14 @@ class MultitaskModel(nn.Module):
             vision_outputs = self.vision_encoder(pixel_values=pixel_values)
             image_embedding = vision_outputs.pooler_output
 
-            # Get the raw price prediction from the model head.
-            predicted_price = self.price_head(image_embedding).squeeze().item()
+            # Get the raw log-price prediction from the model head.
+            predicted_log_price = self.price_head(image_embedding).squeeze().item()
 
-            # ANNOTATION on Price Transformation: Your previous code had a line for `np.expm1`.
-            # This is the correct inverse function IF you train the model on log-transformed prices
-            # (e.g., `target = np.log1p(price)` in your dataloader). This is a great practice for
-            # skewed data like price, but since your current dataloader uses raw prices,
-            # we will use the direct output. If you implement log-transformation, you would
-            # re-introduce the `np.expm1()` call here.
+            # ANNOTATION: The dataloader uses `np.log1p()` to transform the price.
+            # To convert the model's output back to the real dollar value, we must
+            # apply the inverse function, `np.expm1()`. This is a critical step for
+            # reporting correct MAE/RMSE and for the suggestion engine.
+            predicted_price = np.expm1(predicted_log_price)
 
             predicted_attributes_decoded = {}
             for attr_name, head in self.attribute_heads.items():
@@ -189,4 +188,3 @@ class MultitaskModel(nn.Module):
             "predicted_attributes": predicted_attributes_decoded,
             "generated_text": generated_text
         }
-        

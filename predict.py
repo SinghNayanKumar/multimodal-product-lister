@@ -101,11 +101,12 @@ def main(args):
         )
 
     # --- 6. Run the Prescriptive Analytics Pipeline ---
-    # ANNOTATION: This step demonstrates the final, novel part of our system. We take the
-    # model's structured output (`predicted_attributes`) and feed it into the SuggestionEngine.
+    # ANNOTATION: This step demonstrates the final, novel part of our system. We now initialize
+    # the SuggestionEngine by pointing it to the pre-trained models. This is fast and correct for inference.
     print("Initializing suggestion engine and generating strategic advice...")
     suggestion_engine = SuggestionEngine(
-        full_dataset_path=os.path.join(config['data']['processed_dir'], config['data']['train_csv']),
+        market_data_path=os.path.join(config['data']['processed_dir'], config['data']['train_csv']),
+        model_dir=config['suggestion_engine']['model_dir'],
         attribute_cols=config['suggestion_engine']['attribute_cols'],
         price_col=config['suggestion_engine']['price_col'],
         rating_col=config['suggestion_engine']['rating_col'],
