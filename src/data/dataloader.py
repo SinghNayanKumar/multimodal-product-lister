@@ -5,6 +5,7 @@ from PIL import Image  # Python Imaging Library for opening, manipulating, and s
 import pandas as pd  # Library for data manipulation and analysis, used here to read CSV files
 import os  # Provides a way of using operating system dependent functionality, like path joining
 import json  # Used for working with JSON data, in this case, loading attribute mappings
+import numpy as np
 
 class ECommerceDataset(Dataset):
     """
@@ -75,7 +76,9 @@ class ECommerceDataset(Dataset):
 
         # --- 3. Process Price ---
         # This prepares the ground-truth label for the price regression head.
-        price_target = torch.tensor(row['price'], dtype=torch.float32)
+        # Apply a log transformation. Add 1 to avoid log(0).
+        # The model will now learn to predict the log of the price.
+        price_target = torch.tensor(np.log1p(row['price']), dtype=torch.float32)
 
         # --- 4. Process Text (for Seq2Seq Generation) ---
         # This section sets up the input (prompt) and output (labels) for the text generation task.

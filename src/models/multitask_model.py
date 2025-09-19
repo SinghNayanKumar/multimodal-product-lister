@@ -1,5 +1,6 @@
 import torch
 import torch.nn as nn
+import numpy as np
 # We import pre-trained models from the Hugging Face transformers library.
 # ViTModel: The vision backbone for image feature extraction.
 # T5ForConditionalGeneration: A powerful encoder-decoder model for text generation.
@@ -169,6 +170,11 @@ def predict(self, pixel_values, tokenizer, attribute_mappers):
 
         price_pred = self.price_head(image_embedding).squeeze().item()
 
+        # Convert the prediction back from log space to actual price
+        # np.expm1 is equivalent to (e^x - 1), the inverse of np.log1p
+        predicted_price = np.expm1(raw_price_pred)
+
+
         predicted_attributes_decoded = {}
         for attr_name, head in self.attribute_heads.items():
             logits = head(image_embedding)
@@ -202,7 +208,7 @@ def predict(self, pixel_values, tokenizer, attribute_mappers):
 
     # --- Step 4: Return all predictions in a clean dictionary ---
     return {
-        "predicted_price": price_pred,
+        "predicted_price": predicted_price,
         "predicted_attributes": predicted_attributes_decoded,
         "generated_text": generated_text
     }

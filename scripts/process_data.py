@@ -75,8 +75,10 @@ def main():
 
     # --- Create Attribute Mappings ---
     mappings = {}
-    for attr in SELECTED_ATTRIBUTES + ['colour']: # Include base colour
-        labels = df_final[attr].unique()
+    for attr in SELECTED_ATTRIBUTES + ['colour']:  # Include base colour
+        labels = list(df_final[attr].unique())
+        if 'Unknown' not in labels:
+            labels.append('Unknown')
         mappings[attr] = {label: i for i, label in enumerate(labels)}
     
     with open(os.path.join(PROCESSED_DATA_DIR, 'attribute_mappings.json'), 'w') as f:

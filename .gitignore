@@ -214,3 +214,8 @@ Images/
 *.pt
 *.h5
 
+#model_parameters_data
+results/**
+*.pth
+
+

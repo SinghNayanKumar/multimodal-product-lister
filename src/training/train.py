@@ -20,10 +20,14 @@ def train_one_epoch(model, dataloader, loss_fn, optimizer, device):
 
         optimizer.zero_grad() #  Resets gradients from the previous step.
         
-        # ANNOTATION: This is a clean way to pass data to the model. The `**batch` syntax unpacks the
-        # dictionary into keyword arguments, assuming the keys in `batch` match the argument names
-        # in the model's `forward` method (e.g., image_tensor=..., input_ids=...).
-        outputs = model(**batch)
+        # Manually select only the required inputs for the model's forward pass.
+        # The rest of the 'batch' dictionary (containing targets) will be used by the loss function.
+        outputs = model(
+            pixel_values=batch['pixel_values'],
+            input_ids=batch['input_ids'],
+            attention_mask=batch['attention_mask'],
+            labels=batch['labels']
+        )
         
         loss_dict = loss_fn(outputs, batch)
         loss = loss_dict['total_loss'] # ANNOTATION: We only need the combined total_loss for backpropagation.
@@ -44,7 +48,13 @@ def validate_one_epoch(model, dataloader, loss_fn, device):
             for key, value in batch.items():
                 batch[key] = value.to(device)
             
-            outputs = model(**batch)
+            outputs = model(
+                pixel_values=batch['pixel_values'],
+                input_ids=batch['input_ids'],
+                attention_mask=batch['attention_mask'],
+                labels=batch['labels']
+            )
+
             loss_dict = loss_fn(outputs, batch)
             loss = loss_dict['total_loss']
             total_loss += loss.item()
@@ -64,7 +74,7 @@ def main(config_path):
     train_loader, val_loader, mappings = create_dataloaders(config)
     model = MultitaskModel(config, mappings).to(device)
     loss_fn = CompositeLoss(config['training']['loss_weights'])
-    optimizer = torch.optim.Adam(model.parameters(), lr=config['training']['learning_rate'])
+    optimizer = torch.optim.Adam(model.parameters(), lr=float(config['training']['learning_rate']))
 
     # ANNOTATION: Defines a structured output directory for saving model checkpoints and logs.
     output_dir = os.path.join(config['output_dir'], config['experiment_name'])
