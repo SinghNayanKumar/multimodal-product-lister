@@ -8,12 +8,12 @@ from PIL import Image
 
 # --- FIX: Added missing import for dataloader creation. ---
 # This is needed to load the `mappings` dictionary, which is required to initialize the models.
-from src.data.dataloader import create_dataloaders
+from src.data.dataloader import create_test_dataloaders
 # ANNOTATION: Import all the models we want to compare.
 from src.models.multitask_model import MultitaskModel
 from src.models.baselines.siloed_model import SiloedModel
 from transformers import ViTImageProcessor, AutoTokenizer
-from src.data.dataloader import create_dataloaders
+from src.data.dataloader import create_test_dataloaders
 
 def count_parameters(model):
     """Counts the number of trainable parameters in a model."""
@@ -62,7 +62,7 @@ def main():
     device = torch.device('cuda' if torch.cuda.is_available() else 'cpu')
     
     # Load mappings from the dataloader function; we don't need the loaders themselves.
-    _, _, mappings, _ = create_dataloaders(config)
+    _, _, mappings, _ = create_test_dataloaders(config)
     sample_pixel_values = torch.randn(1, 3, 224, 224).to(device)
     sample_input = {'pixel_values': sample_pixel_values}
     

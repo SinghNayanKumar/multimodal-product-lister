@@ -15,7 +15,7 @@ except ImportError:
     WANDB_AVAILABLE = False
     print("Warning: wandb not available, skipping logging")
 
-from src.data.dataloader import create_dataloaders
+from src.data.dataloader import create_test_dataloaders
 from src.models.multitask_model import MultitaskModel
 from src.training.loss import CompositeLoss
 
@@ -124,6 +124,15 @@ def log_prediction_table(model, dataloader, tokenizer, attribute_mappers, device
 
     # FIXED: Handle return type consistency
     outputs = model.predict(pixel_values, tokenizer, attribute_mappers)
+
+    # --- ROBUSTNESS FIX ---
+    # Check if the prediction output is valid. If it's None or an empty list,
+    # it means something went wrong for this batch. Print a warning and skip logging.
+    if not outputs:
+        print("\n[Warning] `model.predict()` returned no output for the logging batch. Skipping wandb table creation for this epoch.\n")
+        return None
+    # --- END OF FIX ---
+
     if not isinstance(outputs, list):
         outputs = [outputs]
     
@@ -136,12 +145,12 @@ def log_prediction_table(model, dataloader, tokenizer, attribute_mappers, device
         img_tensor = img_tensor * std + mean
         img = Image.fromarray((img_tensor.permute(1, 2, 0).numpy() * 255).astype(np.uint8))
 
-        predicted_price = output['predicted_price']
+        predicted_price = output.get('predicted_price', 0.0) #Fix
         true_price = np.expm1(price_targets[i].item())
         
         table.add_data(
             wandb.Image(img), 
-            output['generated_text'], 
+            output.get('generated_text', '[GENERATION FAILED]'), #Fix 
             f"${predicted_price:.2f}", 
             f"${true_price:.2f}"
         )
@@ -162,7 +171,7 @@ def main(config_path):
     device = torch.device(config['training']['device'] if torch.cuda.is_available() else 'cpu')
     print(f"Using device: {device}")
 
-    train_loader, val_loader, mappings, tokenizer = create_dataloaders(config)
+    train_loader, val_loader, mappings, tokenizer = create_test_dataloaders(config)
     
     model = MultitaskModel(config, mappings).to(device)
     loss_fn = CompositeLoss(config['training']['loss_weights'])

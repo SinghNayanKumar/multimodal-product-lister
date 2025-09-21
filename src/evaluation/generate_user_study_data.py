@@ -6,7 +6,7 @@ import os
 import argparse
 from tqdm import tqdm
 
-from src.data.dataloader import create_dataloaders
+from src.data.dataloader import create_test_dataloaders
 from src.models.multitask_model import MultitaskModel
 from src.generation.suggestion_engine import SuggestionEngine
 
@@ -17,7 +17,7 @@ class UserStudyDataGenerator:
         with open(base_config_path, 'r') as f:
             self.base_config = yaml.safe_load(f)
         
-        _, self.val_loader, self.mappings, self.tokenizer = create_dataloaders(self.base_config)
+        _, self.val_loader, self.mappings, self.tokenizer = create_test_dataloaders(self.base_config)
         
         # Initialize suggestion engine
         self.suggestion_engine = SuggestionEngine(

@@ -6,10 +6,10 @@ from tqdm import tqdm
 import joblib
 import os
 from sklearn.metrics import mean_squared_error, mean_absolute_error, r2_score
-from src.data.dataloader import create_dataloaders
+from src.data.dataloader import create_test_dataloaders
 
 # --- FIX: Added missing import for dataloader creation. ---
-from src.data.dataloader import create_dataloaders
+from src.data.dataloader import create_test_dataloaders
 from src.models.baselines.siloed_model import SiloedModel
 # ANNOTATION: Import the dedicated tabular model class for this baseline.
 from src.models.tabular_price_model import TabularPriceModel
@@ -53,7 +53,7 @@ def main():
     device = torch.device(config['training']['device'] if torch.cuda.is_available() else 'cpu')
     
     # Unpack the tokenizer into a placeholder `_`.
-    train_loader, val_loader, mappings, _ = create_dataloaders(config)
+    train_loader, val_loader, mappings, _ = create_test_dataloaders(config)
     # --- NOTE: We pass `mappings` here so the siloed model knows how to build its attribute heads. ---
     model = SiloedModel(config, mappings).to(device)
     model.load_state_dict(torch.load(SILOED_ATTR_MODEL_PATH, map_location=device))

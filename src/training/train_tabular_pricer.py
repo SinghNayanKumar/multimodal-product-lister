@@ -5,7 +5,7 @@ import os
 import pandas as pd
 from tqdm import tqdm
 
-from src.data.dataloader import create_dataloaders
+from src.data.dataloader import create_test_dataloaders
 from src.models.vision_attribute_model import VisionAttributeModel
 from src.models.tabular_price_model import TabularPriceModel
 
@@ -51,7 +51,7 @@ def main(config_path):
 
     # --- Step 1: Generate predictions using the trained Stage 1 model ---
     print("--- Stage 1: Loading Attribute Model and Generating Predictions ---")
-    train_loader, _, mappings, _  = create_dataloaders(config)
+    train_loader, _, mappings, _  = create_test_dataloaders(config)
     
     # Load the trained attribute model
     attribute_model = VisionAttributeModel(config, mappings).to(device)

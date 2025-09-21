@@ -101,7 +101,7 @@ class ECommerceDataset(Dataset):
             
         return result
 
-def create_dataloaders(config):
+def create_test_dataloaders(config):
     """
     A factory function to encapsulate the setup of training and validation dataloaders.
     It reads configuration, loads data, initializes processors, and creates DataLoader objects.

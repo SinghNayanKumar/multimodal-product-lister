@@ -14,7 +14,7 @@ except ImportError:
     WANDB_AVAILABLE = False
     print("Warning: wandb not available, skipping logging")
 
-from src.data.dataloader import create_dataloaders
+from src.data.dataloader import create_test_dataloaders
 from src.models.baselines.direct_vlm import DirectVLM
 
 def train_one_epoch(model, dataloader, optimizer, device):
@@ -117,7 +117,7 @@ def main(config_path):
     device = torch.device(config['training']['device'] if torch.cuda.is_available() else 'cpu')
     print(f"Using device: {device}")
 
-    train_loader, val_loader, mappings, tokenizer = create_dataloaders(config)
+    train_loader, val_loader, mappings, tokenizer = create_test_dataloaders(config)
     
     model = DirectVLM(config).to(device)
     optimizer = torch.optim.Adam(model.parameters(), lr=float(config['training']['learning_rate']))
