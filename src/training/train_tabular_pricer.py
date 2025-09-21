@@ -17,7 +17,7 @@ def generate_attribute_predictions(model, dataloader, mappings, device):
     
     # Create inverse mappings to convert class indices back to labels
     inverse_mappings = {attr: {i: label for label, i in class_map.items()} 
-                        for attr, class_map in mappings['attributes'].items()}
+                        for attr, class_map in mappings.items()}
 
     with torch.no_grad():
         for batch in tqdm(dataloader, desc="Generating Attribute Predictions"):
@@ -51,7 +51,7 @@ def main(config_path):
 
     # --- Step 1: Generate predictions using the trained Stage 1 model ---
     print("--- Stage 1: Loading Attribute Model and Generating Predictions ---")
-    train_loader, _, mappings, _  = create_dataloaders(config, batch_size=config['training']['batch_size']*2) # Larger batch for inference
+    train_loader, _, mappings, _  = create_dataloaders(config)
     
     # Load the trained attribute model
     attribute_model = VisionAttributeModel(config, mappings).to(device)
@@ -63,7 +63,7 @@ def main(config_path):
     
     # --- Step 2: Train the Stage 2 tabular price model ---
     print("\n--- Stage 2: Training Tabular Price Model ---")
-    attribute_cols = list(mappings['attributes'].keys())
+    attribute_cols = list(mappings.keys())
     X_train = prediction_df[attribute_cols]
     y_train = prediction_df['price']
 

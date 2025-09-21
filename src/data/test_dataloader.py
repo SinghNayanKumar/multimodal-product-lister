@@ -101,7 +101,8 @@ class ECommerceDataset(Dataset):
             
         return result
 
-def create_dataloaders(config):
+def create_test_dataloader(config):
+    
     """
     A factory function to encapsulate the setup of training and validation dataloaders.
     It reads configuration, loads data, initializes processors, and creates DataLoader objects.
@@ -111,7 +112,7 @@ def create_dataloaders(config):
         tuple: A tuple containing the training DataLoader, validation DataLoader, and the attribute mappings dictionary.
     """
     # Load the training and validation metadata from CSV files specified in the config.
-    train_df = pd.read_csv(os.path.join(config['data']['processed_dir'], config['data']['train_csv']))
+    test_df = pd.read_csv(os.path.join(config['data']['processed_dir'], 'test.csv'))
     val_df = pd.read_csv(os.path.join(config['data']['processed_dir'], config['data']['val_csv']))
 
     # Load the attribute-to-integer mappings from a JSON file. This ensures consistency across runs.
@@ -129,11 +130,11 @@ def create_dataloaders(config):
         tokenizer = AutoTokenizer.from_pretrained(config['model']['text_model_name'])
     
     # Add this fix for GPT-2 and other models without pad tokens:
-    if tokenizer is not None and tokenizer.pad_token is None:
+    if tokenizer.pad_token is None:
         tokenizer.pad_token = tokenizer.eos_token
 
     # Create instances of our custom ECommerceDataset for the training and validation sets.
-    train_dataset = ECommerceDataset(train_df, config['data']['image_dir'], image_processor, tokenizer, mappings)
+    train_dataset = ECommerceDataset(test_df, config['data']['image_dir'], image_processor, tokenizer, mappings)
     val_dataset = ECommerceDataset(val_df, config['data']['image_dir'], image_processor, tokenizer, mappings)
 
     # Create the DataLoader objects, which will handle batching, shuffling, and multi-process data loading.

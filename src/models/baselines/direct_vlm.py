@@ -20,8 +20,10 @@ class DirectVLM(nn.Module):
         
         # ANNOTATION: We must configure the special tokens for the decoder to ensure it knows
         # how to start generating text and when to use padding.
+        # Configure the special tokens for the decoder
         self.model.config.decoder_start_token_id = self.model.decoder.config.bos_token_id
-        self.model.config.pad_token_id = self.model.decoder.config.pad_token_id
+        self.model.config.pad_token_id = self.model.decoder.config.eos_token_id  
+
 
     def forward(self, pixel_values, labels=None, **kwargs):
         """

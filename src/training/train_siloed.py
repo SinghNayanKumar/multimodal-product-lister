@@ -96,7 +96,7 @@ def main(config_path):
     # ANNOTATION: We only pass the mappings dictionary if the task is 'attributes',
     # as the price model doesn't need it.
     model = SiloedModel(config, mappings if task == 'attributes' else None).to(device)
-    optimizer = torch.optim.Adam(model.parameters(), lr=config['training']['learning_rate'])
+    optimizer = torch.optim.Adam(model.parameters(), lr=float(config['training']['learning_rate']))
     
     output_dir = os.path.join(config['output_dir'], config['experiment_name'])
     os.makedirs(output_dir, exist_ok=True)

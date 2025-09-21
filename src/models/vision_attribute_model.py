@@ -13,7 +13,7 @@ class VisionAttributeModel(nn.Module):
         self.mappings = mappings
 
         # --- Vision Backbone ---
-        vision_model_name = config['model']['vision_backbone']
+        vision_model_name = config['model']['vision_model_name']
         self.vision_backbone = ViTModel.from_pretrained(vision_model_name)
         
         # Freeze backbone if configured to do so
@@ -26,7 +26,7 @@ class VisionAttributeModel(nn.Module):
         self.attribute_heads = nn.ModuleDict()
         hidden_size = self.vision_backbone.config.hidden_size
 
-        for attr_name, attr_map in mappings['attributes'].items():
+        for attr_name, attr_map in mappings.items():
             num_classes = len(attr_map)
             self.attribute_heads[attr_name] = nn.Linear(hidden_size, num_classes)
 

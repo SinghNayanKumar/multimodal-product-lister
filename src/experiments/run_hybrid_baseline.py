@@ -12,7 +12,7 @@ from src.data.dataloader import create_dataloaders
 from src.data.dataloader import create_dataloaders
 from src.models.baselines.siloed_model import SiloedModel
 # ANNOTATION: Import the dedicated tabular model class for this baseline.
-from src.models.baselines.tabular_price_model import TabularPriceModel
+from src.models.tabular_price_model import TabularPriceModel
 
 def get_attribute_predictions(model, dataloader, device, mappings):
     """

@@ -56,7 +56,7 @@ def main(config_path):
     train_loader, val_loader, mappings, _ = create_dataloaders(config)
     
     model = VisionAttributeModel(config, mappings).to(device)
-    optimizer = torch.optim.Adam(model.parameters(), lr=config['training']['learning_rate'])
+    optimizer = torch.optim.Adam(model.parameters(), lr=float(config['training']['learning_rate']))
 
     output_dir = os.path.join(config['output_dir'], f"{config['experiment_name']}_stage1")
     os.makedirs(output_dir, exist_ok=True)
