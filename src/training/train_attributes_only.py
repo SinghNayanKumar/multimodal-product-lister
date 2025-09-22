@@ -5,7 +5,7 @@ import argparse
 import os
 from tqdm import tqdm
 
-from src.data.dataloader import create_test_dataloaders
+from src.data.dataloader import create_dataloaders
 from src.models.vision_attribute_model import VisionAttributeModel
 
 def calculate_attribute_loss(logits_dict, batch):
@@ -53,7 +53,7 @@ def main(config_path):
     device = torch.device(config['training']['device'] if torch.cuda.is_available() else 'cpu')
     print(f"Using device: {device}")
 
-    train_loader, val_loader, mappings, _ = create_test_dataloaders(config)
+    train_loader, val_loader, mappings, _ = create_dataloaders(config)
     
     model = VisionAttributeModel(config, mappings).to(device)
     optimizer = torch.optim.Adam(model.parameters(), lr=float(config['training']['learning_rate']))

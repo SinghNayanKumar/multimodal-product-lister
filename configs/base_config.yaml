@@ -3,6 +3,7 @@ data:
   processed_dir: 'data/processed'
   train_csv: 'train.csv'
   val_csv: 'val.csv'
+  test_csv: 'test.csv'
   mappings: 'attribute_mappings.json'
   image_dir: 'data/raw/Images' 
 

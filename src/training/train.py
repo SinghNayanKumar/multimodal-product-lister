@@ -15,7 +15,7 @@ except ImportError:
     WANDB_AVAILABLE = False
     print("Warning: wandb not available, skipping logging")
 
-from src.data.dataloader import create_test_dataloaders
+from src.data.dataloader import create_dataloaders
 from src.models.multitask_model import MultitaskModel
 from src.training.loss import CompositeLoss
 
@@ -171,7 +171,7 @@ def main(config_path):
     device = torch.device(config['training']['device'] if torch.cuda.is_available() else 'cpu')
     print(f"Using device: {device}")
 
-    train_loader, val_loader, mappings, tokenizer = create_test_dataloaders(config)
+    train_loader, val_loader, mappings, tokenizer = create_dataloaders(config)
     
     model = MultitaskModel(config, mappings).to(device)
     loss_fn = CompositeLoss(config['training']['loss_weights'])

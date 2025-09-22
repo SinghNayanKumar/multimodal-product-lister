@@ -14,7 +14,7 @@ except ImportError:
     WANDB_AVAILABLE = False
     print("Warning: wandb not available, skipping logging")
 
-from src.data.dataloader import create_test_dataloaders
+from src.data.dataloader import create_dataloaders
 from src.models.baselines.direct_vlm import DirectVLM
 
 def train_one_epoch(model, dataloader, optimizer, device):
@@ -106,31 +106,52 @@ def main(config_path):
     with open(config_path, 'r') as f:
         config = yaml.safe_load(f)
 
-    if WANDB_AVAILABLE:
-        wandb.init(
-            project=config.get('wandb', {}).get('project', 'multimodal-product-lister'),
-            name=config['experiment_name'],
-            config=config,
-            group="direct-vlm-baseline"  # Group DirectVLM runs together
-        )
-
     device = torch.device(config['training']['device'] if torch.cuda.is_available() else 'cpu')
     print(f"Using device: {device}")
+    
+    output_dir = os.path.join(config['output_dir'], config['experiment_name'])
+    os.makedirs(output_dir, exist_ok=True)
 
-    train_loader, val_loader, mappings, tokenizer = create_test_dataloaders(config)
+    train_loader, val_loader, mappings, tokenizer = create_dataloaders(config)
     
     model = DirectVLM(config).to(device)
     optimizer = torch.optim.Adam(model.parameters(), lr=float(config['training']['learning_rate']))
 
+    ### MODIFIED: Initialize variables for resuming
+    start_epoch = 0
+    best_val_loss = float('inf')
+    wandb_run_id = None
+
+    ### MODIFIED: Check for a checkpoint to resume from
+    latest_checkpoint_path = os.path.join(output_dir, 'checkpoint_latest.pth')
+    if os.path.exists(latest_checkpoint_path):
+        print(f"Resuming training from checkpoint: {latest_checkpoint_path}")
+        checkpoint = torch.load(latest_checkpoint_path)
+        model.load_state_dict(checkpoint['model_state_dict'])
+        optimizer.load_state_dict(checkpoint['optimizer_state_dict'])
+        start_epoch = checkpoint['epoch'] + 1
+        best_val_loss = checkpoint['best_val_loss']
+        wandb_run_id = checkpoint.get('wandb_run_id') # Use .get for backward compatibility
+        print(f"Resuming from epoch {start_epoch}. Best validation loss so far: {best_val_loss:.4f}")
+    else:
+        print("No checkpoint found, starting training from scratch.")
+
+    if WANDB_AVAILABLE:
+        ### MODIFIED: Resume W&B run if an ID is found
+        wandb.init(
+            project=config.get('wandb', {}).get('project', 'multimodal-product-lister'),
+            name=config['experiment_name'],
+            config=config,
+            group="direct-vlm-baseline",
+            id=wandb_run_id,  # Pass the run ID to resume
+            resume="allow"    # Allow resuming if the run exists
+        )
+
     if WANDB_AVAILABLE:
         wandb.watch(model, log='all', log_freq=100)
-
-    output_dir = os.path.join(config['output_dir'], config['experiment_name'])
-    os.makedirs(output_dir, exist_ok=True)
     
-    best_val_loss = float('inf')
-
-    for epoch in range(config['training']['epochs']):
+    ### MODIFIED: Modify the training loop to start from the correct epoch
+    for epoch in range(start_epoch, config['training']['epochs']):
         print(f"\n--- Epoch {epoch+1}/{config['training']['epochs']} ---")
         train_loss = train_one_epoch(model, train_loader, optimizer, device)
         val_loss = validate_one_epoch(model, val_loader, device)
@@ -150,6 +171,18 @@ def main(config_path):
                 artifact = wandb.Artifact(f"{config['experiment_name']}-best", type='model')
                 artifact.add_file(save_path)
                 wandb.log_artifact(artifact)
+        
+        ### MODIFIED: Save a checkpoint at the end of every epoch
+        latest_checkpoint_state = {
+            'epoch': epoch,
+            'model_state_dict': model.state_dict(),
+            'optimizer_state_dict': optimizer.state_dict(),
+            'best_val_loss': best_val_loss,
+            'wandb_run_id': wandb.run.id if WANDB_AVAILABLE else None
+        }
+        torch.save(latest_checkpoint_state, latest_checkpoint_path)
+        print(f"Saved latest checkpoint to {latest_checkpoint_path}")
+
 
         # Log prediction examples
         if (epoch + 1) % config['training'].get('log_image_freq', 5) == 0:

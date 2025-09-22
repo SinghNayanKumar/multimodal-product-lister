@@ -184,4 +184,25 @@ class MultitaskModel(nn.Module):
 
         # 5. Wrap the combined features for the generator.
         encoder_outputs_for_t5 = BaseModelOutput(last_hidden_state=combined_features)
- 
+        # 6. Generate token IDs using the multimodal context.
+        #    This is the crucial step that was missing.
+        generated_ids = self.text_generator.generate(
+            encoder_outputs=encoder_outputs_for_t5,
+            attention_mask=combined_attention_mask,
+            max_length=128,
+            num_beams=4,
+            early_stopping=True
+        )
+
+        # 7. Decode the generated IDs back into human-readable text.
+        all_generated_text = tokenizer.batch_decode(generated_ids, skip_special_tokens=True)
+        
+        # 8. Collate and return all the results in the expected format.
+        results = []
+        for i in range(batch_size):
+            results.append({
+                "predicted_price": predicted_prices[i],
+                "predicted_attributes": all_predicted_attributes[i],
+                "generated_text": all_generated_text[i]
+            })
+        return results

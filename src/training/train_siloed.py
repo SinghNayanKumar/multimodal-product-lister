@@ -8,7 +8,7 @@ import wandb
 import numpy as np
 from sklearn.metrics import mean_absolute_error, f1_score
 
-from src.data.dataloader import create_test_dataloaders
+from src.data.dataloader import create_dataloaders
 from src.models.baselines.siloed_model import SiloedModel
 
 def calculate_loss(outputs, batch, task):
@@ -91,7 +91,7 @@ def main(config_path):
     device = torch.device(config['training']['device'] if torch.cuda.is_available() else 'cpu')
     print(f"Starting siloed training for task '{task}' on device: {device}")
 
-    train_loader, val_loader, mappings, _ = create_test_dataloaders(config)
+    train_loader, val_loader, mappings, _ = create_dataloaders(config)
     
     # ANNOTATION: We only pass the mappings dictionary if the task is 'attributes',
     # as the price model doesn't need it.

@@ -8,23 +8,26 @@ from PIL import Image, ImageDraw, ImageFont
 import matplotlib.pyplot as plt
 import argparse
 from tqdm import tqdm
-
-from src.data.dataloader import create_test_dataloaders
+import textwrap
+from src.data.test_dataloader import create_test_dataloader
 from src.models.multitask_model import MultitaskModel
 from src.models.baselines.direct_vlm import DirectVLM
 
 class QualitativeExampleGenerator:
     def __init__(self, base_config_path, device='cuda'):
+        print("Initializing QualitativeExampleGenerator...")
         self.device = torch.device(device if torch.cuda.is_available() else 'cpu')
         
         with open(base_config_path, 'r') as f:
             self.base_config = yaml.safe_load(f)
         
-        _, self.val_loader, self.mappings, self.tokenizer = create_test_dataloaders(self.base_config)
+        self.val_loader, _ , self.mappings, self.tokenizer = create_test_dataloader(self.base_config)
+        print(f"Found {len(self.val_loader.dataset)} items in validation set.")
     
     def generate_side_by_side_examples(self, mtl_model_path, vlm_config_path, vlm_model_path, 
                                      output_dir, num_examples=10):
         """Generate side-by-side comparison examples for the paper."""
+        print("Starting to generate side-by-side examples...")
         os.makedirs(output_dir, exist_ok=True)
         
         # Load models
@@ -74,7 +77,7 @@ class QualitativeExampleGenerator:
                     'ground_truth': true_text,
                     'mtl_hierarchical': mtl_outputs[0]['generated_text'],
                     'mtl_attributes': mtl_outputs[0]['predicted_attributes'],
-                    'mtl_price': mtl_outputs[0]['predicted_price'],
+                    'mtl_price': float(mtl_outputs[0]['predicted_price']),
                     'direct_vlm': vlm_outputs[0] if isinstance(vlm_outputs, list) else vlm_outputs
                 }
                 
@@ -121,10 +124,14 @@ class QualitativeExampleGenerator:
             ]
             
             for j, (title, text) in enumerate(texts):
-                axes[j+1].text(0.05, 0.95, f"{title}:\n\n{text}", 
+                # Manually wrap the text to a specific width (e.g., 50 characters)
+                wrapped_text = textwrap.fill(text, width=50)
+                
+                axes[j+1].text(0.05, 0.95, f"{title}:\n\n{wrapped_text}", 
                              transform=axes[j+1].transAxes, 
                              verticalalignment='top',
-                             wrap=True, fontsize=8)
+                             wrap=False, # We are handling wrapping ourselves now
+                             fontsize=8)
                 axes[j+1].set_xlim(0, 1)
                 axes[j+1].set_ylim(0, 1)
                 axes[j+1].axis('off')
@@ -136,3 +143,32 @@ class QualitativeExampleGenerator:
             plt.tight_layout()
             plt.savefig(os.path.join(output_dir, f'comparison_example_{i+1}.png'), dpi=300, bbox_inches='tight')
             plt.close()
+            
+
+def main():
+    parser = argparse.ArgumentParser(description="Generate qualitative comparison examples.")
+    parser.add_argument('--base_config', type=str, required=True, help='Path to the base config file.')
+    parser.add_argument('--mtl_model', type=str, required=True, help='Path to the trained MTL model checkpoint.')
+    parser.add_argument('--vlm_config', type=str, required=True, help='Path to the VLM config file.')
+    parser.add_argument('--vlm_model', type=str, required=True, help='Path to the trained Direct VLM checkpoint.')
+    parser.add_argument('--output_dir', type=str, required=True, help='Directory to save the output images and JSON.')
+    parser.add_argument('--num_examples', type=int, default=10, help='Number of examples to generate.')
+    args = parser.parse_args()
+
+    # 1. Create the generator instance
+    generator = QualitativeExampleGenerator(base_config_path=args.base_config)
+
+    # 2. Run the generation process
+    generator.generate_side_by_side_examples(
+        mtl_model_path=args.mtl_model,
+        vlm_config_path=args.vlm_config,
+        vlm_model_path=args.vlm_model,
+        output_dir=args.output_dir,
+        num_examples=args.num_examples
+    )
+
+    print(f"\nSuccessfully generated {args.num_examples} qualitative examples.")
+    print(f"Results saved in: {args.output_dir}")
+
+if __name__ == '__main__':
+    main()

@@ -10,7 +10,7 @@ from rouge import Rouge
 import argparse
 from transformers import AutoTokenizer
 
-from src.data.test_dataloader import create_test_dataloaders
+from src.data.test_dataloader import create_test_dataloader
 from src.models.multitask_model import MultitaskModel
 from src.models.baselines.direct_vlm import DirectVLM
 from src.evaluation.evaluate_hallucinations import calculate_hallucination_rate
@@ -23,7 +23,7 @@ class HierarchicalGenerationEvaluator:
             self.base_config = yaml.safe_load(f)
         
         # Load data and mappings
-        _, self.val_loader, self.mappings, self.tokenizer = create_test_dataloaders(self.base_config)
+        self.val_loader, _, self.mappings, self.tokenizer = create_test_dataloader(self.base_config)
         
         # Initialize text quality metrics
         self.rouge = Rouge()
