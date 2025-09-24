@@ -38,5 +38,10 @@ class DirectVLM(nn.Module):
         """
         The generation method for inference.
         """
-        generated_ids = self.model.generate(pixel_values, max_length=128, num_beams=4)
+        generated_ids = self.model.generate(
+        pixel_values, 
+        max_length=128, 
+        num_beams=4,
+        pad_token_id=tokenizer.eos_token_id  
+        )
         return tokenizer.batch_decode(generated_ids, skip_special_tokens=True)
