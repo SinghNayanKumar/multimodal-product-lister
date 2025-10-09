@@ -37,12 +37,11 @@ class QualitativeExampleGenerator:
         
         with open(vlm_config_path, 'r') as f:
             vlm_config = yaml.safe_load(f)
-        vlm_model = DirectVLM(vlm_config)
-        vlm_model.load_state_dict(torch.load(vlm_model_path, map_location=self.device))
+        vlm_model = DirectVLM.from_trained(vlm_model_path)
         vlm_model.eval().to(self.device)
         
         from transformers import AutoTokenizer
-        vlm_tokenizer = AutoTokenizer.from_pretrained(vlm_config['model']['text_model_name'])
+        vlm_tokenizer = AutoTokenizer.from_pretrained(vlm_model_path)
         if vlm_tokenizer.pad_token is None:
             vlm_tokenizer.pad_token = vlm_tokenizer.eos_token
         

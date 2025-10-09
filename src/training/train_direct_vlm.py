@@ -114,7 +114,7 @@ def main(config_path):
 
     train_loader, val_loader, mappings, tokenizer = create_dataloaders(config)
     
-    model = DirectVLM(config).to(device)
+    model = DirectVLM.from_config(config).to(device)
     optimizer = torch.optim.Adam(model.parameters(), lr=float(config['training']['learning_rate']))
 
     ### MODIFIED: Initialize variables for resuming
@@ -163,13 +163,19 @@ def main(config_path):
 
         if val_loss < best_val_loss:
             best_val_loss = val_loss
-            save_path = os.path.join(output_dir, 'model_best.pth')
-            torch.save(model.state_dict(), save_path)
-            print(f"Saved new best model to {save_path}")
+            
+            # Define the save DIRECTORY path
+            save_dir = os.path.join(output_dir, 'model_best') 
+            
+            # Save the model and tokenizer to that directory
+            model.model.save_pretrained(save_dir)
+            tokenizer.save_pretrained(save_dir)
+            print(f"Saved new best model to {save_dir}")
             
             if WANDB_AVAILABLE:
                 artifact = wandb.Artifact(f"{config['experiment_name']}-best", type='model')
-                artifact.add_file(save_path)
+                # Use add_dir to log the entire model DIRECTORY
+                artifact.add_dir(save_dir) 
                 wandb.log_artifact(artifact)
         
         ### MODIFIED: Save a checkpoint at the end of every epoch
