@@ -1,0 +1,28 @@
+# Data paths 
+data:
+  processed_dir: 'data/processed'
+  train_csv: 'train.csv'
+  val_csv: 'val.csv'
+  test_csv: 'test.csv'
+  image_dir: 'data/raw/Images' 
+
+# Model configuration for GIT-base
+model:
+  model_name: 'microsoft/git-base'
+
+# Training parameters
+training:
+  epochs: 15 
+  batch_size: 12 
+  learning_rate: 2e-5 
+  device: 'cuda' # or 'cpu'
+  log_image_freq: 7
+
+# W&B Configuration
+wandb:
+  project: 'multimodal-product-lister'
+  entity: 'nayan-ksingh-indian-institute-of-technology' 
+
+# Experiment output
+output_dir: 'results/git_base' 
+experiment_name: 'exp002_git_vlm'

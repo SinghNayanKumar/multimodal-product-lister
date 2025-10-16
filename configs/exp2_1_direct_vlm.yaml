@@ -11,14 +11,15 @@ model:
   text_model_name: 'gpt2'
 
 training:
-  epochs: 7
+  epochs: 6
   batch_size: 16
-  learning_rate: 1e-4
+  learning_rate: 3e-5
   device: 'cuda'
-  log_image_freq: 5
+  log_image_freq: 1
+  weight_decay: 1e-2
 
 wandb:
   project: 'multimodal-product-lister'
 
 output_dir: 'results/'
-experiment_name: 'exp2_1_direct_vlm'
+experiment_name: 'exp2_1_direct_vlm_pad'

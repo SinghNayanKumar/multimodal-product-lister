@@ -1,0 +1,33 @@
+# FILE: configs/config_direct_vlm.yaml
+
+experiment_name: "ViT-T5-small-Direct-Baseline"
+
+# Data configuration - 
+data:
+  processed_dir: 'data/processed'
+  train_csv: 'train.csv'
+  val_csv: 'val.csv'
+  test_csv: 'test.csv'
+  mappings: 'attribute_mappings.json'
+  image_dir: 'data/raw/Images' 
+
+# Model configuration - Kept the same core components.
+model:
+  vision_model_name: 'google/vit-base-patch16-224-in21k'
+  text_model_name: 't5-small'
+
+# Training parameters - 
+training:
+  epochs: 10
+  batch_size: 16
+  learning_rate: 1e-4
+  device: 'cuda' # or 'cpu'
+  log_image_freq: 1 
+
+# W&B Configuration - 
+wandb:
+  project: 'multimodal-product-lister'
+  entity: 'nayan-ksingh-indian-institute-of-technology'
+
+# Experiment output
+output_dir: 'results/baseline'
