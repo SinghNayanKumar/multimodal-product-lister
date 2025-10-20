@@ -1,0 +1,23 @@
+{
+    "predictions": [],
+    "price_metrics": {},
+    "attribute_metrics": {
+        "f1_macro": 0.3178430071834703,
+        "individual_f1": {
+            "Neck": 0.22589221246879432,
+            "Sleeve Length": 0.8362816004739816,
+            "Print or Pattern Type": 0.16509073974079544,
+            "Type": 0.2492335297324176,
+            "Hemline": 0.3613109441922643,
+            "Pattern": 0.3753190328801519,
+            "Length": 0.5750880993314141,
+            "Sleeve Styling": 0.18659980213122374,
+            "Ornamentation": 0.14914141858731136,
+            "Occasion": 0.3887029836347641,
+            "Fabric": 0.13763834200244088,
+            "Fit": 0.21213221319129846,
+            "colour": 0.2695281750182566
+        }
+    },
+    "text_metrics": {}
+}

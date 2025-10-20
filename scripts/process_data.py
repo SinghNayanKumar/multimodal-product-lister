@@ -17,7 +17,7 @@ SELECTED_ATTRIBUTES = [
     'Print or Pattern Type',
     'Type',
     'Hemline',
-    'Pattern', # Keep this and investigate its values alongside 'Print or Pattern Type'
+    'Pattern', 
     
     # --- Tier 2: Detailed Visuals ---
     'Length',

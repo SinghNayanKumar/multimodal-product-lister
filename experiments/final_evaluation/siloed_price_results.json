@@ -1,0 +1,10 @@
+{
+    "predictions": [],
+    "price_metrics": {
+        "mae": 1074.3114013671875,
+        "rmse": 1966.5506604204224,
+        "r2": 0.4602360725402832
+    },
+    "attribute_metrics": {},
+    "text_metrics": {}
+}

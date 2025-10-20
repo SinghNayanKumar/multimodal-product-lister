@@ -152,8 +152,10 @@ class MultitaskModel(nn.Module):
         prompts = []
         for i in range(batch_size):
             if use_hierarchical_prompt:
-                prompt_parts = [f"{attr}: {value}" for attr, value in all_predicted_attributes[i].items() if value != 'Unknown']
-                prompt_text = "generate a title and description for a product with these features: " + ", ".join(prompt_parts)
+                # Use a set to get unique values, then format them
+                unique_values = set(v for v in all_predicted_attributes[i].values() if v != 'Unknown')
+                prompt_text = "generate a title and description for a product with these features: " + ", ".join(list(unique_values))
+                
             else:
                 prompt_text = "generate a title and description for the following product:"
             prompts.append(prompt_text)
@@ -191,7 +193,8 @@ class MultitaskModel(nn.Module):
             attention_mask=combined_attention_mask,
             max_length=128,
             num_beams=4,
-            early_stopping=True
+            early_stopping=True,
+            no_repeat_ngram_size=2
         )
 
         # 7. Decode the generated IDs back into human-readable text.

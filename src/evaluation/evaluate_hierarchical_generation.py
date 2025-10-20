@@ -4,6 +4,7 @@ import json
 import pandas as pd
 import numpy as np
 import os
+import re
 from tqdm import tqdm
 from nltk.translate.bleu_score import sentence_bleu, SmoothingFunction
 from rouge import Rouge
@@ -12,8 +13,25 @@ from transformers import AutoTokenizer
 
 from src.data.test_dataloader import create_test_dataloader
 from src.models.multitask_model import MultitaskModel
-from src.models.baselines.direct_vlm import DirectVLM
+from src.models.baseline_git import GitBaselineModel
+from transformers import GitProcessor
 from src.evaluation.evaluate_hallucinations import calculate_hallucination_rate
+from src.models.baselines.direct_vlm_model import DirectVLM
+
+def parse_json_output(json_string: str) -> str:
+    """
+    Safely parses a JSON string from the VLM and extracts title and description.
+    """
+    try:
+        json_match = re.search(r'\{.*\}', json_string, re.DOTALL)
+        if json_match:
+            json_string = json_match.group(0)
+        data = json.loads(json_string)
+        title = data.get('text', {}).get('title', 'N/A')
+        description = data.get('text', {}).get('description', 'N/A')
+        return f"title: {title} | description: {description}"
+    except (json.JSONDecodeError, TypeError, AttributeError):
+        return f"[JSON PARSING FAILED] {json_string}"
 
 class HierarchicalGenerationEvaluator:
     def __init__(self, base_config_path, device='cuda'):
@@ -41,16 +59,31 @@ class HierarchicalGenerationEvaluator:
         with open(config_path, 'r') as f:
             vlm_config = yaml.safe_load(f)
         
-        model = DirectVLM(vlm_config)
+        model = GitBaselineModel(vlm_config) # <-- Use our class
         model.load_state_dict(torch.load(model_path, map_location=self.device))
         model.to(self.device)
         
-        # Load the appropriate tokenizer for DirectVLM
-        vlm_tokenizer = AutoTokenizer.from_pretrained(vlm_config['model']['text_model_name'])
-        if vlm_tokenizer.pad_token is None:
-            vlm_tokenizer.pad_token = vlm_tokenizer.eos_token
+        # Load the GitProcessor, which includes the tokenizer
+        vlm_processor = GitProcessor.from_pretrained(vlm_config['model']['model_name'])
             
-        return model, vlm_tokenizer
+        return model, vlm_processor # <-- Return the processor
+    
+    def load_t5_vlm_model(self, config_path, model_path): # <-- ADDED FUNCTION
+        """Load the ViT-T5 DirectVLM model."""
+        with open(config_path, 'r') as f:
+            vlm_config = yaml.safe_load(f)
+        
+        model = DirectVLM(
+            vision_model_name=vlm_config['model']['vision_model_name'],
+            text_model_name=vlm_config['model']['text_model_name']
+        )
+        model.load_state_dict(torch.load(model_path, map_location=self.device))
+        model.to(self.device)
+        
+        # Load its corresponding tokenizer
+        tokenizer = AutoTokenizer.from_pretrained(vlm_config['model']['text_model_name'])
+            
+        return model, tokenizer
     
     def generate_predictions(self, model, model_type, tokenizer_to_use=None, use_hierarchical=True):
         """Generate predictions from a model."""
@@ -103,6 +136,18 @@ class HierarchicalGenerationEvaluator:
                         predictions.append({
                             'generated_text': text,
                             'predicted_attributes': {},  # DirectVLM doesn't predict structured attributes
+                            'predicted_price': None
+                        })
+                
+                elif model_type == 'vit_t5_vlm': # <-- ADDED BLOCK
+                    generated_json = model.generate(pixel_values, tokenizer_to_use)
+                    
+                    for json_str in generated_json:
+                        # Parse the JSON output to get clean text for metric calculation
+                        parsed_text = parse_json_output(json_str)
+                        predictions.append({
+                            'generated_text': parsed_text,
+                            'predicted_attributes': {},
                             'predicted_price': None
                         })
                 
@@ -171,13 +216,14 @@ class HierarchicalGenerationEvaluator:
         halluc_df = pd.DataFrame(halluc_data)
         return calculate_hallucination_rate(halluc_df, list(self.mappings.keys()))
     
-    def run_experiment_2_1(self, mtl_model_path, vlm_config_path, vlm_model_path, output_dir):
+    def run_experiment_2_1(self, mtl_model_path, git_vlm_config_path, git_vlm_model_path, t5_vlm_config_path, t5_vlm_model_path, output_dir):
         """Run Experiment 2.1: Hierarchical vs Direct Generation."""
         os.makedirs(output_dir, exist_ok=True)
         
         print("Loading models...")
         mtl_model = self.load_mtl_model(mtl_model_path)
-        vlm_model, vlm_tokenizer = self.load_direct_vlm_model(vlm_config_path, vlm_model_path)
+        git_vlm_model, git_vlm_processor = self.load_direct_vlm_model(git_vlm_config_path, git_vlm_model_path)
+        t5_vlm_model, t5_vlm_tokenizer = self.load_t5_vlm_model(t5_vlm_config_path, t5_vlm_model_path)
         
         results = {}
         
@@ -205,14 +251,24 @@ class HierarchicalGenerationEvaluator:
             'num_predictions': len(mtl_no_hier_preds)
         }
         
-        # 3. Direct VLM Baseline
-        print("\nEvaluating Direct VLM...")
-        vlm_preds, _ = self.generate_predictions(vlm_model, 'direct_vlm', vlm_tokenizer)
+        # 3. Direct VLM (GIT-base) Baseline
+        print("\nEvaluating Direct VLM (GIT-base)...")
+        git_vlm_preds, _ = self.generate_predictions(git_vlm_model, 'direct_vlm', git_vlm_processor)
         
-        results['direct_vlm'] = {
-            'text_metrics': self.calculate_text_quality_metrics(vlm_preds),
-            'hallucination_rate': 0.0,  # DirectVLM doesn't predict attributes, so no attribute hallucinations
-            'num_predictions': len(vlm_preds)
+        results['direct_vlm_git'] = {
+            'text_metrics': self.calculate_text_quality_metrics(git_vlm_preds),
+            'hallucination_rate': 0.0,
+            'num_predictions': len(git_vlm_preds)
+        }
+        
+        # 4. Direct VLM (ViT-T5) Baseline <-- ADDED BLOCK
+        print("\nEvaluating Direct VLM (ViT-T5)...")
+        t5_vlm_preds, _ = self.generate_predictions(t5_vlm_model, 'vit_t5_vlm', t5_vlm_tokenizer)
+        
+        results['direct_vlm_t5'] = {
+            'text_metrics': self.calculate_text_quality_metrics(t5_vlm_preds),
+            'hallucination_rate': 0.0, 
+            'num_predictions': len(t5_vlm_preds)
         }
         
         # Save detailed results
@@ -223,7 +279,7 @@ class HierarchicalGenerationEvaluator:
         self.create_summary_table(results, output_dir)
         
         # Save example predictions
-        self.save_prediction_examples(mtl_hier_preds, mtl_no_hier_preds, vlm_preds, output_dir)
+        self.save_prediction_examples(mtl_hier_preds, mtl_no_hier_preds, git_vlm_preds, t5_vlm_preds, output_dir)
         
         return results
     
@@ -254,11 +310,12 @@ class HierarchicalGenerationEvaluator:
         
         return summary_df
     
-    def save_prediction_examples(self, mtl_hier, mtl_no_hier, vlm_preds, output_dir, num_examples=10):
+    def save_prediction_examples(self, mtl_hier, mtl_no_hier, git_vlm_preds, t5_vlm_preds, output_dir, num_examples=10):
         """Save example predictions for qualitative analysis."""
         examples = []
         
-        min_len = min(len(mtl_hier), len(mtl_no_hier), len(vlm_preds))
+        # --- FIX: Find the minimum length across all prediction lists ---
+        min_len = min(len(mtl_hier), len(mtl_no_hier), len(git_vlm_preds), len(t5_vlm_preds))
         
         for i in range(min(num_examples, min_len)):
             example = {
@@ -266,7 +323,9 @@ class HierarchicalGenerationEvaluator:
                 'true_text': mtl_hier[i]['true_text'],
                 'mtl_hierarchical': mtl_hier[i]['generated_text'],
                 'mtl_non_hierarchical': mtl_no_hier[i]['generated_text'],
-                'direct_vlm': vlm_preds[i]['generated_text'],
+                # --- FIX: Add separate keys for each VLM baseline ---
+                'direct_vlm_git': git_vlm_preds[i]['generated_text'],
+                'direct_vlm_t5': t5_vlm_preds[i]['generated_text'],
                 'predicted_attributes': mtl_hier[i]['predicted_attributes']
             }
             examples.append(example)
@@ -278,14 +337,30 @@ def main():
     parser = argparse.ArgumentParser(description="Evaluate hierarchical generation vs direct VLM")
     parser.add_argument('--base_config', type=str, default='configs/base_config.yaml')
     parser.add_argument('--mtl_model', type=str, default='results/exp001_base_multitask/model_best.pth')
-    parser.add_argument('--vlm_config', type=str, default='configs/exp2_1_direct_vlm.yaml')
-    parser.add_argument('--vlm_model', type=str, default='results/exp2_1_direct_vlm/model_best.pth')
+
+    # --- FIX: Use the correct default config file for the GIT model ---
+    # This config MUST contain the 'model: model_name:' keys.
+    parser.add_argument('--git_vlm_config', type=str, default='configs/exp2_1_direct_vlm.yaml', 
+                        help="Config for the GIT-base VLM, must contain model_name.")
+    parser.add_argument('--git_vlm_model', type=str, default='results/exp2_1_direct_vlm/model_best.pth')
+    
+    # --- FIX: Use the correct default config file for the ViT-T5 model ---
+    # This config must contain 'vision_model_name' and 'text_model_name'.
+    parser.add_argument('--t5_vlm_config', type=str, default='configs/config_direct_vlm.yaml',
+                        help="Config for the ViT-T5 VLM.")
+    parser.add_argument('--t5_vlm_model', type=str, default='results/direct_vlm_vit-t5/model_best.pth')
+    
     parser.add_argument('--output_dir', type=str, default='results/experiment_2_1_hierarchical_generation')
     args = parser.parse_args()
     
     evaluator = HierarchicalGenerationEvaluator(args.base_config)
     results = evaluator.run_experiment_2_1(
-        args.mtl_model, args.vlm_config, args.vlm_model, args.output_dir
+        args.mtl_model, 
+        args.git_vlm_config, 
+        args.git_vlm_model,
+        args.t5_vlm_config,
+        args.t5_vlm_model,
+        args.output_dir
     )
     
     print(f"\nResults saved to: {args.output_dir}")

@@ -1,0 +1,2669 @@
+[
+    {
+        "item_id": 1,
+        "version_a": {
+            "predicted_attributes": {
+                "Neck": "Unknown",
+                "Sleeve Length": "Unknown",
+                "Print or Pattern Type": "Floral",
+                "Type": "Flared",
+                "Hemline": "Flared",
+                "Pattern": "Printed",
+                "Length": "Maxi",
+                "Sleeve Styling": "Unknown",
+                "Ornamentation": "Unknown",
+                "Occasion": "Ethnic",
+                "Fabric": "Viscose Rayon",
+                "Fit": "Flared",
+                "colour": "Navy Blue"
+            },
+            "suggested_price": "$1462.58",
+            "generated_listing": "title: Women Navy Blue Printed Viscose Rayon Maxi Maxi, Floral, Flared The model (height 5'8) is wearing a size 28CottonMachine Wash"
+        },
+        "version_b": {
+            "predicted_attributes": {
+                "Neck": "Unknown",
+                "Sleeve Length": "Unknown",
+                "Print or Pattern Type": "Floral",
+                "Type": "Flared",
+                "Hemline": "Flared",
+                "Pattern": "Printed",
+                "Length": "Maxi",
+                "Sleeve Styling": "Unknown",
+                "Ornamentation": "Unknown",
+                "Occasion": "Ethnic",
+                "Fabric": "Viscose Rayon",
+                "Fit": "Flared",
+                "colour": "Navy Blue"
+            },
+            "suggested_price": "$1462.58",
+            "generated_listing": "title: Women Navy Blue Printed Viscose Rayon Maxi Maxi, Floral, Flared The model (height 5'8) is wearing a size 28CottonMachine Wash",
+            "strategic_suggestions": [
+                "Consider a 'High-Low' Hemline. Our model estimates it could improve the rating by ~0.21 points.",
+                "The market may support a higher price for a 'Long Sleeves' Sleeve Length. Estimated price potential: ~$2598.68 (an increase of $458.29).",
+                "The market may support a higher price for a 'Short Sleeves' Sleeve Length. Estimated price potential: ~$4474.69 (an increase of $2334.31).",
+                "The market may support a higher price for a 'Unknown' Fit. Estimated price potential: ~$2289.47 (an increase of $149.08)."
+            ]
+        },
+        "image_tensor_shape": [
+            3,
+            224,
+            224
+        ]
+    },
+    {
+        "item_id": 2,
+        "version_a": {
+            "predicted_attributes": {
+                "Neck": "Unknown",
+                "Sleeve Length": "Unknown",
+                "Print or Pattern Type": "Solid",
+                "Type": "A-Line",
+                "Hemline": "Straight",
+                "Pattern": "Solid",
+                "Length": "Mini",
+                "Sleeve Styling": "Unknown",
+                "Ornamentation": "Unknown",
+                "Occasion": "Casual",
+                "Fabric": "Cotton Blend",
+                "Fit": "Unknown",
+                "colour": "Blue"
+            },
+            "suggested_price": "$1151.15",
+            "generated_listing": "title: Women Navy Blue Solid Skirts | description: Navy blue solid skirt, has an elasticated waistband with slip-on closure, flared hem100% CottonMachine washThe model (height 5'8\") is wearing a size 28"
+        },
+        "version_b": {
+            "predicted_attributes": {
+                "Neck": "Unknown",
+                "Sleeve Length": "Unknown",
+                "Print or Pattern Type": "Solid",
+                "Type": "A-Line",
+                "Hemline": "Straight",
+                "Pattern": "Solid",
+                "Length": "Mini",
+                "Sleeve Styling": "Unknown",
+                "Ornamentation": "Unknown",
+                "Occasion": "Casual",
+                "Fabric": "Cotton Blend",
+                "Fit": "Unknown",
+                "colour": "Blue"
+            },
+            "suggested_price": "$1151.15",
+            "generated_listing": "title: Women Navy Blue Solid Skirts | description: Navy blue solid skirt, has an elasticated waistband with slip-on closure, flared hem100% CottonMachine washThe model (height 5'8\") is wearing a size 28",
+            "strategic_suggestions": [
+                "Consider a 'High-Low' Hemline. Our model estimates it could improve the rating by ~0.19 points.",
+                "The market may support a higher price for a 'High-Low' Hemline. Estimated price potential: ~$2173.75 (an increase of $275.47).",
+                "The market may support a higher price for a 'Olive' colour. Estimated price potential: ~$2047.49 (an increase of $149.20).",
+                "The market may support a higher price for a 'Short Sleeves' Sleeve Length. Estimated price potential: ~$2131.43 (an increase of $233.14).",
+                "The market may support a higher price for a 'Sleeveless' Sleeve Length. Estimated price potential: ~$2293.22 (an increase of $394.93)."
+            ]
+        },
+        "image_tensor_shape": [
+            3,
+            224,
+            224
+        ]
+    },
+    {
+        "item_id": 3,
+        "version_a": {
+            "predicted_attributes": {
+                "Neck": "Shirt Collar",
+                "Sleeve Length": "Three-Quarter Sleeves",
+                "Print or Pattern Type": "Unknown",
+                "Type": "Unknown",
+                "Hemline": "Unknown",
+                "Pattern": "Unknown",
+                "Length": "Unknown",
+                "Sleeve Styling": "Unknown",
+                "Ornamentation": "Unknown",
+                "Occasion": "Casual",
+                "Fabric": "Unknown",
+                "Fit": "Unknown",
+                "colour": "Navy Blue"
+            },
+            "suggested_price": "$2743.66",
+            "generated_listing": "title: Women Navy Blue Printed Shirt Collar Sleeves | description: This co-ords set includes a t-shirt collar, three-quarter sleeves, button closure, straight hemline, polyester liningCottonMachine washThe model (height 5'8) is wearing the size S"
+        },
+        "version_b": {
+            "predicted_attributes": {
+                "Neck": "Shirt Collar",
+                "Sleeve Length": "Three-Quarter Sleeves",
+                "Print or Pattern Type": "Unknown",
+                "Type": "Unknown",
+                "Hemline": "Unknown",
+                "Pattern": "Unknown",
+                "Length": "Unknown",
+                "Sleeve Styling": "Unknown",
+                "Ornamentation": "Unknown",
+                "Occasion": "Casual",
+                "Fabric": "Unknown",
+                "Fit": "Unknown",
+                "colour": "Navy Blue"
+            },
+            "suggested_price": "$2743.66",
+            "generated_listing": "title: Women Navy Blue Printed Shirt Collar Sleeves | description: This co-ords set includes a t-shirt collar, three-quarter sleeves, button closure, straight hemline, polyester liningCottonMachine washThe model (height 5'8) is wearing the size S",
+            "strategic_suggestions": [
+                "Consider a 'Bootcut' Fit. Our model estimates it could improve the rating by ~0.17 points.",
+                "Consider a 'High-Low' Hemline. Our model estimates it could improve the rating by ~0.16 points.",
+                "Consider a 'Sweetheart Neck' Neck. Our model estimates it could improve the rating by ~0.17 points.",
+                "The market may support a higher price for a 'Sweetheart Neck' Neck. Estimated price potential: ~$4280.79 (an increase of $1115.97)."
+            ]
+        },
+        "image_tensor_shape": [
+            3,
+            224,
+            224
+        ]
+    },
+    {
+        "item_id": 4,
+        "version_a": {
+            "predicted_attributes": {
+                "Neck": "Round Neck",
+                "Sleeve Length": "Three-Quarter Sleeves",
+                "Print or Pattern Type": "Geometric",
+                "Type": "Unknown",
+                "Hemline": "Unknown",
+                "Pattern": "Printed",
+                "Length": "Calf Length",
+                "Sleeve Styling": "Regular Sleeves",
+                "Ornamentation": "Unknown",
+                "Occasion": "Festive",
+                "Fabric": "Viscose Rayon",
+                "Fit": "Unknown",
+                "colour": "Black"
+            },
+            "suggested_price": "$3726.88",
+            "generated_listing": "title: Women Black Regular Sleeves | description: Black and white regular sleeves Viscose Rayon, Geometric, Calf Length, Three-Quarter Sleeve, Black, Round Neck, Flared The model (height 5'8) is wearing a size S100% PolyesterMachine Wash"
+        },
+        "version_b": {
+            "predicted_attributes": {
+                "Neck": "Round Neck",
+                "Sleeve Length": "Three-Quarter Sleeves",
+                "Print or Pattern Type": "Geometric",
+                "Type": "Unknown",
+                "Hemline": "Unknown",
+                "Pattern": "Printed",
+                "Length": "Calf Length",
+                "Sleeve Styling": "Regular Sleeves",
+                "Ornamentation": "Unknown",
+                "Occasion": "Festive",
+                "Fabric": "Viscose Rayon",
+                "Fit": "Unknown",
+                "colour": "Black"
+            },
+            "suggested_price": "$3726.88",
+            "generated_listing": "title: Women Black Regular Sleeves | description: Black and white regular sleeves Viscose Rayon, Geometric, Calf Length, Three-Quarter Sleeve, Black, Round Neck, Flared The model (height 5'8) is wearing a size S100% PolyesterMachine Wash",
+            "strategic_suggestions": [
+                "Consider a 'Dipped' Hemline. Our model estimates it could improve the rating by ~0.23 points.",
+                "Consider a 'Relaxed Fit' Fit. Our model estimates it could improve the rating by ~0.21 points.",
+                "The market may support a higher price for a 'Sweetheart Neck' Neck. Estimated price potential: ~$5015.68 (an increase of $1864.12)."
+            ]
+        },
+        "image_tensor_shape": [
+            3,
+            224,
+            224
+        ]
+    },
+    {
+        "item_id": 5,
+        "version_a": {
+            "predicted_attributes": {
+                "Neck": "Round Neck",
+                "Sleeve Length": "Long Sleeves",
+                "Print or Pattern Type": "Typography",
+                "Type": "Pullover",
+                "Hemline": "Straight",
+                "Pattern": "Printed",
+                "Length": "Regular",
+                "Sleeve Styling": "Unknown",
+                "Ornamentation": "Unknown",
+                "Occasion": "Casual",
+                "Fabric": "Cotton",
+                "Fit": "Unknown",
+                "colour": "Green"
+            },
+            "suggested_price": "$1769.41",
+            "generated_listing": "title: Women Teal Green, Straight, Printed Long Sleeves, Regular Pullover, Casual, Round Neck, Cotton Machine WashThe model (height 5'8) is wearing a size S"
+        },
+        "version_b": {
+            "predicted_attributes": {
+                "Neck": "Round Neck",
+                "Sleeve Length": "Long Sleeves",
+                "Print or Pattern Type": "Typography",
+                "Type": "Pullover",
+                "Hemline": "Straight",
+                "Pattern": "Printed",
+                "Length": "Regular",
+                "Sleeve Styling": "Unknown",
+                "Ornamentation": "Unknown",
+                "Occasion": "Casual",
+                "Fabric": "Cotton",
+                "Fit": "Unknown",
+                "colour": "Green"
+            },
+            "suggested_price": "$1769.41",
+            "generated_listing": "title: Women Teal Green, Straight, Printed Long Sleeves, Regular Pullover, Casual, Round Neck, Cotton Machine WashThe model (height 5'8) is wearing a size S",
+            "strategic_suggestions": [
+                "Consider a 'Bootcut' Fit. Our model estimates it could improve the rating by ~0.13 points.",
+                "Consider a 'Hem with Toggle' Hemline. Our model estimates it could improve the rating by ~0.12 points.",
+                "The market may support a higher price for a 'Bootcut' Fit. Estimated price potential: ~$3543.07 (an increase of $1538.59).",
+                "The market may support a higher price for a 'Boyfriend Fit' Fit. Estimated price potential: ~$3543.07 (an increase of $1538.59).",
+                "The market may support a higher price for a 'Mock Collar' Neck. Estimated price potential: ~$2171.29 (an increase of $166.81)."
+            ]
+        },
+        "image_tensor_shape": [
+            3,
+            224,
+            224
+        ]
+    },
+    {
+        "item_id": 6,
+        "version_a": {
+            "predicted_attributes": {
+                "Neck": "Round Neck",
+                "Sleeve Length": "Short Sleeves",
+                "Print or Pattern Type": "Unknown",
+                "Type": "Unknown",
+                "Hemline": "Flared",
+                "Pattern": "Unknown",
+                "Length": "Unknown",
+                "Sleeve Styling": "Regular Sleeves",
+                "Ornamentation": "Sequinned",
+                "Occasion": "Unknown",
+                "Fabric": "Unknown",
+                "Fit": "Unknown",
+                "colour": "White"
+            },
+            "suggested_price": "$13300.07",
+            "generated_listing": "title: Peach-Coloured & White Semi-Stitched Lehenga Regular Sleeves, Has a v-neck, short sleeves, sleeveless, button closure, flared hemPink and white embroidered semi-stitched blouse, has an elasticated waistband, slip-on closurePeach neck, three-quarter sleevesSize worn by the model: SChest: 32\"Height: 5'8\"CottonHand Wash"
+        },
+        "version_b": {
+            "predicted_attributes": {
+                "Neck": "Round Neck",
+                "Sleeve Length": "Short Sleeves",
+                "Print or Pattern Type": "Unknown",
+                "Type": "Unknown",
+                "Hemline": "Flared",
+                "Pattern": "Unknown",
+                "Length": "Unknown",
+                "Sleeve Styling": "Regular Sleeves",
+                "Ornamentation": "Sequinned",
+                "Occasion": "Unknown",
+                "Fabric": "Unknown",
+                "Fit": "Unknown",
+                "colour": "White"
+            },
+            "suggested_price": "$13300.07",
+            "generated_listing": "title: Peach-Coloured & White Semi-Stitched Lehenga Regular Sleeves, Has a v-neck, short sleeves, sleeveless, button closure, flared hemPink and white embroidered semi-stitched blouse, has an elasticated waistband, slip-on closurePeach neck, three-quarter sleevesSize worn by the model: SChest: 32\"Height: 5'8\"CottonHand Wash",
+            "strategic_suggestions": [
+                "Consider a 'Bootcut' Fit. Our model estimates it could improve the rating by ~0.17 points.",
+                "Consider a 'Relaxed Fit' Fit. Our model estimates it could improve the rating by ~0.23 points.",
+                "Consider a 'Sweetheart Neck' Neck. Our model estimates it could improve the rating by ~0.14 points.",
+                "The market may support a higher price for a 'Sweetheart Neck' Neck. Estimated price potential: ~$8077.55 (an increase of $696.66)."
+            ]
+        },
+        "image_tensor_shape": [
+            3,
+            224,
+            224
+        ]
+    },
+    {
+        "item_id": 7,
+        "version_a": {
+            "predicted_attributes": {
+                "Neck": "Round Neck",
+                "Sleeve Length": "Short Sleeves",
+                "Print or Pattern Type": "Unknown",
+                "Type": "Unknown",
+                "Hemline": "Unknown",
+                "Pattern": "Unknown",
+                "Length": "Unknown",
+                "Sleeve Styling": "Unknown",
+                "Ornamentation": "Unknown",
+                "Occasion": "Casual",
+                "Fabric": "Unknown",
+                "Fit": "Unknown",
+                "colour": "Pink"
+            },
+            "suggested_price": "$1775.82",
+            "generated_listing": "title: Women Pink Solid Short Sleeves | description: Pink solid short sleeves, sleeveless, 2 pocketsCottonMachine WashThe model (height 5'8) is wearing a size S"
+        },
+        "version_b": {
+            "predicted_attributes": {
+                "Neck": "Round Neck",
+                "Sleeve Length": "Short Sleeves",
+                "Print or Pattern Type": "Unknown",
+                "Type": "Unknown",
+                "Hemline": "Unknown",
+                "Pattern": "Unknown",
+                "Length": "Unknown",
+                "Sleeve Styling": "Unknown",
+                "Ornamentation": "Unknown",
+                "Occasion": "Casual",
+                "Fabric": "Unknown",
+                "Fit": "Unknown",
+                "colour": "Pink"
+            },
+            "suggested_price": "$1775.82",
+            "generated_listing": "title: Women Pink Solid Short Sleeves | description: Pink solid short sleeves, sleeveless, 2 pocketsCottonMachine WashThe model (height 5'8) is wearing a size S",
+            "strategic_suggestions": [
+                "Consider a 'Bootcut' Fit. Our model estimates it could improve the rating by ~0.17 points.",
+                "Consider a 'Dipped' Hemline. Our model estimates it could improve the rating by ~0.20 points.",
+                "Consider a 'Sweetheart Neck' Neck. Our model estimates it could improve the rating by ~0.11 points.",
+                "The market may support a higher price for a 'Sweetheart Neck' Neck. Estimated price potential: ~$3732.27 (an increase of $829.82).",
+                "The market may support a higher price for a 'Three-Quarter Sleeves' Sleeve Length. Estimated price potential: ~$3235.43 (an increase of $332.97)."
+            ]
+        },
+        "image_tensor_shape": [
+            3,
+            224,
+            224
+        ]
+    },
+    {
+        "item_id": 8,
+        "version_a": {
+            "predicted_attributes": {
+                "Neck": "Unknown",
+                "Sleeve Length": "Long Sleeves",
+                "Print or Pattern Type": "Solid",
+                "Type": "Unknown",
+                "Hemline": "Straight",
+                "Pattern": "Solid",
+                "Length": "Longline",
+                "Sleeve Styling": "Unknown",
+                "Ornamentation": "Unknown",
+                "Occasion": "Casual",
+                "Fabric": "Polyester",
+                "Fit": "Unknown",
+                "colour": "Grey"
+            },
+            "suggested_price": "$2955.56",
+            "generated_listing": "title: Women Olive Green Solid Longline Long Sleeves | description: Olive green solid longline shorts, has a round neck, long sleeves, ribbed hemThe model (height 5'8\") is wearing size S100% PolyesterMachine wash"
+        },
+        "version_b": {
+            "predicted_attributes": {
+                "Neck": "Unknown",
+                "Sleeve Length": "Long Sleeves",
+                "Print or Pattern Type": "Solid",
+                "Type": "Unknown",
+                "Hemline": "Straight",
+                "Pattern": "Solid",
+                "Length": "Longline",
+                "Sleeve Styling": "Unknown",
+                "Ornamentation": "Unknown",
+                "Occasion": "Casual",
+                "Fabric": "Polyester",
+                "Fit": "Unknown",
+                "colour": "Grey"
+            },
+            "suggested_price": "$2955.56",
+            "generated_listing": "title: Women Olive Green Solid Longline Long Sleeves | description: Olive green solid longline shorts, has a round neck, long sleeves, ribbed hemThe model (height 5'8\") is wearing size S100% PolyesterMachine wash",
+            "strategic_suggestions": [
+                "Consider a 'Bootcut' Fit. Our model estimates it could improve the rating by ~0.14 points.",
+                "Consider a 'Dipped' Hemline. Our model estimates it could improve the rating by ~0.22 points.",
+                "Consider a 'High-Low' Hemline. Our model estimates it could improve the rating by ~0.14 points.",
+                "Consider a 'Relaxed Fit' Fit. Our model estimates it could improve the rating by ~0.21 points.",
+                "Consider a 'Sweetheart Neck' Neck. Our model estimates it could improve the rating by ~0.17 points.",
+                "The market may support a higher price for a 'Bootcut' Fit. Estimated price potential: ~$3039.03 (an increase of $1085.26).",
+                "The market may support a higher price for a 'Comfort Fit' Fit. Estimated price potential: ~$2835.72 (an increase of $881.95).",
+                "The market may support a higher price for a 'Cowl Neck' Neck. Estimated price potential: ~$2133.38 (an increase of $179.61).",
+                "The market may support a higher price for a 'Khaki' colour. Estimated price potential: ~$2109.27 (an increase of $155.51).",
+                "The market may support a higher price for a 'Relaxed Fit' Fit. Estimated price potential: ~$2944.70 (an increase of $990.93).",
+                "The market may support a higher price for a 'Sweetheart Neck' Neck. Estimated price potential: ~$3022.52 (an increase of $1068.75)."
+            ]
+        },
+        "image_tensor_shape": [
+            3,
+            224,
+            224
+        ]
+    },
+    {
+        "item_id": 9,
+        "version_a": {
+            "predicted_attributes": {
+                "Neck": "Unknown",
+                "Sleeve Length": "Unknown",
+                "Print or Pattern Type": "Ethnic Motifs",
+                "Type": "Unknown",
+                "Hemline": "Unknown",
+                "Pattern": "Unknown",
+                "Length": "Unknown",
+                "Sleeve Styling": "Unknown",
+                "Ornamentation": "Unknown",
+                "Occasion": "Daily",
+                "Fabric": "Unknown",
+                "Fit": "Unknown",
+                "colour": "Mustard"
+            },
+            "suggested_price": "$2989.19",
+            "generated_listing": "title: Mustard Yellow & White Pure Cotton Unstitched Dress Material | description: Yellow and white woven design unstirched dress materialYellow, white, and printed pleated kurta fabricMustard green, printed bottom fabricDisclaimer: Images are for referral purposes only. The actual product has a v-neck, three-quarter sleeves, straight hemThe model (height 5'8\") is wearing size STop fabric length: 2 metres (approx)Bottom fabric: CottonDry Clean"
+        },
+        "version_b": {
+            "predicted_attributes": {
+                "Neck": "Unknown",
+                "Sleeve Length": "Unknown",
+                "Print or Pattern Type": "Ethnic Motifs",
+                "Type": "Unknown",
+                "Hemline": "Unknown",
+                "Pattern": "Unknown",
+                "Length": "Unknown",
+                "Sleeve Styling": "Unknown",
+                "Ornamentation": "Unknown",
+                "Occasion": "Daily",
+                "Fabric": "Unknown",
+                "Fit": "Unknown",
+                "colour": "Mustard"
+            },
+            "suggested_price": "$2989.19",
+            "generated_listing": "title: Mustard Yellow & White Pure Cotton Unstitched Dress Material | description: Yellow and white woven design unstirched dress materialYellow, white, and printed pleated kurta fabricMustard green, printed bottom fabricDisclaimer: Images are for referral purposes only. The actual product has a v-neck, three-quarter sleeves, straight hemThe model (height 5'8\") is wearing size STop fabric length: 2 metres (approx)Bottom fabric: CottonDry Clean",
+            "strategic_suggestions": [
+                "Consider a 'Bootcut' Fit. Our model estimates it could improve the rating by ~0.17 points.",
+                "Consider a 'Dipped' Hemline. Our model estimates it could improve the rating by ~0.22 points.",
+                "Consider a 'High-Low' Hemline. Our model estimates it could improve the rating by ~0.21 points.",
+                "Consider a 'Relaxed Fit' Fit. Our model estimates it could improve the rating by ~0.23 points.",
+                "Consider a 'Sweetheart Neck' Neck. Our model estimates it could improve the rating by ~0.17 points.",
+                "The market may support a higher price for a 'Sweetheart Neck' Neck. Estimated price potential: ~$3721.69 (an increase of $1019.67).",
+                "The market may support a higher price for a 'Three-Quarter Sleeves' Sleeve Length. Estimated price potential: ~$3045.58 (an increase of $343.55)."
+            ]
+        },
+        "image_tensor_shape": [
+            3,
+            224,
+            224
+        ]
+    },
+    {
+        "item_id": 10,
+        "version_a": {
+            "predicted_attributes": {
+                "Neck": "Unknown",
+                "Sleeve Length": "Unknown",
+                "Print or Pattern Type": "Solid",
+                "Type": "Unknown",
+                "Hemline": "Unknown",
+                "Pattern": "Solid",
+                "Length": "Unknown",
+                "Sleeve Styling": "Unknown",
+                "Ornamentation": "Unknown",
+                "Occasion": "Festive",
+                "Fabric": "Unknown",
+                "Fit": "Unknown",
+                "colour": "Brown"
+            },
+            "suggested_price": "$3660.74",
+            "generated_listing": "title: Brown, Solid Solid Pure Cotton Saree | description: Design Details:Saree: Solid solid solid sareechLength: 5.5 metres plus 0.8 metre (approx.)Hand Wash"
+        },
+        "version_b": {
+            "predicted_attributes": {
+                "Neck": "Unknown",
+                "Sleeve Length": "Unknown",
+                "Print or Pattern Type": "Solid",
+                "Type": "Unknown",
+                "Hemline": "Unknown",
+                "Pattern": "Solid",
+                "Length": "Unknown",
+                "Sleeve Styling": "Unknown",
+                "Ornamentation": "Unknown",
+                "Occasion": "Festive",
+                "Fabric": "Unknown",
+                "Fit": "Unknown",
+                "colour": "Brown"
+            },
+            "suggested_price": "$3660.74",
+            "generated_listing": "title: Brown, Solid Solid Pure Cotton Saree | description: Design Details:Saree: Solid solid solid sareechLength: 5.5 metres plus 0.8 metre (approx.)Hand Wash",
+            "strategic_suggestions": [
+                "Consider a 'Bootcut' Fit. Our model estimates it could improve the rating by ~0.17 points.",
+                "Consider a 'Dipped' Hemline. Our model estimates it could improve the rating by ~0.22 points.",
+                "Consider a 'High-Low' Hemline. Our model estimates it could improve the rating by ~0.21 points.",
+                "Consider a 'Relaxed Fit' Fit. Our model estimates it could improve the rating by ~0.23 points.",
+                "Consider a 'Sweetheart Neck' Neck. Our model estimates it could improve the rating by ~0.17 points.",
+                "The market may support a higher price for a 'Sweetheart Neck' Neck. Estimated price potential: ~$3721.69 (an increase of $1019.67).",
+                "The market may support a higher price for a 'Three-Quarter Sleeves' Sleeve Length. Estimated price potential: ~$3045.58 (an increase of $343.55)."
+            ]
+        },
+        "image_tensor_shape": [
+            3,
+            224,
+            224
+        ]
+    },
+    {
+        "item_id": 11,
+        "version_a": {
+            "predicted_attributes": {
+                "Neck": "Unknown",
+                "Sleeve Length": "Unknown",
+                "Print or Pattern Type": "Ethnic Motifs",
+                "Type": "Unknown",
+                "Hemline": "Unknown",
+                "Pattern": "Woven Design",
+                "Length": "Unknown",
+                "Sleeve Styling": "Unknown",
+                "Ornamentation": "Zari",
+                "Occasion": "Festive",
+                "Fabric": "Unknown",
+                "Fit": "Unknown",
+                "colour": "Yellow"
+            },
+            "suggested_price": "$3454.55",
+            "generated_listing": "title: Yellow Woven Design, Yellow, Zari, Ethnic Motifs, Tie and Dye Blouse The model is wearing a blouse from our stylist's collection, see the image for an update on how the actual blouse piece looks like.Silk BlendDry CleanLength: 5.5 metres plus 0.8 metre blouse length: 1.06 metres (approx.)"
+        },
+        "version_b": {
+            "predicted_attributes": {
+                "Neck": "Unknown",
+                "Sleeve Length": "Unknown",
+                "Print or Pattern Type": "Ethnic Motifs",
+                "Type": "Unknown",
+                "Hemline": "Unknown",
+                "Pattern": "Woven Design",
+                "Length": "Unknown",
+                "Sleeve Styling": "Unknown",
+                "Ornamentation": "Zari",
+                "Occasion": "Festive",
+                "Fabric": "Unknown",
+                "Fit": "Unknown",
+                "colour": "Yellow"
+            },
+            "suggested_price": "$3454.55",
+            "generated_listing": "title: Yellow Woven Design, Yellow, Zari, Ethnic Motifs, Tie and Dye Blouse The model is wearing a blouse from our stylist's collection, see the image for an update on how the actual blouse piece looks like.Silk BlendDry CleanLength: 5.5 metres plus 0.8 metre blouse length: 1.06 metres (approx.)",
+            "strategic_suggestions": [
+                "Consider a 'Bootcut' Fit. Our model estimates it could improve the rating by ~0.17 points.",
+                "Consider a 'Dipped' Hemline. Our model estimates it could improve the rating by ~0.22 points.",
+                "Consider a 'High-Low' Hemline. Our model estimates it could improve the rating by ~0.21 points.",
+                "Consider a 'Relaxed Fit' Fit. Our model estimates it could improve the rating by ~0.23 points.",
+                "Consider a 'Sweetheart Neck' Neck. Our model estimates it could improve the rating by ~0.17 points.",
+                "The market may support a higher price for a 'Sweetheart Neck' Neck. Estimated price potential: ~$3721.69 (an increase of $1019.67).",
+                "The market may support a higher price for a 'Three-Quarter Sleeves' Sleeve Length. Estimated price potential: ~$3045.58 (an increase of $343.55)."
+            ]
+        },
+        "image_tensor_shape": [
+            3,
+            224,
+            224
+        ]
+    },
+    {
+        "item_id": 12,
+        "version_a": {
+            "predicted_attributes": {
+                "Neck": "Hood",
+                "Sleeve Length": "Long Sleeves",
+                "Print or Pattern Type": "Striped",
+                "Type": "Front-Open",
+                "Hemline": "Straight",
+                "Pattern": "Striped",
+                "Length": "Regular",
+                "Sleeve Styling": "Unknown",
+                "Ornamentation": "Unknown",
+                "Occasion": "Casual",
+                "Fabric": "Polyester",
+                "Fit": "Unknown",
+                "colour": "Black"
+            },
+            "suggested_price": "$2093.34",
+            "generated_listing": "title: Women Black Striped Long Sleeves | description: Black striped straight, casual, regular, black, long sleeves, front-open, Hood, polyester liningMaterial: Polyester Machine WashThe model (height 5'8) is wearing a size S"
+        },
+        "version_b": {
+            "predicted_attributes": {
+                "Neck": "Hood",
+                "Sleeve Length": "Long Sleeves",
+                "Print or Pattern Type": "Striped",
+                "Type": "Front-Open",
+                "Hemline": "Straight",
+                "Pattern": "Striped",
+                "Length": "Regular",
+                "Sleeve Styling": "Unknown",
+                "Ornamentation": "Unknown",
+                "Occasion": "Casual",
+                "Fabric": "Polyester",
+                "Fit": "Unknown",
+                "colour": "Black"
+            },
+            "suggested_price": "$2093.34",
+            "generated_listing": "title: Women Black Striped Long Sleeves | description: Black striped straight, casual, regular, black, long sleeves, front-open, Hood, polyester liningMaterial: Polyester Machine WashThe model (height 5'8) is wearing a size S",
+            "strategic_suggestions": [
+                "Consider a 'Olive' colour. Our model estimates it could improve the rating by ~0.23 points.",
+                "The market may support a higher price for a 'Bootcut' Fit. Estimated price potential: ~$3087.02 (an increase of $1011.83).",
+                "The market may support a higher price for a 'Boyfriend Fit' Fit. Estimated price potential: ~$3087.02 (an increase of $1011.83)."
+            ]
+        },
+        "image_tensor_shape": [
+            3,
+            224,
+            224
+        ]
+    },
+    {
+        "item_id": 13,
+        "version_a": {
+            "predicted_attributes": {
+                "Neck": "Unknown",
+                "Sleeve Length": "Unknown",
+                "Print or Pattern Type": "Striped",
+                "Type": "Unknown",
+                "Hemline": "Unknown",
+                "Pattern": "Striped",
+                "Length": "Unknown",
+                "Sleeve Styling": "Unknown",
+                "Ornamentation": "Unknown",
+                "Occasion": "Daily",
+                "Fabric": "Pure Cotton",
+                "Fit": "Unknown",
+                "colour": "White"
+            },
+            "suggested_price": "$1259.73",
+            "generated_listing": "title: White Striped Pure Cotton Dupatta | description: Black striped dupattata, has a printed borderLength: 2.25 mWidth : 0.9 cmMaterial: Cotton Hand Wash"
+        },
+        "version_b": {
+            "predicted_attributes": {
+                "Neck": "Unknown",
+                "Sleeve Length": "Unknown",
+                "Print or Pattern Type": "Striped",
+                "Type": "Unknown",
+                "Hemline": "Unknown",
+                "Pattern": "Striped",
+                "Length": "Unknown",
+                "Sleeve Styling": "Unknown",
+                "Ornamentation": "Unknown",
+                "Occasion": "Daily",
+                "Fabric": "Pure Cotton",
+                "Fit": "Unknown",
+                "colour": "White"
+            },
+            "suggested_price": "$1259.73",
+            "generated_listing": "title: White Striped Pure Cotton Dupatta | description: Black striped dupattata, has a printed borderLength: 2.25 mWidth : 0.9 cmMaterial: Cotton Hand Wash",
+            "strategic_suggestions": [
+                "Consider a 'Bootcut' Fit. Our model estimates it could improve the rating by ~0.17 points.",
+                "Consider a 'High-Low' Hemline. Our model estimates it could improve the rating by ~0.21 points.",
+                "Consider a 'Relaxed Fit' Fit. Our model estimates it could improve the rating by ~0.23 points.",
+                "Consider a 'Sweetheart Neck' Neck. Our model estimates it could improve the rating by ~0.17 points.",
+                "The market may support a higher price for a 'Cowl Neck' Neck. Estimated price potential: ~$2407.66 (an increase of $232.76).",
+                "The market may support a higher price for a 'Grey Melange' colour. Estimated price potential: ~$2476.04 (an increase of $301.14).",
+                "The market may support a higher price for a 'Khaki' colour. Estimated price potential: ~$2766.05 (an increase of $591.16).",
+                "The market may support a higher price for a 'Nude' colour. Estimated price potential: ~$2374.58 (an increase of $199.69).",
+                "The market may support a higher price for a 'Short Sleeves' Sleeve Length. Estimated price potential: ~$2297.38 (an increase of $122.48).",
+                "The market may support a higher price for a 'Sweetheart Neck' Neck. Estimated price potential: ~$3296.80 (an increase of $1121.91).",
+                "The market may support a higher price for a 'Three-Quarter Sleeves' Sleeve Length. Estimated price potential: ~$2656.61 (an increase of $481.72)."
+            ]
+        },
+        "image_tensor_shape": [
+            3,
+            224,
+            224
+        ]
+    },
+    {
+        "item_id": 14,
+        "version_a": {
+            "predicted_attributes": {
+                "Neck": "Unknown",
+                "Sleeve Length": "Unknown",
+                "Print or Pattern Type": "Unknown",
+                "Type": "Unknown",
+                "Hemline": "Unknown",
+                "Pattern": "Unknown",
+                "Length": "Regular",
+                "Sleeve Styling": "Unknown",
+                "Ornamentation": "Unknown",
+                "Occasion": "Casual",
+                "Fabric": "Cotton",
+                "Fit": "Flared",
+                "colour": "Blue"
+            },
+            "suggested_price": "$3100.64",
+            "generated_listing": "title: Women Blue Light Fade Stretchable Jeans | description: Medium shade, light fade blue jeans Regular fit, mid-rise Flared, heavy fade, has a button and zip closure, and waistband with belt loopsMaterial: Cotton Machine WashLength: regularMachine WashFit: Regular FitStretchableSize worn by the model: 28Waist: 26\"Hips: 36\"Height: 5'8\""
+        },
+        "version_b": {
+            "predicted_attributes": {
+                "Neck": "Unknown",
+                "Sleeve Length": "Unknown",
+                "Print or Pattern Type": "Unknown",
+                "Type": "Unknown",
+                "Hemline": "Unknown",
+                "Pattern": "Unknown",
+                "Length": "Regular",
+                "Sleeve Styling": "Unknown",
+                "Ornamentation": "Unknown",
+                "Occasion": "Casual",
+                "Fabric": "Cotton",
+                "Fit": "Flared",
+                "colour": "Blue"
+            },
+            "suggested_price": "$3100.64",
+            "generated_listing": "title: Women Blue Light Fade Stretchable Jeans | description: Medium shade, light fade blue jeans Regular fit, mid-rise Flared, heavy fade, has a button and zip closure, and waistband with belt loopsMaterial: Cotton Machine WashLength: regularMachine WashFit: Regular FitStretchableSize worn by the model: 28Waist: 26\"Hips: 36\"Height: 5'8\"",
+            "strategic_suggestions": [
+                "Consider a 'Bootcut' Fit. Our model estimates it could improve the rating by ~0.12 points.",
+                "Consider a 'Dipped' Hemline. Our model estimates it could improve the rating by ~0.22 points.",
+                "Consider a 'Grey Melange' colour. Our model estimates it could improve the rating by ~0.13 points.",
+                "Consider a 'High-Low' Hemline. Our model estimates it could improve the rating by ~0.21 points.",
+                "Consider a 'Khaki' colour. Our model estimates it could improve the rating by ~0.20 points.",
+                "Consider a 'Nude' colour. Our model estimates it could improve the rating by ~0.11 points.",
+                "Consider a 'Relaxed Fit' Fit. Our model estimates it could improve the rating by ~0.25 points.",
+                "Consider a 'Sweetheart Neck' Neck. Our model estimates it could improve the rating by ~0.17 points.",
+                "The market may support a higher price for a 'Sweetheart Neck' Neck. Estimated price potential: ~$2399.30 (an increase of $216.52).",
+                "The market may support a higher price for a 'Three-Quarter Sleeves' Sleeve Length. Estimated price potential: ~$2526.33 (an increase of $343.55)."
+            ]
+        },
+        "image_tensor_shape": [
+            3,
+            224,
+            224
+        ]
+    },
+    {
+        "item_id": 15,
+        "version_a": {
+            "predicted_attributes": {
+                "Neck": "Mandarin Collar",
+                "Sleeve Length": "Three-Quarter Sleeves",
+                "Print or Pattern Type": "Solid",
+                "Type": "Unknown",
+                "Hemline": "Flared",
+                "Pattern": "Solid",
+                "Length": "Calf Length",
+                "Sleeve Styling": "Regular Sleeves",
+                "Ornamentation": "Unknown",
+                "Occasion": "Daily",
+                "Fabric": "Viscose Rayon",
+                "Fit": "Unknown",
+                "colour": "Yellow"
+            },
+            "suggested_price": "$1936.53",
+            "generated_listing": "title: Women Yellow Solid Regular Sleeves | description: Yellow solid mid-rise regular sleeves, flared hem, side slitsCottonMachine WashThe model (height 5'8) is wearing a size S"
+        },
+        "version_b": {
+            "predicted_attributes": {
+                "Neck": "Mandarin Collar",
+                "Sleeve Length": "Three-Quarter Sleeves",
+                "Print or Pattern Type": "Solid",
+                "Type": "Unknown",
+                "Hemline": "Flared",
+                "Pattern": "Solid",
+                "Length": "Calf Length",
+                "Sleeve Styling": "Regular Sleeves",
+                "Ornamentation": "Unknown",
+                "Occasion": "Daily",
+                "Fabric": "Viscose Rayon",
+                "Fit": "Unknown",
+                "colour": "Yellow"
+            },
+            "suggested_price": "$1936.53",
+            "generated_listing": "title: Women Yellow Solid Regular Sleeves | description: Yellow solid mid-rise regular sleeves, flared hem, side slitsCottonMachine WashThe model (height 5'8) is wearing a size S",
+            "strategic_suggestions": [
+                "Consider a 'Bootcut' Fit. Our model estimates it could improve the rating by ~0.17 points.",
+                "Consider a 'Dipped' Hemline. Our model estimates it could improve the rating by ~0.21 points.",
+                "Consider a 'High-Low' Hemline. Our model estimates it could improve the rating by ~0.14 points.",
+                "Consider a 'Relaxed Fit' Fit. Our model estimates it could improve the rating by ~0.22 points.",
+                "Consider a 'Sweetheart Neck' Neck. Our model estimates it could improve the rating by ~0.13 points.",
+                "The market may support a higher price for a 'Cowl Neck' Neck. Estimated price potential: ~$3706.71 (an increase of $661.02).",
+                "The market may support a higher price for a 'Off-Shoulder' Neck. Estimated price potential: ~$3476.33 (an increase of $430.64).",
+                "The market may support a higher price for a 'Sweetheart Neck' Neck. Estimated price potential: ~$4595.85 (an increase of $1550.16)."
+            ]
+        },
+        "image_tensor_shape": [
+            3,
+            224,
+            224
+        ]
+    },
+    {
+        "item_id": 16,
+        "version_a": {
+            "predicted_attributes": {
+                "Neck": "Round Neck",
+                "Sleeve Length": "Three-Quarter Sleeves",
+                "Print or Pattern Type": "Unknown",
+                "Type": "Culotte Jumpsuit",
+                "Hemline": "Unknown",
+                "Pattern": "Solid",
+                "Length": "Unknown",
+                "Sleeve Styling": "Unknown",
+                "Ornamentation": "Unknown",
+                "Occasion": "Casual",
+                "Fabric": "Cotton",
+                "Fit": "Unknown",
+                "colour": "Maroon"
+            },
+            "suggested_price": "$2289.96",
+            "generated_listing": "title: Women Maroon Solid Three-Quarter Sleeves | description: Maroke solid three-quarterer sleeves, cuffed hemThe model (height 5'8) is wearing a size S100% PolyesterMachine wash"
+        },
+        "version_b": {
+            "predicted_attributes": {
+                "Neck": "Round Neck",
+                "Sleeve Length": "Three-Quarter Sleeves",
+                "Print or Pattern Type": "Unknown",
+                "Type": "Culotte Jumpsuit",
+                "Hemline": "Unknown",
+                "Pattern": "Solid",
+                "Length": "Unknown",
+                "Sleeve Styling": "Unknown",
+                "Ornamentation": "Unknown",
+                "Occasion": "Casual",
+                "Fabric": "Cotton",
+                "Fit": "Unknown",
+                "colour": "Maroon"
+            },
+            "suggested_price": "$2289.96",
+            "generated_listing": "title: Women Maroon Solid Three-Quarter Sleeves | description: Maroke solid three-quarterer sleeves, cuffed hemThe model (height 5'8) is wearing a size S100% PolyesterMachine wash",
+            "strategic_suggestions": [
+                "Not enough market data to generate reliable suggestions for 'Culotte Jumpsuit'."
+            ]
+        },
+        "image_tensor_shape": [
+            3,
+            224,
+            224
+        ]
+    },
+    {
+        "item_id": 17,
+        "version_a": {
+            "predicted_attributes": {
+                "Neck": "Mandarin Collar",
+                "Sleeve Length": "Three-Quarter Sleeves",
+                "Print or Pattern Type": "Floral",
+                "Type": "A-Line",
+                "Hemline": "Unknown",
+                "Pattern": "Printed",
+                "Length": "Regular",
+                "Sleeve Styling": "Regular Sleeves",
+                "Ornamentation": "Unknown",
+                "Occasion": "Ethnic",
+                "Fabric": "Pure Cotton",
+                "Fit": "Unknown",
+                "colour": "Blue"
+            },
+            "suggested_price": "$1495.71",
+            "generated_listing": "title: Women Blue & White Floral Print Pure Cotton Regular Sleeves | description: Blue and white regular sleevesV-neck, three-quarter sleevesWoven cottonMachine washThe model (height 5'8) is wearing a size S"
+        },
+        "version_b": {
+            "predicted_attributes": {
+                "Neck": "Mandarin Collar",
+                "Sleeve Length": "Three-Quarter Sleeves",
+                "Print or Pattern Type": "Floral",
+                "Type": "A-Line",
+                "Hemline": "Unknown",
+                "Pattern": "Printed",
+                "Length": "Regular",
+                "Sleeve Styling": "Regular Sleeves",
+                "Ornamentation": "Unknown",
+                "Occasion": "Ethnic",
+                "Fabric": "Pure Cotton",
+                "Fit": "Unknown",
+                "colour": "Blue"
+            },
+            "suggested_price": "$1495.71",
+            "generated_listing": "title: Women Blue & White Floral Print Pure Cotton Regular Sleeves | description: Blue and white regular sleevesV-neck, three-quarter sleevesWoven cottonMachine washThe model (height 5'8) is wearing a size S",
+            "strategic_suggestions": [
+                "Consider a 'High-Low' Hemline. Our model estimates it could improve the rating by ~0.18 points.",
+                "The market may support a higher price for a 'Boat Neck' Neck. Estimated price potential: ~$1861.35 (an increase of $449.89).",
+                "The market may support a higher price for a 'Flared' Hemline. Estimated price potential: ~$1520.78 (an increase of $109.32).",
+                "The market may support a higher price for a 'High-Low' Hemline. Estimated price potential: ~$1571.15 (an increase of $159.69).",
+                "The market may support a higher price for a 'Olive' colour. Estimated price potential: ~$1560.66 (an increase of $149.20).",
+                "The market may support a higher price for a 'Shirt Collar' Neck. Estimated price potential: ~$1743.12 (an increase of $331.66).",
+                "The market may support a higher price for a 'Shoulder Straps' Neck. Estimated price potential: ~$1793.30 (an increase of $381.84).",
+                "The market may support a higher price for a 'Unknown' Sleeve Length. Estimated price potential: ~$1584.04 (an increase of $172.58)."
+            ]
+        },
+        "image_tensor_shape": [
+            3,
+            224,
+            224
+        ]
+    },
+    {
+        "item_id": 18,
+        "version_a": {
+            "predicted_attributes": {
+                "Neck": "Shoulder Straps",
+                "Sleeve Length": "Sleeveless",
+                "Print or Pattern Type": "Unknown",
+                "Type": "Basic Jumpsuit",
+                "Hemline": "Unknown",
+                "Pattern": "Solid",
+                "Length": "Unknown",
+                "Sleeve Styling": "Unknown",
+                "Ornamentation": "Unknown",
+                "Occasion": "Casual",
+                "Fabric": "Polyester",
+                "Fit": "Unknown",
+                "colour": "Black"
+            },
+            "suggested_price": "$1830.96",
+            "generated_listing": "title: Women Black Solid Shoulder Straps | description: Black solid basic jumpsuit, has a shoulder straps, sleeveless, pocketsThe model (height 5'8'') is wearing size S100% PolyesterMachine wash"
+        },
+        "version_b": {
+            "predicted_attributes": {
+                "Neck": "Shoulder Straps",
+                "Sleeve Length": "Sleeveless",
+                "Print or Pattern Type": "Unknown",
+                "Type": "Basic Jumpsuit",
+                "Hemline": "Unknown",
+                "Pattern": "Solid",
+                "Length": "Unknown",
+                "Sleeve Styling": "Unknown",
+                "Ornamentation": "Unknown",
+                "Occasion": "Casual",
+                "Fabric": "Polyester",
+                "Fit": "Unknown",
+                "colour": "Black"
+            },
+            "suggested_price": "$1830.96",
+            "generated_listing": "title: Women Black Solid Shoulder Straps | description: Black solid basic jumpsuit, has a shoulder straps, sleeveless, pocketsThe model (height 5'8'') is wearing size S100% PolyesterMachine wash",
+            "strategic_suggestions": [
+                "The market may support a higher price for a 'Square Neck' Neck. Estimated price potential: ~$2922.82 (an increase of $482.08).",
+                "The market may support a higher price for a 'Sweetheart Neck' Neck. Estimated price potential: ~$2681.71 (an increase of $240.97).",
+                "The market may support a higher price for a 'Three-Quarter Sleeves' Sleeve Length. Estimated price potential: ~$2563.00 (an increase of $122.26)."
+            ]
+        },
+        "image_tensor_shape": [
+            3,
+            224,
+            224
+        ]
+    },
+    {
+        "item_id": 19,
+        "version_a": {
+            "predicted_attributes": {
+                "Neck": "Round Neck",
+                "Sleeve Length": "Long Sleeves",
+                "Print or Pattern Type": "Solid",
+                "Type": "Regular",
+                "Hemline": "Unknown",
+                "Pattern": "Solid",
+                "Length": "Regular",
+                "Sleeve Styling": "Bell Sleeves",
+                "Ornamentation": "Unknown",
+                "Occasion": "Casual",
+                "Fabric": "Polyester",
+                "Fit": "Unknown",
+                "colour": "Lavender"
+            },
+            "suggested_price": "$1808.57",
+            "generated_listing": "title: Women Pink Solid Long Sleeves | description: Pink solid, regular, lavender, long sleeves, casual, round neck, bell sleeves with button closures, polyesterMachine washThe model (height 5'8) is wearing a size S"
+        },
+        "version_b": {
+            "predicted_attributes": {
+                "Neck": "Round Neck",
+                "Sleeve Length": "Long Sleeves",
+                "Print or Pattern Type": "Solid",
+                "Type": "Regular",
+                "Hemline": "Unknown",
+                "Pattern": "Solid",
+                "Length": "Regular",
+                "Sleeve Styling": "Bell Sleeves",
+                "Ornamentation": "Unknown",
+                "Occasion": "Casual",
+                "Fabric": "Polyester",
+                "Fit": "Unknown",
+                "colour": "Lavender"
+            },
+            "suggested_price": "$1808.57",
+            "generated_listing": "title: Women Pink Solid Long Sleeves | description: Pink solid, regular, lavender, long sleeves, casual, round neck, bell sleeves with button closures, polyesterMachine washThe model (height 5'8) is wearing a size S",
+            "strategic_suggestions": [
+                "Consider a 'Bootcut' Fit. Our model estimates it could improve the rating by ~0.11 points.",
+                "The market may support a higher price for a 'Bootcut' Fit. Estimated price potential: ~$1916.96 (an increase of $249.75).",
+                "The market may support a higher price for a 'Boyfriend Fit' Fit. Estimated price potential: ~$1916.96 (an increase of $249.75).",
+                "The market may support a higher price for a 'Orange' colour. Estimated price potential: ~$2129.33 (an increase of $462.12)."
+            ]
+        },
+        "image_tensor_shape": [
+            3,
+            224,
+            224
+        ]
+    },
+    {
+        "item_id": 20,
+        "version_a": {
+            "predicted_attributes": {
+                "Neck": "Round Neck",
+                "Sleeve Length": "Long Sleeves",
+                "Print or Pattern Type": "Solid",
+                "Type": "Pullover",
+                "Hemline": "Straight",
+                "Pattern": "Solid",
+                "Length": "Regular",
+                "Sleeve Styling": "Unknown",
+                "Ornamentation": "Unknown",
+                "Occasion": "Casual",
+                "Fabric": "Cotton",
+                "Fit": "Unknown",
+                "colour": "Beige"
+            },
+            "suggested_price": "$2301.09",
+            "generated_listing": "title: Women Beige, Round Neck, Straight, Solid Long Sleeves, Regular Pullover, Beads &amp; Sweatshirt | description: The model (height 5'8) is wearing a size S100% CottonMachine wash"
+        },
+        "version_b": {
+            "predicted_attributes": {
+                "Neck": "Round Neck",
+                "Sleeve Length": "Long Sleeves",
+                "Print or Pattern Type": "Solid",
+                "Type": "Pullover",
+                "Hemline": "Straight",
+                "Pattern": "Solid",
+                "Length": "Regular",
+                "Sleeve Styling": "Unknown",
+                "Ornamentation": "Unknown",
+                "Occasion": "Casual",
+                "Fabric": "Cotton",
+                "Fit": "Unknown",
+                "colour": "Beige"
+            },
+            "suggested_price": "$2301.09",
+            "generated_listing": "title: Women Beige, Round Neck, Straight, Solid Long Sleeves, Regular Pullover, Beads &amp; Sweatshirt | description: The model (height 5'8) is wearing a size S100% CottonMachine wash",
+            "strategic_suggestions": [
+                "Consider a 'Bootcut' Fit. Our model estimates it could improve the rating by ~0.15 points.",
+                "Consider a 'Hem with Toggle' Hemline. Our model estimates it could improve the rating by ~0.12 points.",
+                "Consider a 'Mauve' colour. Our model estimates it could improve the rating by ~0.11 points.",
+                "The market may support a higher price for a 'Bootcut' Fit. Estimated price potential: ~$3022.72 (an increase of $1048.34).",
+                "The market may support a higher price for a 'Boyfriend Fit' Fit. Estimated price potential: ~$3022.72 (an increase of $1048.34).",
+                "The market may support a higher price for a 'Mock Collar' Neck. Estimated price potential: ~$2141.20 (an increase of $166.81)."
+            ]
+        },
+        "image_tensor_shape": [
+            3,
+            224,
+            224
+        ]
+    },
+    {
+        "item_id": 21,
+        "version_a": {
+            "predicted_attributes": {
+                "Neck": "Unknown",
+                "Sleeve Length": "Short Sleeves",
+                "Print or Pattern Type": "Unknown",
+                "Type": "Unknown",
+                "Hemline": "Flared",
+                "Pattern": "Unknown",
+                "Length": "Unknown",
+                "Sleeve Styling": "Regular Sleeves",
+                "Ornamentation": "Unknown",
+                "Occasion": "Unknown",
+                "Fabric": "Unknown",
+                "Fit": "Unknown",
+                "colour": "Blue"
+            },
+            "suggested_price": "$3612.27",
+            "generated_listing": "title: Blue & Green Floral Semi-Stitched Lehenga, Three-Piece Flared Short Sleeves With Dupatta | description: Green and green floral print leheriya, has long sleeves, button closureBlue and yellow floral printed semi-stitched lehender, flared hemBlue, green and pink floral prints print dupattic blouse, short sleevesSleeveless, woven designBlouse fabric: CottonLe Hength: 2.25 m,Le"
+        },
+        "version_b": {
+            "predicted_attributes": {
+                "Neck": "Unknown",
+                "Sleeve Length": "Short Sleeves",
+                "Print or Pattern Type": "Unknown",
+                "Type": "Unknown",
+                "Hemline": "Flared",
+                "Pattern": "Unknown",
+                "Length": "Unknown",
+                "Sleeve Styling": "Regular Sleeves",
+                "Ornamentation": "Unknown",
+                "Occasion": "Unknown",
+                "Fabric": "Unknown",
+                "Fit": "Unknown",
+                "colour": "Blue"
+            },
+            "suggested_price": "$3612.27",
+            "generated_listing": "title: Blue & Green Floral Semi-Stitched Lehenga, Three-Piece Flared Short Sleeves With Dupatta | description: Green and green floral print leheriya, has long sleeves, button closureBlue and yellow floral printed semi-stitched lehender, flared hemBlue, green and pink floral prints print dupattic blouse, short sleevesSleeveless, woven designBlouse fabric: CottonLe Hength: 2.25 m,Le",
+            "strategic_suggestions": [
+                "Consider a 'Dipped' Hemline. Our model estimates it could improve the rating by ~0.21 points.",
+                "Consider a 'High-Low' Hemline. Our model estimates it could improve the rating by ~0.19 points.",
+                "Consider a 'Relaxed Fit' Fit. Our model estimates it could improve the rating by ~0.23 points."
+            ]
+        },
+        "image_tensor_shape": [
+            3,
+            224,
+            224
+        ]
+    },
+    {
+        "item_id": 22,
+        "version_a": {
+            "predicted_attributes": {
+                "Neck": "Round Neck",
+                "Sleeve Length": "Long Sleeves",
+                "Print or Pattern Type": "Unknown",
+                "Type": "Unknown",
+                "Hemline": "Unknown",
+                "Pattern": "Unknown",
+                "Length": "Unknown",
+                "Sleeve Styling": "Unknown",
+                "Ornamentation": "Unknown",
+                "Occasion": "Casual",
+                "Fabric": "Unknown",
+                "Fit": "Unknown",
+                "colour": "Lavender"
+            },
+            "suggested_price": "$2511.59",
+            "generated_listing": "title: Women Lavender High-Rise Long Sleeves | description: This co-ords set features a round neck, long sleeves, ribbed hemThe model (height 5'8) is wearing the size SMaterial: Cotton Machine Wash"
+        },
+        "version_b": {
+            "predicted_attributes": {
+                "Neck": "Round Neck",
+                "Sleeve Length": "Long Sleeves",
+                "Print or Pattern Type": "Unknown",
+                "Type": "Unknown",
+                "Hemline": "Unknown",
+                "Pattern": "Unknown",
+                "Length": "Unknown",
+                "Sleeve Styling": "Unknown",
+                "Ornamentation": "Unknown",
+                "Occasion": "Casual",
+                "Fabric": "Unknown",
+                "Fit": "Unknown",
+                "colour": "Lavender"
+            },
+            "suggested_price": "$2511.59",
+            "generated_listing": "title: Women Lavender High-Rise Long Sleeves | description: This co-ords set features a round neck, long sleeves, ribbed hemThe model (height 5'8) is wearing the size SMaterial: Cotton Machine Wash",
+            "strategic_suggestions": [
+                "Consider a 'Bootcut' Fit. Our model estimates it could improve the rating by ~0.11 points.",
+                "Consider a 'Dipped' Hemline. Our model estimates it could improve the rating by ~0.22 points.",
+                "Consider a 'Relaxed Fit' Fit. Our model estimates it could improve the rating by ~0.14 points.",
+                "Consider a 'Sweetheart Neck' Neck. Our model estimates it could improve the rating by ~0.14 points.",
+                "The market may support a higher price for a 'Bootcut' Fit. Estimated price potential: ~$3730.19 (an increase of $607.16).",
+                "The market may support a higher price for a 'Comfort Fit' Fit. Estimated price potential: ~$3621.22 (an increase of $498.18).",
+                "The market may support a higher price for a 'Relaxed Fit' Fit. Estimated price potential: ~$3730.19 (an increase of $607.16).",
+                "The market may support a higher price for a 'Sweetheart Neck' Neck. Estimated price potential: ~$3979.73 (an increase of $856.70)."
+            ]
+        },
+        "image_tensor_shape": [
+            3,
+            224,
+            224
+        ]
+    },
+    {
+        "item_id": 23,
+        "version_a": {
+            "predicted_attributes": {
+                "Neck": "Unknown",
+                "Sleeve Length": "Long Sleeves",
+                "Print or Pattern Type": "Solid",
+                "Type": "Tailored Jacket",
+                "Hemline": "Straight",
+                "Pattern": "Solid",
+                "Length": "Regular",
+                "Sleeve Styling": "Unknown",
+                "Ornamentation": "Unknown",
+                "Occasion": "Casual",
+                "Fabric": "Cotton",
+                "Fit": "Unknown",
+                "colour": "Olive"
+            },
+            "suggested_price": "$3452.53",
+            "generated_listing": "title: Women Olive Olive Solid Long Sleeves Jacket | description: Olive solid jacket, has a spread collar, 2 pockets, button closure, long sleeves, straight, solid, polyester liningThe model (height 5'8\") is wearing size SMaterial: Cotton Machine Wash"
+        },
+        "version_b": {
+            "predicted_attributes": {
+                "Neck": "Unknown",
+                "Sleeve Length": "Long Sleeves",
+                "Print or Pattern Type": "Solid",
+                "Type": "Tailored Jacket",
+                "Hemline": "Straight",
+                "Pattern": "Solid",
+                "Length": "Regular",
+                "Sleeve Styling": "Unknown",
+                "Ornamentation": "Unknown",
+                "Occasion": "Casual",
+                "Fabric": "Cotton",
+                "Fit": "Unknown",
+                "colour": "Olive"
+            },
+            "suggested_price": "$3452.53",
+            "generated_listing": "title: Women Olive Olive Solid Long Sleeves Jacket | description: Olive solid jacket, has a spread collar, 2 pockets, button closure, long sleeves, straight, solid, polyester liningThe model (height 5'8\") is wearing size SMaterial: Cotton Machine Wash",
+            "strategic_suggestions": [
+                "Consider a 'Bootcut' Fit. Our model estimates it could improve the rating by ~0.14 points.",
+                "Consider a 'Hem with Toggle' Hemline. Our model estimates it could improve the rating by ~0.14 points.",
+                "Consider a 'Sleeveless' Sleeve Length. Our model estimates it could improve the rating by ~0.13 points.",
+                "The market may support a higher price for a 'Bootcut' Fit. Estimated price potential: ~$4047.78 (an increase of $809.50).",
+                "The market may support a higher price for a 'Boyfriend Fit' Fit. Estimated price potential: ~$4047.78 (an increase of $809.50)."
+            ]
+        },
+        "image_tensor_shape": [
+            3,
+            224,
+            224
+        ]
+    },
+    {
+        "item_id": 24,
+        "version_a": {
+            "predicted_attributes": {
+                "Neck": "Unknown",
+                "Sleeve Length": "Unknown",
+                "Print or Pattern Type": "Solid",
+                "Type": "Parallel Trousers",
+                "Hemline": "Unknown",
+                "Pattern": "Solid",
+                "Length": "Regular",
+                "Sleeve Styling": "Unknown",
+                "Ornamentation": "Unknown",
+                "Occasion": "Casual",
+                "Fabric": "Polyester",
+                "Fit": "Flared",
+                "colour": "Off White"
+            },
+            "suggested_price": "$3665.02",
+            "generated_listing": "title: Women Off White High-Rise Trousers | description: Off white, solid solid high-rise trousers, slip-on closureMaterial: Polyester Machine WashLength: regularFlat-front, with no pleats designFeature: plainFit: Regular FitThe model (height 5'8) is wearing a size 28"
+        },
+        "version_b": {
+            "predicted_attributes": {
+                "Neck": "Unknown",
+                "Sleeve Length": "Unknown",
+                "Print or Pattern Type": "Solid",
+                "Type": "Parallel Trousers",
+                "Hemline": "Unknown",
+                "Pattern": "Solid",
+                "Length": "Regular",
+                "Sleeve Styling": "Unknown",
+                "Ornamentation": "Unknown",
+                "Occasion": "Casual",
+                "Fabric": "Polyester",
+                "Fit": "Flared",
+                "colour": "Off White"
+            },
+            "suggested_price": "$3665.02",
+            "generated_listing": "title: Women Off White High-Rise Trousers | description: Off white, solid solid high-rise trousers, slip-on closureMaterial: Polyester Machine WashLength: regularFlat-front, with no pleats designFeature: plainFit: Regular FitThe model (height 5'8) is wearing a size 28",
+            "strategic_suggestions": [
+                "The market may support a higher price for a 'Long Sleeves' Sleeve Length. Estimated price potential: ~$3288.64 (an increase of $1473.09).",
+                "The market may support a higher price for a 'Short Sleeves' Sleeve Length. Estimated price potential: ~$2022.82 (an increase of $207.27).",
+                "The market may support a higher price for a 'Straight Fit' Fit. Estimated price potential: ~$2060.85 (an increase of $245.30)."
+            ]
+        },
+        "image_tensor_shape": [
+            3,
+            224,
+            224
+        ]
+    },
+    {
+        "item_id": 25,
+        "version_a": {
+            "predicted_attributes": {
+                "Neck": "Unknown",
+                "Sleeve Length": "Unknown",
+                "Print or Pattern Type": "Ethnic Motifs",
+                "Type": "Regular Trousers",
+                "Hemline": "Unknown",
+                "Pattern": "Printed",
+                "Length": "Cropped",
+                "Sleeve Styling": "Unknown",
+                "Ornamentation": "Unknown",
+                "Occasion": "Casual",
+                "Fabric": "Cotton",
+                "Fit": "Regular Fit",
+                "colour": "Peach"
+            },
+            "suggested_price": "$1462.89",
+            "generated_listing": "title: Women Peach, Regular Fit Cropped Regular Trousers, Casual, Ethnic Motifs Printed Cotton Cotton The model (height 5'8) is wearing a size 28Material: Cotton Machine Wash"
+        },
+        "version_b": {
+            "predicted_attributes": {
+                "Neck": "Unknown",
+                "Sleeve Length": "Unknown",
+                "Print or Pattern Type": "Ethnic Motifs",
+                "Type": "Regular Trousers",
+                "Hemline": "Unknown",
+                "Pattern": "Printed",
+                "Length": "Cropped",
+                "Sleeve Styling": "Unknown",
+                "Ornamentation": "Unknown",
+                "Occasion": "Casual",
+                "Fabric": "Cotton",
+                "Fit": "Regular Fit",
+                "colour": "Peach"
+            },
+            "suggested_price": "$1462.89",
+            "generated_listing": "title: Women Peach, Regular Fit Cropped Regular Trousers, Casual, Ethnic Motifs Printed Cotton Cotton The model (height 5'8) is wearing a size 28Material: Cotton Machine Wash",
+            "strategic_suggestions": [
+                "Consider a 'Multi' colour. Our model estimates it could improve the rating by ~0.43 points.",
+                "Consider a 'Rust' colour. Our model estimates it could improve the rating by ~0.11 points.",
+                "The market may support a higher price for a 'Long Sleeves' Sleeve Length. Estimated price potential: ~$3780.95 (an increase of $1968.07).",
+                "The market may support a higher price for a 'Short Sleeves' Sleeve Length. Estimated price potential: ~$2020.15 (an increase of $207.27)."
+            ]
+        },
+        "image_tensor_shape": [
+            3,
+            224,
+            224
+        ]
+    },
+    {
+        "item_id": 26,
+        "version_a": {
+            "predicted_attributes": {
+                "Neck": "High Neck",
+                "Sleeve Length": "Short Sleeves",
+                "Print or Pattern Type": "Vertical Stripes",
+                "Type": "Regular",
+                "Hemline": "Unknown",
+                "Pattern": "Striped",
+                "Length": "Regular",
+                "Sleeve Styling": "Regular Sleeves",
+                "Ornamentation": "Unknown",
+                "Occasion": "Casual",
+                "Fabric": "Pure Cotton",
+                "Fit": "Unknown",
+                "colour": "Blue"
+            },
+            "suggested_price": "$1185.64",
+            "generated_listing": "title: Women Blue Striped Regular Sleeves | description: Blue striped regular short sleeves, regular, vertical stripes, short sleeveless, high neck, blue embroidered shorts, slip-on closure, straight hemThe model (height 5'8) is wearing a size S100% CottonMachine wash"
+        },
+        "version_b": {
+            "predicted_attributes": {
+                "Neck": "High Neck",
+                "Sleeve Length": "Short Sleeves",
+                "Print or Pattern Type": "Vertical Stripes",
+                "Type": "Regular",
+                "Hemline": "Unknown",
+                "Pattern": "Striped",
+                "Length": "Regular",
+                "Sleeve Styling": "Regular Sleeves",
+                "Ornamentation": "Unknown",
+                "Occasion": "Casual",
+                "Fabric": "Pure Cotton",
+                "Fit": "Unknown",
+                "colour": "Blue"
+            },
+            "suggested_price": "$1185.64",
+            "generated_listing": "title: Women Blue Striped Regular Sleeves | description: Blue striped regular short sleeves, regular, vertical stripes, short sleeveless, high neck, blue embroidered shorts, slip-on closure, straight hemThe model (height 5'8) is wearing a size S100% CottonMachine wash",
+            "strategic_suggestions": [
+                "Consider a 'Mauve' colour. Our model estimates it could improve the rating by ~0.18 points.",
+                "Consider a 'Sleeveless' Sleeve Length. Our model estimates it could improve the rating by ~0.11 points.",
+                "The market may support a higher price for a 'Long Sleeves' Sleeve Length. Estimated price potential: ~$1651.52 (an increase of $354.33).",
+                "The market may support a higher price for a 'Orange' colour. Estimated price potential: ~$1618.97 (an increase of $321.78).",
+                "The market may support a higher price for a 'Shirt Collar' Neck. Estimated price potential: ~$1381.22 (an increase of $84.02).",
+                "The market may support a higher price for a 'Sleeveless' Sleeve Length. Estimated price potential: ~$1417.18 (an increase of $119.99)."
+            ]
+        },
+        "image_tensor_shape": [
+            3,
+            224,
+            224
+        ]
+    },
+    {
+        "item_id": 27,
+        "version_a": {
+            "predicted_attributes": {
+                "Neck": "Unknown",
+                "Sleeve Length": "Long Sleeves",
+                "Print or Pattern Type": "Self Design",
+                "Type": "Cardigan",
+                "Hemline": "Straight",
+                "Pattern": "Self Design",
+                "Length": "Regular",
+                "Sleeve Styling": "Unknown",
+                "Ornamentation": "Unknown",
+                "Occasion": "Casual",
+                "Fabric": "Cotton",
+                "Fit": "Unknown",
+                "colour": "Beige"
+            },
+            "suggested_price": "$2397.55",
+            "generated_listing": "title: Women Beige Straight, Cardigan, Regular, Long Sleeves, Beads &amp; Gold-Toned Self Design Long-Length | description: Wool-toned self design long-sleeveless, laced hemThe model (height 5'8) is wearing a size S100% CottonMachine wash"
+        },
+        "version_b": {
+            "predicted_attributes": {
+                "Neck": "Unknown",
+                "Sleeve Length": "Long Sleeves",
+                "Print or Pattern Type": "Self Design",
+                "Type": "Cardigan",
+                "Hemline": "Straight",
+                "Pattern": "Self Design",
+                "Length": "Regular",
+                "Sleeve Styling": "Unknown",
+                "Ornamentation": "Unknown",
+                "Occasion": "Casual",
+                "Fabric": "Cotton",
+                "Fit": "Unknown",
+                "colour": "Beige"
+            },
+            "suggested_price": "$2397.55",
+            "generated_listing": "title: Women Beige Straight, Cardigan, Regular, Long Sleeves, Beads &amp; Gold-Toned Self Design Long-Length | description: Wool-toned self design long-sleeveless, laced hemThe model (height 5'8) is wearing a size S100% CottonMachine wash",
+            "strategic_suggestions": [
+                "Consider a 'Bootcut' Fit. Our model estimates it could improve the rating by ~0.15 points.",
+                "The market may support a higher price for a 'Bootcut' Fit. Estimated price potential: ~$3939.24 (an increase of $818.05).",
+                "The market may support a higher price for a 'Boyfriend Fit' Fit. Estimated price potential: ~$3939.24 (an increase of $818.05)."
+            ]
+        },
+        "image_tensor_shape": [
+            3,
+            224,
+            224
+        ]
+    },
+    {
+        "item_id": 28,
+        "version_a": {
+            "predicted_attributes": {
+                "Neck": "Round Neck",
+                "Sleeve Length": "Long Sleeves",
+                "Print or Pattern Type": "Typography",
+                "Type": "Pullover",
+                "Hemline": "Straight",
+                "Pattern": "Printed",
+                "Length": "Regular",
+                "Sleeve Styling": "Unknown",
+                "Ornamentation": "Unknown",
+                "Occasion": "Casual",
+                "Fabric": "Cotton",
+                "Fit": "Unknown",
+                "colour": "White"
+            },
+            "suggested_price": "$1284.39",
+            "generated_listing": "title: Women White Printed Long Sleeves | description: White printed long sleeves, regular, Pullover, Casual, Round Neck, Cotton Machine washThe model (height 5'8) is wearing a size S"
+        },
+        "version_b": {
+            "predicted_attributes": {
+                "Neck": "Round Neck",
+                "Sleeve Length": "Long Sleeves",
+                "Print or Pattern Type": "Typography",
+                "Type": "Pullover",
+                "Hemline": "Straight",
+                "Pattern": "Printed",
+                "Length": "Regular",
+                "Sleeve Styling": "Unknown",
+                "Ornamentation": "Unknown",
+                "Occasion": "Casual",
+                "Fabric": "Cotton",
+                "Fit": "Unknown",
+                "colour": "White"
+            },
+            "suggested_price": "$1284.39",
+            "generated_listing": "title: Women White Printed Long Sleeves | description: White printed long sleeves, regular, Pullover, Casual, Round Neck, Cotton Machine washThe model (height 5'8) is wearing a size S",
+            "strategic_suggestions": [
+                "Consider a 'Bootcut' Fit. Our model estimates it could improve the rating by ~0.14 points.",
+                "Consider a 'Hem with Toggle' Hemline. Our model estimates it could improve the rating by ~0.12 points.",
+                "The market may support a higher price for a 'Bootcut' Fit. Estimated price potential: ~$2987.73 (an increase of $1148.54).",
+                "The market may support a higher price for a 'Boyfriend Fit' Fit. Estimated price potential: ~$2987.73 (an increase of $1148.54).",
+                "The market may support a higher price for a 'Brown' colour. Estimated price potential: ~$2004.48 (an increase of $165.29).",
+                "The market may support a higher price for a 'Coral' colour. Estimated price potential: ~$2004.48 (an increase of $165.29).",
+                "The market may support a higher price for a 'Mauve' colour. Estimated price potential: ~$2004.48 (an increase of $165.29).",
+                "The market may support a higher price for a 'Mock Collar' Neck. Estimated price potential: ~$2006.00 (an increase of $166.81)."
+            ]
+        },
+        "image_tensor_shape": [
+            3,
+            224,
+            224
+        ]
+    },
+    {
+        "item_id": 29,
+        "version_a": {
+            "predicted_attributes": {
+                "Neck": "Round Neck",
+                "Sleeve Length": "Sleeveless",
+                "Print or Pattern Type": "Solid",
+                "Type": "Tank",
+                "Hemline": "Unknown",
+                "Pattern": "Solid",
+                "Length": "Regular",
+                "Sleeve Styling": "No Sleeves",
+                "Ornamentation": "Unknown",
+                "Occasion": "Casual",
+                "Fabric": "Polyester",
+                "Fit": "Unknown",
+                "colour": "Grey"
+            },
+            "suggested_price": "$1281.18",
+            "generated_listing": "title: Women Grey Round Neck Sleeveless Sleeves | description: Grey solid shoulder straps, sleeveless, regular, tank, casual, round neck, elasticated hemThe model (height 5'8) is wearing a size S100% PolyesterMachine wash"
+        },
+        "version_b": {
+            "predicted_attributes": {
+                "Neck": "Round Neck",
+                "Sleeve Length": "Sleeveless",
+                "Print or Pattern Type": "Solid",
+                "Type": "Tank",
+                "Hemline": "Unknown",
+                "Pattern": "Solid",
+                "Length": "Regular",
+                "Sleeve Styling": "No Sleeves",
+                "Ornamentation": "Unknown",
+                "Occasion": "Casual",
+                "Fabric": "Polyester",
+                "Fit": "Unknown",
+                "colour": "Grey"
+            },
+            "suggested_price": "$1281.18",
+            "generated_listing": "title: Women Grey Round Neck Sleeveless Sleeves | description: Grey solid shoulder straps, sleeveless, regular, tank, casual, round neck, elasticated hemThe model (height 5'8) is wearing a size S100% PolyesterMachine wash",
+            "strategic_suggestions": [
+                "Not enough market data to generate reliable suggestions for 'Tank'."
+            ]
+        },
+        "image_tensor_shape": [
+            3,
+            224,
+            224
+        ]
+    },
+    {
+        "item_id": 30,
+        "version_a": {
+            "predicted_attributes": {
+                "Neck": "Round Neck",
+                "Sleeve Length": "Long Sleeves",
+                "Print or Pattern Type": "Floral",
+                "Type": "Regular",
+                "Hemline": "Unknown",
+                "Pattern": "Printed",
+                "Length": "Regular",
+                "Sleeve Styling": "Puff Sleeves",
+                "Ornamentation": "Unknown",
+                "Occasion": "Casual",
+                "Fabric": "Polyester",
+                "Fit": "Unknown",
+                "colour": "Green"
+            },
+            "suggested_price": "$1239.83",
+            "generated_listing": "title: Women Green Floral Print Puff Sleeves | description: Green, printed, regular, long sleeves, casual, round neck, polyester The model (height 5'8) is wearing a size S100% PolyesterMachine wash"
+        },
+        "version_b": {
+            "predicted_attributes": {
+                "Neck": "Round Neck",
+                "Sleeve Length": "Long Sleeves",
+                "Print or Pattern Type": "Floral",
+                "Type": "Regular",
+                "Hemline": "Unknown",
+                "Pattern": "Printed",
+                "Length": "Regular",
+                "Sleeve Styling": "Puff Sleeves",
+                "Ornamentation": "Unknown",
+                "Occasion": "Casual",
+                "Fabric": "Polyester",
+                "Fit": "Unknown",
+                "colour": "Green"
+            },
+            "suggested_price": "$1239.83",
+            "generated_listing": "title: Women Green Floral Print Puff Sleeves | description: Green, printed, regular, long sleeves, casual, round neck, polyester The model (height 5'8) is wearing a size S100% PolyesterMachine wash",
+            "strategic_suggestions": [
+                "Consider a 'Bootcut' Fit. Our model estimates it could improve the rating by ~0.13 points.",
+                "Consider a 'Mauve' colour. Our model estimates it could improve the rating by ~0.16 points.",
+                "Consider a 'Sleeveless' Sleeve Length. Our model estimates it could improve the rating by ~0.10 points.",
+                "The market may support a higher price for a 'Bootcut' Fit. Estimated price potential: ~$2415.77 (an increase of $748.55).",
+                "The market may support a higher price for a 'Boyfriend Fit' Fit. Estimated price potential: ~$2415.77 (an increase of $748.55).",
+                "The market may support a higher price for a 'Orange' colour. Estimated price potential: ~$2129.33 (an increase of $462.12)."
+            ]
+        },
+        "image_tensor_shape": [
+            3,
+            224,
+            224
+        ]
+    },
+    {
+        "item_id": 31,
+        "version_a": {
+            "predicted_attributes": {
+                "Neck": "Shoulder Straps",
+                "Sleeve Length": "Sleeveless",
+                "Print or Pattern Type": "Unknown",
+                "Type": "Unknown",
+                "Hemline": "Unknown",
+                "Pattern": "Solid",
+                "Length": "Unknown",
+                "Sleeve Styling": "Unknown",
+                "Ornamentation": "Unknown",
+                "Occasion": "Party",
+                "Fabric": "Other",
+                "Fit": "Unknown",
+                "colour": "Black"
+            },
+            "suggested_price": "$1811.86",
+            "generated_listing": "title: Women Black Solid Shoulder Straps | description: Black solid shoulder straps, sleeveless, no sleeves Woven The model (height 5'8) is wearing a size S100% PolyesterMachine wash"
+        },
+        "version_b": {
+            "predicted_attributes": {
+                "Neck": "Shoulder Straps",
+                "Sleeve Length": "Sleeveless",
+                "Print or Pattern Type": "Unknown",
+                "Type": "Unknown",
+                "Hemline": "Unknown",
+                "Pattern": "Solid",
+                "Length": "Unknown",
+                "Sleeve Styling": "Unknown",
+                "Ornamentation": "Unknown",
+                "Occasion": "Party",
+                "Fabric": "Other",
+                "Fit": "Unknown",
+                "colour": "Black"
+            },
+            "suggested_price": "$1811.86",
+            "generated_listing": "title: Women Black Solid Shoulder Straps | description: Black solid shoulder straps, sleeveless, no sleeves Woven The model (height 5'8) is wearing a size S100% PolyesterMachine wash",
+            "strategic_suggestions": [
+                "Consider a 'Dipped' Hemline. Our model estimates it could improve the rating by ~0.22 points.",
+                "Consider a 'Relaxed Fit' Fit. Our model estimates it could improve the rating by ~0.21 points.",
+                "The market may support a higher price for a 'Khaki' colour. Estimated price potential: ~$3159.33 (an increase of $238.81).",
+                "The market may support a higher price for a 'Sweetheart Neck' Neck. Estimated price potential: ~$4663.09 (an increase of $1742.56).",
+                "The market may support a higher price for a 'Three-Quarter Sleeves' Sleeve Length. Estimated price potential: ~$3159.80 (an increase of $239.27)."
+            ]
+        },
+        "image_tensor_shape": [
+            3,
+            224,
+            224
+        ]
+    },
+    {
+        "item_id": 32,
+        "version_a": {
+            "predicted_attributes": {
+                "Neck": "Unknown",
+                "Sleeve Length": "Unknown",
+                "Print or Pattern Type": "Solid",
+                "Type": "Flared",
+                "Hemline": "Flared",
+                "Pattern": "Solid",
+                "Length": "Midi",
+                "Sleeve Styling": "Unknown",
+                "Ornamentation": "Unknown",
+                "Occasion": "Casual",
+                "Fabric": "Polyester",
+                "Fit": "Unknown",
+                "colour": "Lavender"
+            },
+            "suggested_price": "$1766.69",
+            "generated_listing": "title: Women Pink Solid Midi Skirt | description: Pink solid midi skirt, has an elasticated waistband with slip-on closure, flared hemThe model (height 5'8\") is wearing a size 28PolyesterMachine Wash"
+        },
+        "version_b": {
+            "predicted_attributes": {
+                "Neck": "Unknown",
+                "Sleeve Length": "Unknown",
+                "Print or Pattern Type": "Solid",
+                "Type": "Flared",
+                "Hemline": "Flared",
+                "Pattern": "Solid",
+                "Length": "Midi",
+                "Sleeve Styling": "Unknown",
+                "Ornamentation": "Unknown",
+                "Occasion": "Casual",
+                "Fabric": "Polyester",
+                "Fit": "Unknown",
+                "colour": "Lavender"
+            },
+            "suggested_price": "$1766.69",
+            "generated_listing": "title: Women Pink Solid Midi Skirt | description: Pink solid midi skirt, has an elasticated waistband with slip-on closure, flared hemThe model (height 5'8\") is wearing a size 28PolyesterMachine Wash",
+            "strategic_suggestions": [
+                "Consider a 'Bootcut' Fit. Our model estimates it could improve the rating by ~0.17 points.",
+                "Consider a 'High-Low' Hemline. Our model estimates it could improve the rating by ~0.19 points.",
+                "The market may support a higher price for a 'Short Sleeves' Sleeve Length. Estimated price potential: ~$4527.45 (an increase of $2008.49)."
+            ]
+        },
+        "image_tensor_shape": [
+            3,
+            224,
+            224
+        ]
+    },
+    {
+        "item_id": 33,
+        "version_a": {
+            "predicted_attributes": {
+                "Neck": "Hood",
+                "Sleeve Length": "Long Sleeves",
+                "Print or Pattern Type": "Solid",
+                "Type": "Pullover",
+                "Hemline": "Straight",
+                "Pattern": "Solid",
+                "Length": "Regular",
+                "Sleeve Styling": "Unknown",
+                "Ornamentation": "Unknown",
+                "Occasion": "Casual",
+                "Fabric": "Cotton",
+                "Fit": "Unknown",
+                "colour": "Green"
+            },
+            "suggested_price": "$2862.77",
+            "generated_listing": "title: Women Green Green Long Sleeves | description: Green, straight, solid, long sleeves, regular, Pullover, Casual, Hood, CottonMachine WashThe model (height 5'8) is wearing a size S"
+        },
+        "version_b": {
+            "predicted_attributes": {
+                "Neck": "Hood",
+                "Sleeve Length": "Long Sleeves",
+                "Print or Pattern Type": "Solid",
+                "Type": "Pullover",
+                "Hemline": "Straight",
+                "Pattern": "Solid",
+                "Length": "Regular",
+                "Sleeve Styling": "Unknown",
+                "Ornamentation": "Unknown",
+                "Occasion": "Casual",
+                "Fabric": "Cotton",
+                "Fit": "Unknown",
+                "colour": "Green"
+            },
+            "suggested_price": "$2862.77",
+            "generated_listing": "title: Women Green Green Long Sleeves | description: Green, straight, solid, long sleeves, regular, Pullover, Casual, Hood, CottonMachine WashThe model (height 5'8) is wearing a size S",
+            "strategic_suggestions": [
+                "Consider a 'Bootcut' Fit. Our model estimates it could improve the rating by ~0.13 points.",
+                "Consider a 'Hem with Toggle' Hemline. Our model estimates it could improve the rating by ~0.12 points.",
+                "The market may support a higher price for a 'Bootcut' Fit. Estimated price potential: ~$3527.38 (an increase of $1538.59).",
+                "The market may support a higher price for a 'Boyfriend Fit' Fit. Estimated price potential: ~$3527.38 (an increase of $1538.59).",
+                "The market may support a higher price for a 'Mock Collar' Neck. Estimated price potential: ~$2171.29 (an increase of $182.50)."
+            ]
+        },
+        "image_tensor_shape": [
+            3,
+            224,
+            224
+        ]
+    },
+    {
+        "item_id": 34,
+        "version_a": {
+            "predicted_attributes": {
+                "Neck": "Unknown",
+                "Sleeve Length": "Unknown",
+                "Print or Pattern Type": "Unknown",
+                "Type": "Unknown",
+                "Hemline": "Unknown",
+                "Pattern": "Unknown",
+                "Length": "Regular",
+                "Sleeve Styling": "Unknown",
+                "Ornamentation": "Unknown",
+                "Occasion": "Casual",
+                "Fabric": "Cotton",
+                "Fit": "Slim Fit",
+                "colour": "Navy Blue"
+            },
+            "suggested_price": "$2716.73",
+            "generated_listing": "title: Women Blue Slim Fit Navy Blue Regular Regular Fit Stretchable Jeans | description: Dark shade, no fade blue jeans Slim fit, regular, sweatshirt, has a button and zip closure, and waistband with belt loopsMaterial: Cotton Machine WashThe model (height 5'8\") is wearing size 28"
+        },
+        "version_b": {
+            "predicted_attributes": {
+                "Neck": "Unknown",
+                "Sleeve Length": "Unknown",
+                "Print or Pattern Type": "Unknown",
+                "Type": "Unknown",
+                "Hemline": "Unknown",
+                "Pattern": "Unknown",
+                "Length": "Regular",
+                "Sleeve Styling": "Unknown",
+                "Ornamentation": "Unknown",
+                "Occasion": "Casual",
+                "Fabric": "Cotton",
+                "Fit": "Slim Fit",
+                "colour": "Navy Blue"
+            },
+            "suggested_price": "$2716.73",
+            "generated_listing": "title: Women Blue Slim Fit Navy Blue Regular Regular Fit Stretchable Jeans | description: Dark shade, no fade blue jeans Slim fit, regular, sweatshirt, has a button and zip closure, and waistband with belt loopsMaterial: Cotton Machine WashThe model (height 5'8\") is wearing size 28",
+            "strategic_suggestions": [
+                "Consider a 'Bootcut' Fit. Our model estimates it could improve the rating by ~0.18 points.",
+                "Consider a 'High-Low' Hemline. Our model estimates it could improve the rating by ~0.21 points.",
+                "Consider a 'Sweetheart Neck' Neck. Our model estimates it could improve the rating by ~0.17 points.",
+                "The market may support a higher price for a 'Sweetheart Neck' Neck. Estimated price potential: ~$3131.15 (an increase of $926.94).",
+                "The market may support a higher price for a 'Three-Quarter Sleeves' Sleeve Length. Estimated price potential: ~$2547.75 (an increase of $343.55)."
+            ]
+        },
+        "image_tensor_shape": [
+            3,
+            224,
+            224
+        ]
+    },
+    {
+        "item_id": 35,
+        "version_a": {
+            "predicted_attributes": {
+                "Neck": "Round Neck",
+                "Sleeve Length": "Long Sleeves",
+                "Print or Pattern Type": "Solid",
+                "Type": "Regular",
+                "Hemline": "Unknown",
+                "Pattern": "Solid",
+                "Length": "Regular",
+                "Sleeve Styling": "Regular Sleeves",
+                "Ornamentation": "Unknown",
+                "Occasion": "Casual",
+                "Fabric": "Polyester",
+                "Fit": "Unknown",
+                "colour": "Beige"
+            },
+            "suggested_price": "$2106.27",
+            "generated_listing": "title: Women Beige Solid Long Sleeves | description: Brown solid long sleeves, solid, regular, flared hemMaterial: Polyester Machine WashThe model (height 5'8) is wearing a size S"
+        },
+        "version_b": {
+            "predicted_attributes": {
+                "Neck": "Round Neck",
+                "Sleeve Length": "Long Sleeves",
+                "Print or Pattern Type": "Solid",
+                "Type": "Regular",
+                "Hemline": "Unknown",
+                "Pattern": "Solid",
+                "Length": "Regular",
+                "Sleeve Styling": "Regular Sleeves",
+                "Ornamentation": "Unknown",
+                "Occasion": "Casual",
+                "Fabric": "Polyester",
+                "Fit": "Unknown",
+                "colour": "Beige"
+            },
+            "suggested_price": "$2106.27",
+            "generated_listing": "title: Women Beige Solid Long Sleeves | description: Brown solid long sleeves, solid, regular, flared hemMaterial: Polyester Machine WashThe model (height 5'8) is wearing a size S",
+            "strategic_suggestions": [
+                "Consider a 'Bootcut' Fit. Our model estimates it could improve the rating by ~0.15 points.",
+                "Consider a 'Mauve' colour. Our model estimates it could improve the rating by ~0.21 points.",
+                "The market may support a higher price for a 'Bootcut' Fit. Estimated price potential: ~$1895.42 (an increase of $258.30).",
+                "The market may support a higher price for a 'Boyfriend Fit' Fit. Estimated price potential: ~$1895.42 (an increase of $258.30).",
+                "The market may support a higher price for a 'Orange' colour. Estimated price potential: ~$2129.33 (an increase of $492.22)."
+            ]
+        },
+        "image_tensor_shape": [
+            3,
+            224,
+            224
+        ]
+    },
+    {
+        "item_id": 36,
+        "version_a": {
+            "predicted_attributes": {
+                "Neck": "Round Neck",
+                "Sleeve Length": "Long Sleeves",
+                "Print or Pattern Type": "Striped",
+                "Type": "Pullover",
+                "Hemline": "Straight",
+                "Pattern": "Striped",
+                "Length": "Regular",
+                "Sleeve Styling": "Unknown",
+                "Ornamentation": "Unknown",
+                "Occasion": "Casual",
+                "Fabric": "Acrylic",
+                "Fit": "Unknown",
+                "colour": "Green"
+            },
+            "suggested_price": "$1783.62",
+            "generated_listing": "title: Women Green, Striped, Straight, Long Sleeves, Acrylic, Regular, Pullover, Casual, Round Neck The model (height 5'8) is wearing a size S100% AcrylicMachine wash"
+        },
+        "version_b": {
+            "predicted_attributes": {
+                "Neck": "Round Neck",
+                "Sleeve Length": "Long Sleeves",
+                "Print or Pattern Type": "Striped",
+                "Type": "Pullover",
+                "Hemline": "Straight",
+                "Pattern": "Striped",
+                "Length": "Regular",
+                "Sleeve Styling": "Unknown",
+                "Ornamentation": "Unknown",
+                "Occasion": "Casual",
+                "Fabric": "Acrylic",
+                "Fit": "Unknown",
+                "colour": "Green"
+            },
+            "suggested_price": "$1783.62",
+            "generated_listing": "title: Women Green, Striped, Straight, Long Sleeves, Acrylic, Regular, Pullover, Casual, Round Neck The model (height 5'8) is wearing a size S100% AcrylicMachine wash",
+            "strategic_suggestions": [
+                "Consider a 'Bootcut' Fit. Our model estimates it could improve the rating by ~0.13 points.",
+                "Consider a 'Hem with Toggle' Hemline. Our model estimates it could improve the rating by ~0.12 points.",
+                "The market may support a higher price for a 'Bootcut' Fit. Estimated price potential: ~$3543.07 (an increase of $1538.59).",
+                "The market may support a higher price for a 'Boyfriend Fit' Fit. Estimated price potential: ~$3543.07 (an increase of $1538.59).",
+                "The market may support a higher price for a 'Mock Collar' Neck. Estimated price potential: ~$2171.29 (an increase of $166.81)."
+            ]
+        },
+        "image_tensor_shape": [
+            3,
+            224,
+            224
+        ]
+    },
+    {
+        "item_id": 37,
+        "version_a": {
+            "predicted_attributes": {
+                "Neck": "Unknown",
+                "Sleeve Length": "Short Sleeves",
+                "Print or Pattern Type": "Unknown",
+                "Type": "Unknown",
+                "Hemline": "Flared",
+                "Pattern": "Unknown",
+                "Length": "Unknown",
+                "Sleeve Styling": "Regular Sleeves",
+                "Ornamentation": "Unknown",
+                "Occasion": "Unknown",
+                "Fabric": "Unknown",
+                "Fit": "Unknown",
+                "colour": "Navy Blue"
+            },
+            "suggested_price": "$4700.13",
+            "generated_listing": "title: Navy Blue & Pink Floral Flared Sleeves With Dupatta | description: Blue and pink floral printed flared short sleeves with embroidered detail, has a v-neck, three-quarter sleeves, button closureBlue and blue floral print woven design sleeveless, laced hemThe model (height 5'8\") is wearing size SViscose RayonHand-wash"
+        },
+        "version_b": {
+            "predicted_attributes": {
+                "Neck": "Unknown",
+                "Sleeve Length": "Short Sleeves",
+                "Print or Pattern Type": "Unknown",
+                "Type": "Unknown",
+                "Hemline": "Flared",
+                "Pattern": "Unknown",
+                "Length": "Unknown",
+                "Sleeve Styling": "Regular Sleeves",
+                "Ornamentation": "Unknown",
+                "Occasion": "Unknown",
+                "Fabric": "Unknown",
+                "Fit": "Unknown",
+                "colour": "Navy Blue"
+            },
+            "suggested_price": "$4700.13",
+            "generated_listing": "title: Navy Blue & Pink Floral Flared Sleeves With Dupatta | description: Blue and pink floral printed flared short sleeves with embroidered detail, has a v-neck, three-quarter sleeves, button closureBlue and blue floral print woven design sleeveless, laced hemThe model (height 5'8\") is wearing size SViscose RayonHand-wash",
+            "strategic_suggestions": [
+                "Consider a 'Bootcut' Fit. Our model estimates it could improve the rating by ~0.17 points.",
+                "Consider a 'High-Low' Hemline. Our model estimates it could improve the rating by ~0.19 points.",
+                "Consider a 'Sweetheart Neck' Neck. Our model estimates it could improve the rating by ~0.16 points.",
+                "The market may support a higher price for a 'Sweetheart Neck' Neck. Estimated price potential: ~$8179.67 (an increase of $648.31)."
+            ]
+        },
+        "image_tensor_shape": [
+            3,
+            224,
+            224
+        ]
+    },
+    {
+        "item_id": 38,
+        "version_a": {
+            "predicted_attributes": {
+                "Neck": "Unknown",
+                "Sleeve Length": "Unknown",
+                "Print or Pattern Type": "Unknown",
+                "Type": "Unknown",
+                "Hemline": "Unknown",
+                "Pattern": "Unknown",
+                "Length": "Cropped",
+                "Sleeve Styling": "Unknown",
+                "Ornamentation": "Unknown",
+                "Occasion": "Casual",
+                "Fabric": "Cotton",
+                "Fit": "Flared",
+                "colour": "Blue"
+            },
+            "suggested_price": "$2429.00",
+            "generated_listing": "title: Women Blue Flared High-Rise Light Fade Stretchable Jeans | description: Medium shade, light fade blue jeans Flare, high-rise Flark, dry clean 100% CottonMachine washBrand Fit: CottonStretchableSize worn by the model: 28Waist: 26\"Hips: 36\"Height: 5'8\""
+        },
+        "version_b": {
+            "predicted_attributes": {
+                "Neck": "Unknown",
+                "Sleeve Length": "Unknown",
+                "Print or Pattern Type": "Unknown",
+                "Type": "Unknown",
+                "Hemline": "Unknown",
+                "Pattern": "Unknown",
+                "Length": "Cropped",
+                "Sleeve Styling": "Unknown",
+                "Ornamentation": "Unknown",
+                "Occasion": "Casual",
+                "Fabric": "Cotton",
+                "Fit": "Flared",
+                "colour": "Blue"
+            },
+            "suggested_price": "$2429.00",
+            "generated_listing": "title: Women Blue Flared High-Rise Light Fade Stretchable Jeans | description: Medium shade, light fade blue jeans Flare, high-rise Flark, dry clean 100% CottonMachine washBrand Fit: CottonStretchableSize worn by the model: 28Waist: 26\"Hips: 36\"Height: 5'8\"",
+            "strategic_suggestions": [
+                "Consider a 'Bootcut' Fit. Our model estimates it could improve the rating by ~0.12 points.",
+                "Consider a 'Dipped' Hemline. Our model estimates it could improve the rating by ~0.22 points.",
+                "Consider a 'Grey Melange' colour. Our model estimates it could improve the rating by ~0.13 points.",
+                "Consider a 'High-Low' Hemline. Our model estimates it could improve the rating by ~0.21 points.",
+                "Consider a 'Khaki' colour. Our model estimates it could improve the rating by ~0.20 points.",
+                "Consider a 'Nude' colour. Our model estimates it could improve the rating by ~0.11 points.",
+                "Consider a 'Relaxed Fit' Fit. Our model estimates it could improve the rating by ~0.25 points.",
+                "Consider a 'Sweetheart Neck' Neck. Our model estimates it could improve the rating by ~0.17 points.",
+                "The market may support a higher price for a 'Sweetheart Neck' Neck. Estimated price potential: ~$2399.30 (an increase of $216.52).",
+                "The market may support a higher price for a 'Three-Quarter Sleeves' Sleeve Length. Estimated price potential: ~$2526.33 (an increase of $343.55)."
+            ]
+        },
+        "image_tensor_shape": [
+            3,
+            224,
+            224
+        ]
+    },
+    {
+        "item_id": 39,
+        "version_a": {
+            "predicted_attributes": {
+                "Neck": "Round Neck",
+                "Sleeve Length": "Long Sleeves",
+                "Print or Pattern Type": "Typography",
+                "Type": "Pullover",
+                "Hemline": "Straight",
+                "Pattern": "Printed",
+                "Length": "Regular",
+                "Sleeve Styling": "Unknown",
+                "Ornamentation": "Unknown",
+                "Occasion": "Casual",
+                "Fabric": "Cotton",
+                "Fit": "Unknown",
+                "colour": "Blue"
+            },
+            "suggested_price": "$1578.07",
+            "generated_listing": "title: Women Blue Straight, Printed Long Sleeves, Regular Pullover, Casual, Round Neck, Cotton, Blue, Print Print The model (height 5'8) is wearing a size S100% CottonMachine wash"
+        },
+        "version_b": {
+            "predicted_attributes": {
+                "Neck": "Round Neck",
+                "Sleeve Length": "Long Sleeves",
+                "Print or Pattern Type": "Typography",
+                "Type": "Pullover",
+                "Hemline": "Straight",
+                "Pattern": "Printed",
+                "Length": "Regular",
+                "Sleeve Styling": "Unknown",
+                "Ornamentation": "Unknown",
+                "Occasion": "Casual",
+                "Fabric": "Cotton",
+                "Fit": "Unknown",
+                "colour": "Blue"
+            },
+            "suggested_price": "$1578.07",
+            "generated_listing": "title: Women Blue Straight, Printed Long Sleeves, Regular Pullover, Casual, Round Neck, Cotton, Blue, Print Print The model (height 5'8) is wearing a size S100% CottonMachine wash",
+            "strategic_suggestions": [
+                "Consider a 'Hem with Toggle' Hemline. Our model estimates it could improve the rating by ~0.12 points.",
+                "Consider a 'Mauve' colour. Our model estimates it could improve the rating by ~0.12 points.",
+                "The market may support a higher price for a 'Bootcut' Fit. Estimated price potential: ~$2776.60 (an increase of $772.12).",
+                "The market may support a higher price for a 'Boyfriend Fit' Fit. Estimated price potential: ~$2776.60 (an increase of $772.12).",
+                "The market may support a higher price for a 'Mock Collar' Neck. Estimated price potential: ~$2171.29 (an increase of $166.81)."
+            ]
+        },
+        "image_tensor_shape": [
+            3,
+            224,
+            224
+        ]
+    },
+    {
+        "item_id": 40,
+        "version_a": {
+            "predicted_attributes": {
+                "Neck": "Unknown",
+                "Sleeve Length": "Unknown",
+                "Print or Pattern Type": "Solid",
+                "Type": "Unknown",
+                "Hemline": "Unknown",
+                "Pattern": "Solid",
+                "Length": "Unknown",
+                "Sleeve Styling": "Unknown",
+                "Ornamentation": "Zari",
+                "Occasion": "Party",
+                "Fabric": "Unknown",
+                "Fit": "Unknown",
+                "colour": "Beige"
+            },
+            "suggested_price": "$5110.75",
+            "generated_listing": "title: Beige, Party, Zari, Solid Saree | description: Design Details:Saree: Solid woven design Dupatta, has zari borderDisclaimer: The model is wearing a stitched version of the blouse pieceLength: 5.5 metres plus 0.8 metre blousepiece Width : 1.06 metres (approx.)Silk BlendDry Clean"
+        },
+        "version_b": {
+            "predicted_attributes": {
+                "Neck": "Unknown",
+                "Sleeve Length": "Unknown",
+                "Print or Pattern Type": "Solid",
+                "Type": "Unknown",
+                "Hemline": "Unknown",
+                "Pattern": "Solid",
+                "Length": "Unknown",
+                "Sleeve Styling": "Unknown",
+                "Ornamentation": "Zari",
+                "Occasion": "Party",
+                "Fabric": "Unknown",
+                "Fit": "Unknown",
+                "colour": "Beige"
+            },
+            "suggested_price": "$5110.75",
+            "generated_listing": "title: Beige, Party, Zari, Solid Saree | description: Design Details:Saree: Solid woven design Dupatta, has zari borderDisclaimer: The model is wearing a stitched version of the blouse pieceLength: 5.5 metres plus 0.8 metre blousepiece Width : 1.06 metres (approx.)Silk BlendDry Clean",
+            "strategic_suggestions": [
+                "Consider a 'Bootcut' Fit. Our model estimates it could improve the rating by ~0.18 points.",
+                "Consider a 'Dipped' Hemline. Our model estimates it could improve the rating by ~0.22 points.",
+                "Consider a 'High-Low' Hemline. Our model estimates it could improve the rating by ~0.21 points.",
+                "Consider a 'Relaxed Fit' Fit. Our model estimates it could improve the rating by ~0.24 points.",
+                "Consider a 'Sweetheart Neck' Neck. Our model estimates it could improve the rating by ~0.14 points.",
+                "The market may support a higher price for a 'Cowl Neck' Neck. Estimated price potential: ~$2711.46 (an increase of $130.53).",
+                "The market may support a higher price for a 'Khaki' colour. Estimated price potential: ~$2766.05 (an increase of $185.12).",
+                "The market may support a higher price for a 'Sweetheart Neck' Neck. Estimated price potential: ~$3600.60 (an increase of $1019.67).",
+                "The market may support a higher price for a 'Three-Quarter Sleeves' Sleeve Length. Estimated price potential: ~$2994.99 (an increase of $414.05)."
+            ]
+        },
+        "image_tensor_shape": [
+            3,
+            224,
+            224
+        ]
+    },
+    {
+        "item_id": 41,
+        "version_a": {
+            "predicted_attributes": {
+                "Neck": "Unknown",
+                "Sleeve Length": "Long Sleeves",
+                "Print or Pattern Type": "Solid",
+                "Type": "Cardigan",
+                "Hemline": "Straight",
+                "Pattern": "Solid",
+                "Length": "Regular",
+                "Sleeve Styling": "Unknown",
+                "Ornamentation": "Unknown",
+                "Occasion": "Casual",
+                "Fabric": "Cotton",
+                "Fit": "Unknown",
+                "colour": "Blue"
+            },
+            "suggested_price": "$1997.31",
+            "generated_listing": "title: Women Blue Solid Long Sleeves | description: Blue solid cardigan, regular, long sleeves, ribbed hemMaterial: Cotton Machine WashThe model (height 5'8) is wearing a size S"
+        },
+        "version_b": {
+            "predicted_attributes": {
+                "Neck": "Unknown",
+                "Sleeve Length": "Long Sleeves",
+                "Print or Pattern Type": "Solid",
+                "Type": "Cardigan",
+                "Hemline": "Straight",
+                "Pattern": "Solid",
+                "Length": "Regular",
+                "Sleeve Styling": "Unknown",
+                "Ornamentation": "Unknown",
+                "Occasion": "Casual",
+                "Fabric": "Cotton",
+                "Fit": "Unknown",
+                "colour": "Blue"
+            },
+            "suggested_price": "$1997.31",
+            "generated_listing": "title: Women Blue Solid Long Sleeves | description: Blue solid cardigan, regular, long sleeves, ribbed hemMaterial: Cotton Machine WashThe model (height 5'8) is wearing a size S",
+            "strategic_suggestions": [
+                "The market may support a higher price for a 'Bootcut' Fit. Estimated price potential: ~$3693.12 (an increase of $541.83).",
+                "The market may support a higher price for a 'Boyfriend Fit' Fit. Estimated price potential: ~$3693.12 (an increase of $541.83)."
+            ]
+        },
+        "image_tensor_shape": [
+            3,
+            224,
+            224
+        ]
+    },
+    {
+        "item_id": 42,
+        "version_a": {
+            "predicted_attributes": {
+                "Neck": "Unknown",
+                "Sleeve Length": "Unknown",
+                "Print or Pattern Type": "Striped",
+                "Type": "Unknown",
+                "Hemline": "Unknown",
+                "Pattern": "Printed",
+                "Length": "Cropped",
+                "Sleeve Styling": "Unknown",
+                "Ornamentation": "Unknown",
+                "Occasion": "Ethnic",
+                "Fabric": "Cotton",
+                "Fit": "Straight",
+                "colour": "Grey"
+            },
+            "suggested_price": "$1260.69",
+            "generated_listing": "title: Women Grey Striped Ethnic Palazzos | description: A pair of Grey woven cotton cropped cotton fabric, has an elasticated waistband with slip-on closureThe model (height 5'8\") is wearing a size 28Material: Viscose Rayon Machine Wash"
+        },
+        "version_b": {
+            "predicted_attributes": {
+                "Neck": "Unknown",
+                "Sleeve Length": "Unknown",
+                "Print or Pattern Type": "Striped",
+                "Type": "Unknown",
+                "Hemline": "Unknown",
+                "Pattern": "Printed",
+                "Length": "Cropped",
+                "Sleeve Styling": "Unknown",
+                "Ornamentation": "Unknown",
+                "Occasion": "Ethnic",
+                "Fabric": "Cotton",
+                "Fit": "Straight",
+                "colour": "Grey"
+            },
+            "suggested_price": "$1260.69",
+            "generated_listing": "title: Women Grey Striped Ethnic Palazzos | description: A pair of Grey woven cotton cropped cotton fabric, has an elasticated waistband with slip-on closureThe model (height 5'8\") is wearing a size 28Material: Viscose Rayon Machine Wash",
+            "strategic_suggestions": [
+                "Consider a 'Bootcut' Fit. Our model estimates it could improve the rating by ~0.18 points.",
+                "Consider a 'Dipped' Hemline. Our model estimates it could improve the rating by ~0.22 points.",
+                "Consider a 'High-Low' Hemline. Our model estimates it could improve the rating by ~0.13 points.",
+                "Consider a 'Relaxed Fit' Fit. Our model estimates it could improve the rating by ~0.23 points.",
+                "Consider a 'Sweetheart Neck' Neck. Our model estimates it could improve the rating by ~0.17 points.",
+                "The market may support a higher price for a 'Bootcut' Fit. Estimated price potential: ~$2236.97 (an increase of $802.38).",
+                "The market may support a higher price for a 'Comfort Fit' Fit. Estimated price potential: ~$2142.64 (an increase of $708.05).",
+                "The market may support a higher price for a 'Khaki' colour. Estimated price potential: ~$1571.46 (an increase of $136.86).",
+                "The market may support a higher price for a 'Relaxed Fit' Fit. Estimated price potential: ~$2142.64 (an increase of $708.05).",
+                "The market may support a higher price for a 'Short Sleeves' Sleeve Length. Estimated price potential: ~$1515.18 (an increase of $80.59).",
+                "The market may support a higher price for a 'Sweetheart Neck' Neck. Estimated price potential: ~$2361.54 (an increase of $926.95).",
+                "The market may support a higher price for a 'Three-Quarter Sleeves' Sleeve Length. Estimated price potential: ~$1778.14 (an increase of $343.55)."
+            ]
+        },
+        "image_tensor_shape": [
+            3,
+            224,
+            224
+        ]
+    },
+    {
+        "item_id": 43,
+        "version_a": {
+            "predicted_attributes": {
+                "Neck": "Round Neck",
+                "Sleeve Length": "Short Sleeves",
+                "Print or Pattern Type": "Unknown",
+                "Type": "Unknown",
+                "Hemline": "Unknown",
+                "Pattern": "Unknown",
+                "Length": "Unknown",
+                "Sleeve Styling": "Unknown",
+                "Ornamentation": "Unknown",
+                "Occasion": "Ethnic",
+                "Fabric": "Unknown",
+                "Fit": "Unknown",
+                "colour": "Navy Blue"
+            },
+            "suggested_price": "$3124.19",
+            "generated_listing": "title: Navy Blue, Short Sleeves, Round Neck, Two-quarter sleeves, tie-ups Navy blue, flared hemThe model (height 5'8) is wearing a size SPolyesterHand-wash"
+        },
+        "version_b": {
+            "predicted_attributes": {
+                "Neck": "Round Neck",
+                "Sleeve Length": "Short Sleeves",
+                "Print or Pattern Type": "Unknown",
+                "Type": "Unknown",
+                "Hemline": "Unknown",
+                "Pattern": "Unknown",
+                "Length": "Unknown",
+                "Sleeve Styling": "Unknown",
+                "Ornamentation": "Unknown",
+                "Occasion": "Ethnic",
+                "Fabric": "Unknown",
+                "Fit": "Unknown",
+                "colour": "Navy Blue"
+            },
+            "suggested_price": "$3124.19",
+            "generated_listing": "title: Navy Blue, Short Sleeves, Round Neck, Two-quarter sleeves, tie-ups Navy blue, flared hemThe model (height 5'8) is wearing a size SPolyesterHand-wash",
+            "strategic_suggestions": [
+                "Consider a 'Bootcut' Fit. Our model estimates it could improve the rating by ~0.17 points.",
+                "Consider a 'Sweetheart Neck' Neck. Our model estimates it could improve the rating by ~0.14 points.",
+                "The market may support a higher price for a 'Khaki' colour. Estimated price potential: ~$2966.48 (an increase of $146.09).",
+                "The market may support a higher price for a 'Sweetheart Neck' Neck. Estimated price potential: ~$3734.42 (an increase of $914.03).",
+                "The market may support a higher price for a 'Three-Quarter Sleeves' Sleeve Length. Estimated price potential: ~$3139.94 (an increase of $319.55)."
+            ]
+        },
+        "image_tensor_shape": [
+            3,
+            224,
+            224
+        ]
+    },
+    {
+        "item_id": 44,
+        "version_a": {
+            "predicted_attributes": {
+                "Neck": "Round Neck",
+                "Sleeve Length": "Short Sleeves",
+                "Print or Pattern Type": "Unknown",
+                "Type": "Unknown",
+                "Hemline": "Unknown",
+                "Pattern": "Unknown",
+                "Length": "Unknown",
+                "Sleeve Styling": "Unknown",
+                "Ornamentation": "Unknown",
+                "Occasion": "Casual",
+                "Fabric": "Unknown",
+                "Fit": "Unknown",
+                "colour": "Navy Blue"
+            },
+            "suggested_price": "$3154.47",
+            "generated_listing": "title: Women Navy Blue Casual Short Sleeves | description: Navy blue casual short sleeves, round neck, sleevelessThe model (height 5'8) is wearing a size SPolyesterMachine Wash"
+        },
+        "version_b": {
+            "predicted_attributes": {
+                "Neck": "Round Neck",
+                "Sleeve Length": "Short Sleeves",
+                "Print or Pattern Type": "Unknown",
+                "Type": "Unknown",
+                "Hemline": "Unknown",
+                "Pattern": "Unknown",
+                "Length": "Unknown",
+                "Sleeve Styling": "Unknown",
+                "Ornamentation": "Unknown",
+                "Occasion": "Casual",
+                "Fabric": "Unknown",
+                "Fit": "Unknown",
+                "colour": "Navy Blue"
+            },
+            "suggested_price": "$3154.47",
+            "generated_listing": "title: Women Navy Blue Casual Short Sleeves | description: Navy blue casual short sleeves, round neck, sleevelessThe model (height 5'8) is wearing a size SPolyesterMachine Wash",
+            "strategic_suggestions": [
+                "Consider a 'Bootcut' Fit. Our model estimates it could improve the rating by ~0.17 points.",
+                "Consider a 'Sweetheart Neck' Neck. Our model estimates it could improve the rating by ~0.14 points.",
+                "The market may support a higher price for a 'Khaki' colour. Estimated price potential: ~$2966.48 (an increase of $146.09).",
+                "The market may support a higher price for a 'Sweetheart Neck' Neck. Estimated price potential: ~$3734.42 (an increase of $914.03).",
+                "The market may support a higher price for a 'Three-Quarter Sleeves' Sleeve Length. Estimated price potential: ~$3139.94 (an increase of $319.55)."
+            ]
+        },
+        "image_tensor_shape": [
+            3,
+            224,
+            224
+        ]
+    },
+    {
+        "item_id": 45,
+        "version_a": {
+            "predicted_attributes": {
+                "Neck": "Round Neck",
+                "Sleeve Length": "Short Sleeves",
+                "Print or Pattern Type": "Unknown",
+                "Type": "Unknown",
+                "Hemline": "Unknown",
+                "Pattern": "Unknown",
+                "Length": "Unknown",
+                "Sleeve Styling": "Unknown",
+                "Ornamentation": "Unknown",
+                "Occasion": "Festive",
+                "Fabric": "Unknown",
+                "Fit": "Unknown",
+                "colour": "Black"
+            },
+            "suggested_price": "$6245.73",
+            "generated_listing": "title: Women Black Solid Round Neck Short Sleeves | description: Black solid mid-rise short sleeves, round neck, sleeveless, elasticated waistband with slip-on closureThe model (height 5'8) is wearing a size STop fabric: PolyesterBottom Fabric: CottonHand-wash"
+        },
+        "version_b": {
+            "predicted_attributes": {
+                "Neck": "Round Neck",
+                "Sleeve Length": "Short Sleeves",
+                "Print or Pattern Type": "Unknown",
+                "Type": "Unknown",
+                "Hemline": "Unknown",
+                "Pattern": "Unknown",
+                "Length": "Unknown",
+                "Sleeve Styling": "Unknown",
+                "Ornamentation": "Unknown",
+                "Occasion": "Festive",
+                "Fabric": "Unknown",
+                "Fit": "Unknown",
+                "colour": "Black"
+            },
+            "suggested_price": "$6245.73",
+            "generated_listing": "title: Women Black Solid Round Neck Short Sleeves | description: Black solid mid-rise short sleeves, round neck, sleeveless, elasticated waistband with slip-on closureThe model (height 5'8) is wearing a size STop fabric: PolyesterBottom Fabric: CottonHand-wash",
+            "strategic_suggestions": [
+                "Consider a 'Dipped' Hemline. Our model estimates it could improve the rating by ~0.23 points.",
+                "Consider a 'Relaxed Fit' Fit. Our model estimates it could improve the rating by ~0.21 points.",
+                "The market may support a higher price for a 'Sweetheart Neck' Neck. Estimated price potential: ~$4489.78 (an increase of $1637.30).",
+                "The market may support a higher price for a 'Three-Quarter Sleeves' Sleeve Length. Estimated price potential: ~$3151.56 (an increase of $299.08)."
+            ]
+        },
+        "image_tensor_shape": [
+            3,
+            224,
+            224
+        ]
+    },
+    {
+        "item_id": 46,
+        "version_a": {
+            "predicted_attributes": {
+                "Neck": "Round Neck",
+                "Sleeve Length": "Long Sleeves",
+                "Print or Pattern Type": "Unknown",
+                "Type": "Playsuit",
+                "Hemline": "Unknown",
+                "Pattern": "Solid",
+                "Length": "Unknown",
+                "Sleeve Styling": "Unknown",
+                "Ornamentation": "Unknown",
+                "Occasion": "Casual",
+                "Fabric": "Cotton",
+                "Fit": "Unknown",
+                "colour": "Black"
+            },
+            "suggested_price": "$1853.97",
+            "generated_listing": "title: Women Black Solid Long Sleeves | description: Black solid mid-rise playsuit, has a round neck, long sleeves, ribbed hemThe model (height 5'8\") is wearing size S100% PolyesterMachine wash"
+        },
+        "version_b": {
+            "predicted_attributes": {
+                "Neck": "Round Neck",
+                "Sleeve Length": "Long Sleeves",
+                "Print or Pattern Type": "Unknown",
+                "Type": "Playsuit",
+                "Hemline": "Unknown",
+                "Pattern": "Solid",
+                "Length": "Unknown",
+                "Sleeve Styling": "Unknown",
+                "Ornamentation": "Unknown",
+                "Occasion": "Casual",
+                "Fabric": "Cotton",
+                "Fit": "Unknown",
+                "colour": "Black"
+            },
+            "suggested_price": "$1853.97",
+            "generated_listing": "title: Women Black Solid Long Sleeves | description: Black solid mid-rise playsuit, has a round neck, long sleeves, ribbed hemThe model (height 5'8\") is wearing size S100% PolyesterMachine wash",
+            "strategic_suggestions": [
+                "The market may support a higher price for a 'Bootcut' Fit. Estimated price potential: ~$3034.13 (an increase of $981.46).",
+                "The market may support a higher price for a 'Boyfriend Fit' Fit. Estimated price potential: ~$3034.13 (an increase of $981.46)."
+            ]
+        },
+        "image_tensor_shape": [
+            3,
+            224,
+            224
+        ]
+    },
+    {
+        "item_id": 47,
+        "version_a": {
+            "predicted_attributes": {
+                "Neck": "Unknown",
+                "Sleeve Length": "Long Sleeves",
+                "Print or Pattern Type": "Washed",
+                "Type": "Denim Jacket",
+                "Hemline": "Straight",
+                "Pattern": "Solid",
+                "Length": "Crop",
+                "Sleeve Styling": "Unknown",
+                "Ornamentation": "Unknown",
+                "Occasion": "Casual",
+                "Fabric": "Cotton",
+                "Fit": "Unknown",
+                "colour": "Blue"
+            },
+            "suggested_price": "$2362.86",
+            "generated_listing": "title: Women Blue Washed Cotton Denim Jacket | description: Blue washed solid denim jacket, has a spread collar, 2 pockets, long sleeves, straight, cropped, solid, button closure, curved hem, cotton liningThe model (height 5'8) is wearing the size S100% CottonMachine wash"
+        },
+        "version_b": {
+            "predicted_attributes": {
+                "Neck": "Unknown",
+                "Sleeve Length": "Long Sleeves",
+                "Print or Pattern Type": "Washed",
+                "Type": "Denim Jacket",
+                "Hemline": "Straight",
+                "Pattern": "Solid",
+                "Length": "Crop",
+                "Sleeve Styling": "Unknown",
+                "Ornamentation": "Unknown",
+                "Occasion": "Casual",
+                "Fabric": "Cotton",
+                "Fit": "Unknown",
+                "colour": "Blue"
+            },
+            "suggested_price": "$2362.86",
+            "generated_listing": "title: Women Blue Washed Cotton Denim Jacket | description: Blue washed solid denim jacket, has a spread collar, 2 pockets, long sleeves, straight, cropped, solid, button closure, curved hem, cotton liningThe model (height 5'8) is wearing the size S100% CottonMachine wash",
+            "strategic_suggestions": [
+                "Consider a 'Sleeveless' Sleeve Length. Our model estimates it could improve the rating by ~0.37 points.",
+                "The market may support a higher price for a 'Bootcut' Fit. Estimated price potential: ~$3384.73 (an increase of $541.83).",
+                "The market may support a higher price for a 'Boyfriend Fit' Fit. Estimated price potential: ~$3384.73 (an increase of $541.83)."
+            ]
+        },
+        "image_tensor_shape": [
+            3,
+            224,
+            224
+        ]
+    },
+    {
+        "item_id": 48,
+        "version_a": {
+            "predicted_attributes": {
+                "Neck": "Unknown",
+                "Sleeve Length": "Unknown",
+                "Print or Pattern Type": "Solid",
+                "Type": "A-Line",
+                "Hemline": "Flared",
+                "Pattern": "Solid",
+                "Length": "Knee Length",
+                "Sleeve Styling": "Unknown",
+                "Ornamentation": "Unknown",
+                "Occasion": "Casual",
+                "Fabric": "Pure Cotton",
+                "Fit": "Unknown",
+                "colour": "Blue"
+            },
+            "suggested_price": "$940.41",
+            "generated_listing": "title: Girls Blue Solid Knee Length Flared Skirt | description: Blue solid knee length flared skirt, has an elasticated waistband with slip-on closure, straight hem100% CottonMachine WashThe model (height 5'8\") is wearing a size 28"
+        },
+        "version_b": {
+            "predicted_attributes": {
+                "Neck": "Unknown",
+                "Sleeve Length": "Unknown",
+                "Print or Pattern Type": "Solid",
+                "Type": "A-Line",
+                "Hemline": "Flared",
+                "Pattern": "Solid",
+                "Length": "Knee Length",
+                "Sleeve Styling": "Unknown",
+                "Ornamentation": "Unknown",
+                "Occasion": "Casual",
+                "Fabric": "Pure Cotton",
+                "Fit": "Unknown",
+                "colour": "Blue"
+            },
+            "suggested_price": "$940.41",
+            "generated_listing": "title: Girls Blue Solid Knee Length Flared Skirt | description: Blue solid knee length flared skirt, has an elasticated waistband with slip-on closure, straight hem100% CottonMachine WashThe model (height 5'8\") is wearing a size 28",
+            "strategic_suggestions": [
+                "Consider a 'High-Low' Hemline. Our model estimates it could improve the rating by ~0.19 points.",
+                "The market may support a higher price for a 'Boat Neck' Neck. Estimated price potential: ~$2102.27 (an increase of $164.88).",
+                "The market may support a higher price for a 'High-Low' Hemline. Estimated price potential: ~$2173.75 (an increase of $236.36).",
+                "The market may support a higher price for a 'Short Sleeves' Sleeve Length. Estimated price potential: ~$4311.65 (an increase of $2374.26).",
+                "The market may support a higher price for a 'Sleeveless' Sleeve Length. Estimated price potential: ~$2199.63 (an increase of $262.24)."
+            ]
+        },
+        "image_tensor_shape": [
+            3,
+            224,
+            224
+        ]
+    },
+    {
+        "item_id": 49,
+        "version_a": {
+            "predicted_attributes": {
+                "Neck": "Round Neck",
+                "Sleeve Length": "Sleeveless",
+                "Print or Pattern Type": "Geometric",
+                "Type": "Regular",
+                "Hemline": "Unknown",
+                "Pattern": "Printed",
+                "Length": "Regular",
+                "Sleeve Styling": "No Sleeves",
+                "Ornamentation": "Unknown",
+                "Occasion": "Casual",
+                "Fabric": "Viscose Rayon",
+                "Fit": "Unknown",
+                "colour": "Grey"
+            },
+            "suggested_price": "$1585.34",
+            "generated_listing": "title: Women Grey Printed Sleeveless Pure Cotton Viscose Rayon Top | description: Grey regular, casual, round neck, sleeveless, grey woven shirts, no sleeves, elasticated waistband with slip-on closure, straight hemThe model (height 5'8) is wearing a size S100% CottonMachine wash"
+        },
+        "version_b": {
+            "predicted_attributes": {
+                "Neck": "Round Neck",
+                "Sleeve Length": "Sleeveless",
+                "Print or Pattern Type": "Geometric",
+                "Type": "Regular",
+                "Hemline": "Unknown",
+                "Pattern": "Printed",
+                "Length": "Regular",
+                "Sleeve Styling": "No Sleeves",
+                "Ornamentation": "Unknown",
+                "Occasion": "Casual",
+                "Fabric": "Viscose Rayon",
+                "Fit": "Unknown",
+                "colour": "Grey"
+            },
+            "suggested_price": "$1585.34",
+            "generated_listing": "title: Women Grey Printed Sleeveless Pure Cotton Viscose Rayon Top | description: Grey regular, casual, round neck, sleeveless, grey woven shirts, no sleeves, elasticated waistband with slip-on closure, straight hemThe model (height 5'8) is wearing a size S100% CottonMachine wash",
+            "strategic_suggestions": [
+                "Consider a 'Bootcut' Fit. Our model estimates it could improve the rating by ~0.16 points.",
+                "Consider a 'Mauve' colour. Our model estimates it could improve the rating by ~0.19 points.",
+                "The market may support a higher price for a 'Asymmetric' Hemline. Estimated price potential: ~$1424.08 (an increase of $68.89).",
+                "The market may support a higher price for a 'Long Sleeves' Sleeve Length. Estimated price potential: ~$1604.76 (an increase of $249.57).",
+                "The market may support a higher price for a 'Orange' colour. Estimated price potential: ~$1529.69 (an increase of $174.51).",
+                "The market may support a higher price for a 'Shirt Collar' Neck. Estimated price potential: ~$1438.75 (an increase of $83.57)."
+            ]
+        },
+        "image_tensor_shape": [
+            3,
+            224,
+            224
+        ]
+    },
+    {
+        "item_id": 50,
+        "version_a": {
+            "predicted_attributes": {
+                "Neck": "Unknown",
+                "Sleeve Length": "Unknown",
+                "Print or Pattern Type": "Solid",
+                "Type": "Regular Trousers",
+                "Hemline": "Unknown",
+                "Pattern": "Solid",
+                "Length": "Regular",
+                "Sleeve Styling": "Unknown",
+                "Ornamentation": "Unknown",
+                "Occasion": "Casual",
+                "Fabric": "Viscose Rayon",
+                "Fit": "Regular Fit",
+                "colour": "Purple"
+            },
+            "suggested_price": "$2605.88",
+            "generated_listing": "title: Women Maroon Solid Viscose Rayon Regular Fit Regular Regular, Purple, Regular Trousers, Casual Fit The model (height 5'8) is wearing a size 28CottonMachine Wash"
+        },
+        "version_b": {
+            "predicted_attributes": {
+                "Neck": "Unknown",
+                "Sleeve Length": "Unknown",
+                "Print or Pattern Type": "Solid",
+                "Type": "Regular Trousers",
+                "Hemline": "Unknown",
+                "Pattern": "Solid",
+                "Length": "Regular",
+                "Sleeve Styling": "Unknown",
+                "Ornamentation": "Unknown",
+                "Occasion": "Casual",
+                "Fabric": "Viscose Rayon",
+                "Fit": "Regular Fit",
+                "colour": "Purple"
+            },
+            "suggested_price": "$2605.88",
+            "generated_listing": "title: Women Maroon Solid Viscose Rayon Regular Fit Regular Regular, Purple, Regular Trousers, Casual Fit The model (height 5'8) is wearing a size 28CottonMachine Wash",
+            "strategic_suggestions": [
+                "Consider a 'Multi' colour. Our model estimates it could improve the rating by ~0.47 points.",
+                "Consider a 'Rust' colour. Our model estimates it could improve the rating by ~0.14 points.",
+                "The market may support a higher price for a 'Long Sleeves' Sleeve Length. Estimated price potential: ~$3780.95 (an increase of $1968.07).",
+                "The market may support a higher price for a 'Short Sleeves' Sleeve Length. Estimated price potential: ~$2020.15 (an increase of $207.27)."
+            ]
+        },
+        "image_tensor_shape": [
+            3,
+            224,
+            224
+        ]
+    }
+]

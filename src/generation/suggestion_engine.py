@@ -4,7 +4,6 @@ import os
 import warnings
 
 # Suppress pandas warnings for cleaner output
-warnings.simplefilter(action='ignore', category=pd.core.common.is_categorical_dtype)
 warnings.simplefilter(action='ignore', category=FutureWarning)
 
 class SuggestionEngine:

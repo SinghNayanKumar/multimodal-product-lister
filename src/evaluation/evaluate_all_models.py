@@ -4,17 +4,38 @@ import json
 import pandas as pd
 import numpy as np
 import os
+import re
 from tqdm import tqdm
 from sklearn.metrics import mean_absolute_error, mean_squared_error, r2_score, f1_score
 from nltk.translate.bleu_score import sentence_bleu, SmoothingFunction
 from rouge import Rouge
 import argparse
+from transformers import GitProcessor, AutoTokenizer
+from src.models.baselines.direct_vlm_model import DirectVLM
 
 from src.data.test_dataloader import create_test_dataloader
 from src.models.multitask_model import MultitaskModel
 from src.models.baselines.siloed_model import SiloedModel
-from src.models.baselines.direct_vlm import DirectVLM
+from src.models.baseline_git import GitBaselineModel
 from src.evaluation.evaluate_hallucinations import calculate_hallucination_rate
+
+def parse_json_output(json_string: str) -> str:
+    """
+    Safely parses a JSON string from the VLM and extracts title and description.
+    """
+    try:
+        # Find the JSON object within the string
+        json_match = re.search(r'\{.*\}', json_string, re.DOTALL)
+        if json_match:
+            json_string = json_match.group(0)
+        
+        data = json.loads(json_string)
+        title = data.get('text', {}).get('title', 'N/A')
+        description = data.get('text', {}).get('description', 'N/A')
+        return f"title: {title} | description: {description}"
+    except (json.JSONDecodeError, TypeError, AttributeError):
+        # Return the raw string if parsing fails, indicating an issue
+        return f"[JSON PARSING FAILED] {json_string}"
 
 def load_model(model_type, config_path, model_path, mappings):
     """Load a trained model based on its type."""
@@ -28,10 +49,16 @@ def load_model(model_type, config_path, model_path, mappings):
     elif model_type == 'siloed_price':
         model = SiloedModel(config)
     elif model_type == 'direct_vlm':
-        model = DirectVLM(config)
+        model = GitBaselineModel(config)
+    elif model_type == 'vit_t5_vlm': # <-- ADDED
+        model = DirectVLM(
+            vision_model_name=config['model']['vision_model_name'],
+            text_model_name=config['model']['text_model_name']
+        )
     else:
         raise ValueError(f"Unknown model type: {model_type}")
     
+    # The state dict is loaded outside the condition
     model.load_state_dict(torch.load(model_path, map_location='cpu'))
     return model, config
 
@@ -96,8 +123,31 @@ def evaluate_model_predictions(model, model_type, dataloader, device, mappings, 
                 all_price_preds.extend(price_preds)
             
             elif model_type == 'direct_vlm':
-                generated = model.predict(batch['pixel_values'], tokenizer)
+                # For the VLM, we need its specific processor, not the default tokenizer
+                vlm_processor = GitProcessor.from_pretrained(model.git_model.name_or_path)
+                
+                generated = model.predict(batch['pixel_values'], vlm_processor)
                 generated_texts.extend(generated)
+                
+                # Direct VLM does not predict price or attributes, so we skip them.
+                # We need to add placeholders to keep list lengths consistent.
+                all_price_preds.extend([0] * len(generated))
+                for attr_name in mappings.keys():
+                    attr_preds[attr_name].extend([-1] * len(generated)) # -1 for "not predicted"
+
+            elif model_type == 'vit_t5_vlm': # <-- ADDED BLOCK
+                # For this VLM, we need its specific tokenizer
+                vlm_tokenizer = AutoTokenizer.from_pretrained(model.text_generator.name_or_path)
+                
+                generated_json = model.generate(batch['pixel_values'], vlm_tokenizer)
+                # Parse the generated JSON to get clean text
+                parsed_texts = [parse_json_output(j) for j in generated_json]
+                generated_texts.extend(parsed_texts)
+                
+                # Add placeholders for other metrics
+                all_price_preds.extend([0] * len(generated_json))
+                for attr_name in mappings.keys():
+                    attr_preds[attr_name].extend([-1] * len(generated_json))
             
             # Collect targets
             all_price_targets.extend(batch['price_target'].cpu().numpy())
@@ -197,6 +247,8 @@ def calculate_text_metrics(generated_texts, reference_texts):
         'rouge_l': avg_rouge_l
     }
 
+
+
 def main():
     parser = argparse.ArgumentParser(description="Comprehensive evaluation of all trained models")
     parser.add_argument('--base_config', type=str, default='configs/base_config.yaml', help='Base config for data loading')
@@ -224,7 +276,8 @@ def main():
         ('mtl', 'configs/base_config.yaml', 'results/exp001_base_multitask/model_best.pth'),
         ('siloed_attributes', 'configs/exp1_1_siloed_attributes.yaml', 'results/exp1_1_siloed_attributes/model_best.pth'),
         ('siloed_price', 'configs/exp1_1_siloed_price.yaml', 'results/exp1_1_siloed_price/model_best.pth'),
-        ('direct_vlm', 'configs/exp2_1_direct_vlm.yaml', 'results/exp2_1_direct_vlm/model_best.pth')
+        ('direct_vlm', 'configs/git_base_config.yaml', 'results/git_base/exp002_git_vlm/model_best.pth'),
+        ('vit_t5_vlm', 'configs/config_direct_vlm.yaml', 'results/baseline/Vit-T5-small-Direct-Baseline/model_best.pth')
     ]
     
     all_results = {}

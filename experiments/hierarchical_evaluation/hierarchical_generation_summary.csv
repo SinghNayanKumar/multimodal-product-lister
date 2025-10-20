@@ -1,0 +1,5 @@
+Model,BLEU,ROUGE-1,ROUGE-2,ROUGE-L,Hallucination Rate,Samples
+mtl_hierarchical,0.1553,0.4205,0.2409,0.4039,7.0693,1422
+mtl_non_hierarchical,0.1525,0.4446,0.2547,0.4298,12.7315,1422
+direct_vlm_git,0.0061,0.1749,0.0024,0.1534,0.0000,1422
+direct_vlm_t5,0.2204,0.4298,0.2891,0.4198,0.0000,1422

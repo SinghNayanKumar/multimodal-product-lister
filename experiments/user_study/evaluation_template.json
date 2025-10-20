@@ -1,0 +1,255 @@
+{
+    "instructions": "For each item, compare Version A and Version B. Which version would be more valuable for an e-commerce manager?",
+    "items": [
+        {
+            "item_id": 1,
+            "preference": "",
+            "reason": ""
+        },
+        {
+            "item_id": 2,
+            "preference": "",
+            "reason": ""
+        },
+        {
+            "item_id": 3,
+            "preference": "",
+            "reason": ""
+        },
+        {
+            "item_id": 4,
+            "preference": "",
+            "reason": ""
+        },
+        {
+            "item_id": 5,
+            "preference": "",
+            "reason": ""
+        },
+        {
+            "item_id": 6,
+            "preference": "",
+            "reason": ""
+        },
+        {
+            "item_id": 7,
+            "preference": "",
+            "reason": ""
+        },
+        {
+            "item_id": 8,
+            "preference": "",
+            "reason": ""
+        },
+        {
+            "item_id": 9,
+            "preference": "",
+            "reason": ""
+        },
+        {
+            "item_id": 10,
+            "preference": "",
+            "reason": ""
+        },
+        {
+            "item_id": 11,
+            "preference": "",
+            "reason": ""
+        },
+        {
+            "item_id": 12,
+            "preference": "",
+            "reason": ""
+        },
+        {
+            "item_id": 13,
+            "preference": "",
+            "reason": ""
+        },
+        {
+            "item_id": 14,
+            "preference": "",
+            "reason": ""
+        },
+        {
+            "item_id": 15,
+            "preference": "",
+            "reason": ""
+        },
+        {
+            "item_id": 16,
+            "preference": "",
+            "reason": ""
+        },
+        {
+            "item_id": 17,
+            "preference": "",
+            "reason": ""
+        },
+        {
+            "item_id": 18,
+            "preference": "",
+            "reason": ""
+        },
+        {
+            "item_id": 19,
+            "preference": "",
+            "reason": ""
+        },
+        {
+            "item_id": 20,
+            "preference": "",
+            "reason": ""
+        },
+        {
+            "item_id": 21,
+            "preference": "",
+            "reason": ""
+        },
+        {
+            "item_id": 22,
+            "preference": "",
+            "reason": ""
+        },
+        {
+            "item_id": 23,
+            "preference": "",
+            "reason": ""
+        },
+        {
+            "item_id": 24,
+            "preference": "",
+            "reason": ""
+        },
+        {
+            "item_id": 25,
+            "preference": "",
+            "reason": ""
+        },
+        {
+            "item_id": 26,
+            "preference": "",
+            "reason": ""
+        },
+        {
+            "item_id": 27,
+            "preference": "",
+            "reason": ""
+        },
+        {
+            "item_id": 28,
+            "preference": "",
+            "reason": ""
+        },
+        {
+            "item_id": 29,
+            "preference": "",
+            "reason": ""
+        },
+        {
+            "item_id": 30,
+            "preference": "",
+            "reason": ""
+        },
+        {
+            "item_id": 31,
+            "preference": "",
+            "reason": ""
+        },
+        {
+            "item_id": 32,
+            "preference": "",
+            "reason": ""
+        },
+        {
+            "item_id": 33,
+            "preference": "",
+            "reason": ""
+        },
+        {
+            "item_id": 34,
+            "preference": "",
+            "reason": ""
+        },
+        {
+            "item_id": 35,
+            "preference": "",
+            "reason": ""
+        },
+        {
+            "item_id": 36,
+            "preference": "",
+            "reason": ""
+        },
+        {
+            "item_id": 37,
+            "preference": "",
+            "reason": ""
+        },
+        {
+            "item_id": 38,
+            "preference": "",
+            "reason": ""
+        },
+        {
+            "item_id": 39,
+            "preference": "",
+            "reason": ""
+        },
+        {
+            "item_id": 40,
+            "preference": "",
+            "reason": ""
+        },
+        {
+            "item_id": 41,
+            "preference": "",
+            "reason": ""
+        },
+        {
+            "item_id": 42,
+            "preference": "",
+            "reason": ""
+        },
+        {
+            "item_id": 43,
+            "preference": "",
+            "reason": ""
+        },
+        {
+            "item_id": 44,
+            "preference": "",
+            "reason": ""
+        },
+        {
+            "item_id": 45,
+            "preference": "",
+            "reason": ""
+        },
+        {
+            "item_id": 46,
+            "preference": "",
+            "reason": ""
+        },
+        {
+            "item_id": 47,
+            "preference": "",
+            "reason": ""
+        },
+        {
+            "item_id": 48,
+            "preference": "",
+            "reason": ""
+        },
+        {
+            "item_id": 49,
+            "preference": "",
+            "reason": ""
+        },
+        {
+            "item_id": 50,
+            "preference": "",
+            "reason": ""
+        }
+    ]
+}

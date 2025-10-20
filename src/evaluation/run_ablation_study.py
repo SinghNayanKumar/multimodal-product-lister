@@ -8,7 +8,7 @@ from tqdm import tqdm
 import argparse
 from itertools import product
 
-from src.data.dataloader import create_test_dataloaders
+from src.data.test_dataloader import create_test_dataloader
 from src.models.multitask_model import MultitaskModel
 from src.training.loss import CompositeLoss
 from sklearn.metrics import mean_absolute_error, f1_score
@@ -21,7 +21,7 @@ class AblationStudyRunner:
             self.base_config = yaml.safe_load(f)
         
         # Load validation data
-        _, self.val_loader, self.mappings, self.tokenizer = create_test_dataloaders(self.base_config)
+        self.val_loader, _, self.mappings, self.tokenizer = create_test_dataloader(self.base_config)
     
     def evaluate_model_quick(self, model):
         """Quick evaluation of a model on validation set."""
@@ -185,3 +185,6 @@ def main():
     # Print summary
     print("\nLoss Weight Ablation Summary:")
     print(loss_results[['price_weight', 'attributes_weight', 'text_weight', 'price_mae', 'attribute_f1']].to_string(index=False))
+
+if __name__ == "__main__":
+    main()

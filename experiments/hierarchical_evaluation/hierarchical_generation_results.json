@@ -1,0 +1,46 @@
+{
+    "mtl_hierarchical": {
+        "text_metrics": {
+            "bleu": 0.1553219595737103,
+            "rouge_1": 0.42045560613661553,
+            "rouge_2": 0.24089555162529155,
+            "rouge_l": 0.40386496254272997,
+            "num_samples": 1422
+        },
+        "hallucination_rate": 7.069313747991737,
+        "num_predictions": 1422
+    },
+    "mtl_non_hierarchical": {
+        "text_metrics": {
+            "bleu": 0.15245347628700429,
+            "rouge_1": 0.44459034440046385,
+            "rouge_2": 0.2547140394015226,
+            "rouge_l": 0.429787292711717,
+            "num_samples": 1422
+        },
+        "hallucination_rate": 12.731535756154749,
+        "num_predictions": 1422
+    },
+    "direct_vlm_git": {
+        "text_metrics": {
+            "bleu": 0.006100303661380582,
+            "rouge_1": 0.17492306319319031,
+            "rouge_2": 0.0024082804516972894,
+            "rouge_l": 0.15341921110800105,
+            "num_samples": 1422
+        },
+        "hallucination_rate": 0.0,
+        "num_predictions": 1422
+    },
+    "direct_vlm_t5": {
+        "text_metrics": {
+            "bleu": 0.22037082270942415,
+            "rouge_1": 0.4298029934151483,
+            "rouge_2": 0.28905683760537976,
+            "rouge_l": 0.4197689791927082,
+            "num_samples": 1422
+        },
+        "hallucination_rate": 0.0,
+        "num_predictions": 1422
+    }
+}
